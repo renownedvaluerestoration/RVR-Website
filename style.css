@@ -1,22 +1,55 @@
 :root {
     --theme-blue: #0052FF;
-    --button-blue: #375BD2;
 }
 
-#detail-page.hidden, #home-page.hidden { display: none; }
-html { scroll-behavior: smooth; }
+/* Page visibility toggle */
+#detail-page.hidden, #home-page.hidden { 
+    display: none; 
+}
 
-/* Detail Page Process Step Vertical Line */
-.process-step { position: relative; padding-left: 3rem; }
+/* Smooth Fade-in Animation */
+#detail-page {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Process Step Visuals */
+.process-step {
+    position: relative;
+    padding-left: 3rem;
+}
+
 .process-step::before {
-    content: ''; position: absolute; left: 1rem; top: 0; bottom: 0;
-    width: 2px; background: #e2e8f0;
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    top: 2rem;
+    bottom: -2rem;
+    width: 2px;
+    background: #e2e8f0; /* The vertical line */
 }
-.process-step:last-child::before { display: none; }
 
-/* Service Card Hover Effect */
-.service-category-card { transition: all 0.2s ease; border: 1px solid #f3f4f6; }
-.service-category-card:hover { transform: translateY(-3px); border-color: var(--theme-blue); box-shadow: 0 10px 25px -5px rgba(0, 82, 255, 0.1); }
+.process-step:last-child::before {
+    display: none;
+}
 
-/* Results Slider */
-.slider-container { user-select: none; touch-action: pan-y; }
+.step-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--theme-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 10;
+}
