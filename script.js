@@ -171,28 +171,48 @@ function showPage(pageId) {
 
         if (service) {
             content.innerHTML = `
-                <h1 class="text-5xl font-extrabold mb-6">${service.name}</h1>
-                <div class="bg-blue-50 border border-blue-200 rounded-3xl p-8 md:p-12 shadow-sm mb-12">
-                    <div class="grid md:grid-cols-2 gap-12">
-                        <div>
-                            <div class="bg-white p-6 rounded-2xl border border-blue-100 shadow-sm mb-8">
-                                <h3 class="text-xl font-bold mb-4 text-blue-600">Detailed Pricing</h3>
-                                <p class="text-lg text-gray-800 leading-relaxed whitespace-pre-line">${service.pricingDetails}</p>
-                            </div>
-                            <p class="text-xl text-gray-700 leading-relaxed mb-8">${service.desc}</p>
-                            <h3 class="text-xl font-bold mb-4">Key Benefits:</h3>
-                            <ul class="space-y-3 mb-8">
-                                ${service.benefits.map(b => `<li class="flex items-center text-lg"><i data-lucide="check-circle" class="text-green-500 mr-3 w-6 h-6"></i> ${b}</li>`).join('')}
+                <div class="mb-12">
+                    <h1 class="text-5xl font-extrabold mb-4 text-gray-900">${service.name}</h1>
+                    <p class="text-2xl text-blue-600 font-semibold mb-6">${service.price}</p>
+                    <p class="text-xl text-gray-700 leading-relaxed max-w-3xl">${service.desc}</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-start mb-16">
+                    <div class="space-y-8">
+                        <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100">
+                            <h3 class="text-2xl font-bold mb-6 flex items-center">
+                                <i data-lucide="shield-check" class="mr-3 text-blue-600"></i> Why Choose This Service?
+                            </h3>
+                            <ul class="space-y-4">
+                                ${service.benefits.map(b => `
+                                    <li class="flex items-start text-lg text-gray-700">
+                                        <i data-lucide="check-circle" class="text-green-500 mr-3 w-6 h-6 flex-shrink-0 mt-0.5"></i> 
+                                        <span>${b}</span>
+                                    </li>
+                                `).join('')}
                             </ul>
-                            <a href="#quote" onclick="showPage('home')" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 shadow-md">Get Your Free Quote</a>
                         </div>
-                        <div class="bg-white p-8 rounded-2xl border border-blue-100 shadow-inner">
-                            <h3 class="text-2xl font-bold mb-6 flex items-center"><i data-lucide="clipboard-list" class="mr-2 text-blue-600"></i> Our Step-by-Step Process</h3>
-                            <div class="space-y-6">
+                        
+                        <div class="flex justify-center md:justify-start">
+                            <a href="#quote" onclick="showPage('home')" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-blue-700 transition shadow-lg">Get Free Quote</a>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="bg-blue-50 rounded-3xl p-8 border border-blue-100 shadow-sm">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-800">Pricing Details</h3>
+                            <p class="text-lg text-blue-900 leading-relaxed whitespace-pre-line font-medium">${service.pricingDetails}</p>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+                            <h3 class="text-2xl font-bold mb-6 flex items-center">
+                                <i data-lucide="list-ordered" class="mr-3 text-blue-600"></i> Our Professional Process
+                            </h3>
+                            <div class="space-y-5">
                                 ${service.process.map((step, index) => `
                                     <div class="flex gap-4">
-                                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">${index + 1}</div>
-                                        <p class="text-gray-700 text-lg font-medium pt-1">${step}</p>
+                                        <div class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">${index + 1}</div>
+                                        <p class="text-gray-700 text-lg">${step}</p>
                                     </div>
                                 `).join('')}
                             </div>
@@ -200,23 +220,23 @@ function showPage(pageId) {
                     </div>
                 </div>
                 
-                <div class="mt-16">
-                    <h2 class="text-4xl font-bold text-center mb-12">Recent Project Results</h2>
+                <div class="pt-12 border-t border-gray-100">
+                    <h2 class="text-4xl font-bold text-center mb-12">Project Results</h2>
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="relative group">
-                            <div class="bg-gray-200 rounded-2xl aspect-video w-full flex items-center justify-center overflow-hidden border-4 border-white shadow-lg">
-                                <span class="text-gray-400 font-bold uppercase tracking-widest text-xl">Before</span>
+                            <div class="bg-gray-100 rounded-2xl aspect-video w-full flex items-center justify-center overflow-hidden border-2 border-gray-200 shadow-sm">
+                                <span class="text-gray-400 font-bold uppercase tracking-widest text-lg">Before Restoration</span>
                             </div>
-                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wide">Before</div>
+                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded text-xs font-bold uppercase">Before</div>
                         </div>
                         <div class="relative group">
-                            <div class="bg-blue-50 rounded-2xl aspect-video w-full flex items-center justify-center overflow-hidden border-4 border-white shadow-lg">
-                                <span class="text-blue-200 font-bold uppercase tracking-widest text-xl">After</span>
+                            <div class="bg-blue-50 rounded-2xl aspect-video w-full flex items-center justify-center overflow-hidden border-2 border-blue-100 shadow-sm">
+                                <span class="text-blue-300 font-bold uppercase tracking-widest text-lg">Professional After</span>
                             </div>
-                            <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wide">After</div>
+                            <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded text-xs font-bold uppercase">After</div>
                         </div>
                     </div>
-                    <p class="text-center text-gray-500 mt-6 italic">Visualizing the restoration value for ${service.name} projects.</p>
+                    <p class="text-center text-gray-500 mt-8 italic text-lg">Visualizing the value restoration for ${service.name} projects.</p>
                 </div>`;
             lucide.createIcons();
         }
