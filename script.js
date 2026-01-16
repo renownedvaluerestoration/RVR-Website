@@ -23,11 +23,11 @@ const servicesData = {
             { 
                 id: "dumpster", 
                 name: "Dumpster Pads", 
-                price: "$150", 
+                price: "Custom Quote", 
                 desc: "Sanitization and odor removal for commercial pads.", 
                 benefits: ["Health code compliance", "Pest reduction"],
                 process: ["Degreasing Soak", "Hot Water High-Pressure Scrub", "Sanitization & Deodorizing", "Containment Inspection"],
-                pricingDetails: "Flat rate of $150 per standard dumpster pad cleaning."
+                pricingDetails: "Custom quote based on size and frequency of cleaning."
             },
             { 
                 id: "roof", 
@@ -73,15 +73,6 @@ const servicesData = {
                 benefits: ["Restores color", "Stops structural erosion"],
                 process: ["Organic Growth Assessment", "Mineral Dissolving Pre-treatment", "Pressure Clean", "Growth Inhibitor Application"],
                 pricingDetails: "Unit Rate: $0.44 per square foot"
-            },
-            { 
-                id: "tennis-courts", 
-                name: "Tennis Courts", 
-                price: "$330", 
-                desc: "Deep cleaning for tennis court surfaces to restore traction and professional appearance.", 
-                benefits: ["Improved playability", "Removes slippery moss/algae", "Extends surface life"],
-                process: ["Surface Assessment", "Gentle Pressure Cleaning", "Targeted Algae Treatment", "Final Rinse & Detail"],
-                pricingDetails: "Flat rate of $330 for professional cleaning of a standard tennis court."
             }
         ]
     },
@@ -168,11 +159,10 @@ function showPage(pageId) {
     if (pageId === 'home') {
         home.classList.remove('hidden');
         detail.classList.add('hidden');
-        lucide.createIcons();
     } else {
         home.classList.add('hidden');
         detail.classList.remove('hidden');
-
+        
         let service = null;
         Object.values(servicesData).forEach(cat => {
             const found = cat.items.find(i => i.id === pageId);
@@ -196,64 +186,72 @@ function showPage(pageId) {
                             <ul class="space-y-4">
                                 ${service.benefits.map(b => `
                                     <li class="flex items-start text-lg text-gray-700">
-                                        <i data-lucide="check-circle" class="text-green-500 mr-3 w-6 h-6 flex-shrink-0 mt-0.5"></i>
-                                        ${b}
+                                        <i data-lucide="check-circle" class="text-green-500 mr-3 w-6 h-6 flex-shrink-0 mt-0.5"></i> 
+                                        <span>${b}</span>
                                     </li>
                                 `).join('')}
                             </ul>
                         </div>
+                        
+                        <div class="flex justify-center md:justify-start">
+                            <a href="#quote" onclick="showPage('home')" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-blue-700 transition shadow-lg">Get Free Quote</a>
+                        </div>
+                    </div>
 
-                        <div class="bg-blue-50 rounded-3xl p-8 border border-blue-100">
-                            <h3 class="text-2xl font-bold mb-6 flex items-center text-blue-900">
-                                <i data-lucide="zap" class="mr-3 text-blue-600"></i> Pricing Info
+                    <div class="space-y-8">
+                        <div class="bg-blue-50 rounded-3xl p-8 border border-blue-100 shadow-sm">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-800">Pricing Details</h3>
+                            <p class="text-lg text-blue-900 leading-relaxed whitespace-pre-line font-medium">${service.pricingDetails}</p>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+                            <h3 class="text-2xl font-bold mb-6 flex items-center">
+                                <i data-lucide="list-ordered" class="mr-3 text-blue-600"></i> Our Professional Process
                             </h3>
-                            <p class="text-lg text-blue-800 whitespace-pre-line leading-relaxed font-medium">
-                                ${service.pricingDetails}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
-                        <h3 class="text-2xl font-bold mb-8 flex items-center">
-                            <i data-lucide="clock" class="mr-3 text-blue-600"></i> Our Restoration Process
-                        </h3>
-                        <div class="space-y-8">
-                            ${service.process.map((step, index) => `
-                                <div class="flex gap-4">
-                                    <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
-                                        ${index + 1}
+                            <div class="space-y-5">
+                                ${service.process.map((step, index) => `
+                                    <div class="flex gap-4">
+                                        <div class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">${index + 1}</div>
+                                        <p class="text-gray-700 text-lg">${step}</p>
                                     </div>
-                                    <p class="text-lg text-gray-700 font-medium pt-0.5">${step}</p>
-                                </div>
-                            `).join('')}
+                                `).join('')}
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="bg-gradient-to-br from-blue-600 to-blue-500 rounded-3xl p-12 text-center text-white">
-                    <h3 class="text-3xl font-bold mb-4">Ready to Restore Your Property?</h3>
-                    <p class="text-xl text-blue-50 mb-8 max-w-2xl mx-auto">Get a free, no-obligation quote for your ${service.name} project today.</p>
-                    <button onclick="showPage('home'); setTimeout(() => { document.getElementById('quote').scrollIntoView({ behavior: 'smooth' }); }, 100);" class="bg-white text-blue-600 px-12 py-4 rounded-xl font-bold text-xl hover:bg-blue-50 transition-all shadow-xl">
-                        Request Your Quote
-                    </button>
-                </div>
-            `;
+                
+                <div class="pt-12 border-t border-gray-100">
+                    <h2 class="text-4xl font-bold text-center mb-12">Project Results</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="relative group">
+                            <div class="bg-gray-100 rounded-2xl aspect-video w-full flex items-center justify-center overflow-hidden border-2 border-gray-200 shadow-sm">
+                                <span class="text-gray-400 font-bold uppercase tracking-widest text-lg">Before Restoration</span>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded text-xs font-bold uppercase">Before</div>
+                        </div>
+                        <div class="relative group">
+                            <div class="bg-blue-50 rounded-2xl aspect-video w-full flex items-center justify-center overflow-hidden border-2 border-blue-100 shadow-sm">
+                                <span class="text-blue-300 font-bold uppercase tracking-widest text-lg">Professional After</span>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded text-xs font-bold uppercase">After</div>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-500 mt-8 italic text-lg">Visualizing the value restoration for ${service.name} projects.</p>
+                </div>`;
             lucide.createIcons();
-            window.scrollTo(0, 0);
         }
     }
+    window.scrollTo(0,0);
 }
 
-// Initialize categories and dropdown
+// Populate Home Page Services and Dropdown Groups
 const container = document.getElementById('services-container');
-const dropdown = document.getElementById('quote-service-dropdown');
+const dropdown = document.getElementById('service-dropdown');
 
 Object.values(servicesData).forEach(category => {
     const card = document.createElement('div');
-    card.className = 'service-category-card bg-white rounded-3xl shadow-sm border border-gray-100 p-8';
-    
-    let itemsHtml = `<h3 class="text-2xl font-bold text-gray-900 mb-6 pb-4 border-b border-gray-50">${category.title}</h3>
-                     <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">`;
+    card.className = "service-category-card bg-blue-50 rounded-2xl p-8 shadow-sm border border-blue-100";
+    let itemsHtml = `<h3 class="text-3xl font-black mb-8">${category.title}</h3><div class="space-y-4">`;
     
     const optGroup = document.createElement('optgroup');
     optGroup.label = category.title;
@@ -292,20 +290,12 @@ function slide(e) {
 }
 
 if (slider) {
-    ['mousedown', 'touchstart'].forEach(evt => {
-        slider.addEventListener(evt, (e) => {
-            window.addEventListener('mousemove', slide);
-            window.addEventListener('touchmove', slide);
-            slide(e);
-        });
-    });
-
-    ['mouseup', 'touchend'].forEach(evt => {
-        window.addEventListener(evt, () => {
-            window.removeEventListener('mousemove', slide);
-            window.removeEventListener('touchmove', slide);
-        });
-    });
+    slider.addEventListener('mousemove', (e) => { if(e.buttons === 1) slide(e); });
+    slider.addEventListener('touchmove', slide);
 }
 
-lucide.createIcons();
+document.getElementById('quote-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert("Quote request sent! We will contact you within 24 hours.");
+    e.target.reset();
+});
