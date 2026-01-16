@@ -35,6 +35,7 @@ option { color: #1f2937; background-color: white; padding: 10px; }
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #e2e8f0;
+    background: #e2e8e0; /* Light grey line connecting steps */
 }
 .process-step:last-child::before { display: none; }
+
