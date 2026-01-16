@@ -23,7 +23,7 @@
                 <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Services</a>
                 <a href="#local-reputation" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Reviews</a>
                 <a href="#process" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Results</a>
-                <a href="#quote" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition" onclick="showPage('home')">Get Free Quote</a>
+                <a href="#quote" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Get Free Quote</a>
             </nav>
         </div>
     </header>
@@ -48,18 +48,21 @@
         <section class="py-16 bg-gray-50" id="local-reputation">
             <div class="max-w-7xl mx-auto px-6 text-center">
                 <h2 class="text-4xl font-bold mb-6">Our Local Reputation</h2>
+                <p class="text-xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed">
+                    We ensure superior results and safety on every project by exclusively using commercial-grade, Honda-powered pressure washing equipment—like the <strong>Simpson ALH 4240</strong>—delivering the precise PSI and GPM required for a deeper clean without risking damage to delicate surfaces.
+                </p>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl shadow-lg p-8 border text-center">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border">
                         <i data-lucide="home" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
                         <h3 class="text-2xl font-bold mb-6">Nextdoor</h3>
                         <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">View Reviews</a>
                     </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8 border text-center">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border">
                         <i data-lucide="facebook" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
                         <h3 class="text-2xl font-bold mb-6">Facebook</h3>
                         <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">View Gallery</a>
                     </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8 border text-center">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border">
                         <i data-lucide="star" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
                         <h3 class="text-2xl font-bold mb-6">Yelp</h3>
                         <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">Read Reviews</a>
@@ -70,16 +73,12 @@
 
         <section class="py-16 bg-white" id="process">
             <div class="max-w-4xl mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12">Value Restoration</h2>
+                <h2 class="text-4xl font-bold text-center mb-12">Value Restoration Results</h2>
                 <div class="slider-container relative w-full h-96 md:h-[500px] overflow-hidden rounded-2xl shadow-2xl cursor-ew-resize">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover" alt="After cleaning">
-                    <div class="absolute top-4 right-4 bg-blue-600/80 text-white px-3 py-1 rounded-md text-sm font-bold z-10 pointer-events-none">AFTER</div>
-                    
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover">
                     <div id="after-img-wrap" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
-                        <img src="https://images.unsplash.com/photo-1528204617857-4cc933706050?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover" alt="Before cleaning">
-                        <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold pointer-events-none">BEFORE</div>
+                        <img src="https://images.unsplash.com/photo-1528204617857-4cc933706050?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover">
                     </div>
-                    
                     <div id="slider-handle" class="absolute top-0 bottom-0 w-1 bg-white shadow-xl" style="left: 50%;">
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full border-4 border-blue-600 flex items-center justify-center">
                             <i data-lucide="chevrons-left-right" class="text-blue-600 w-5"></i>
@@ -93,85 +92,70 @@
             <div class="max-w-4xl mx-auto px-6">
                 <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
                     <h2 class="text-4xl font-bold text-center mb-8">Get Your Free Quote</h2>
-                    <form id="quote-form" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Full Name</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="John Doe" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
-                                <input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="john@example.com" required>
-                            </div>
+                    <form id="quote-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="Full Name *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
+                        <input type="email" placeholder="Email *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
+                        <input type="tel" placeholder="Phone *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
+                        
+                        <select id="service-dropdown" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
+                            <option value="">Select Service *</option>
+                        </select>
+                        
+                        <input type="text" placeholder="Property Address *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none md:col-span-2" required>
+                        <textarea placeholder="Describe your project..." rows="4" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none md:col-span-2" required></textarea>
+                        
+                        <div class="md:col-span-2">
+                            <input type="text" placeholder="Referral Name or Email (Optional)" class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none">
+                            <p class="text-sm text-blue-600 mt-2 font-medium italic">Earn a $30 Amazon gift card for each successful referral!</p>
                         </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Phone Number</label>
-                                <input type="tel" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="(555) 000-0000" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Service Needed</label>
-                                <select id="quote-service-dropdown" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition appearance-none bg-white" required>
-                                    <option value="">Select a Service</option>
-                                </select>
-                            </div>
+
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 font-bold mb-2">Upload Job Photos (Optional)</label>
+                            <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6 text-center">
+                                    <i data-lucide="camera" class="w-8 h-8 text-gray-400 mb-2"></i>
+                                    <p class="text-sm text-gray-500">Click to upload or drag and drop</p>
+                                </div>
+                                <input type="file" class="hidden" multiple accept="image/*" />
+                            </label>
                         </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Property Address</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="123 Main St, Rochester Hills, MI" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Project Details</label>
-                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Tell us about what you need cleaned..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-blue-700 transition-all transform hover:scale-[1.01] shadow-lg">
-                            Submit Quote Request
-                        </button>
+
+                        <button type="submit" class="md:col-span-2 bg-blue-600 text-white py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-lg">Request Quote Within 24 Hours</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <div id="detail-page" class="hidden">
-        <div class="max-w-7xl mx-auto px-6 py-12">
-            <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:translate-x-[-4px] transition-transform">
-                <i data-lucide="arrow-left" class="mr-2"></i> Back to Services
+    <main id="detail-page" class="hidden">
+        <div class="max-w-5xl mx-auto px-6 py-12">
+            <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+                <i data-lucide="arrow-left" class="mr-2"></i> Back to All Services
             </button>
             <div id="service-detail-content"></div>
         </div>
-    </div>
+    </main>
 
-    <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+    <footer class="bg-gray-50 border-t border-gray-200 py-16">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
-                <div>
-                    <div class="flex items-center justify-center md:justify-start mb-6">
-                        <i data-lucide="sparkles" class="w-8 h-8 text-blue-600 mr-3"></i>
-                        <h2 class="text-2xl font-bold">Renowned Value Restoration</h2>
-                    </div>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Providing top-tier pressure washing and exterior restoration services throughout Oakland County. We focus on quality, safety, and customer satisfaction.
-                    </p>
-                </div>
-
-                <div class="flex flex-col items-center">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact</h3>
+            <div class="grid md:grid-cols-2 gap-12 items-start mb-12">
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Us</h3>
                     <div class="space-y-4">
-                        <div class="flex items-center gap-3 text-gray-700">
-                            <i data-lucide="phone" class="w-6 h-6 text-blue-600"></i>
-                            <span class="font-bold text-lg">(248) 555-0123</span>
+                        <div class="flex items-center justify-center md:justify-start gap-3 text-gray-600 hover:text-blue-600 transition">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                            <a href="tel:2483138955" class="text-lg font-medium">(248) 313-8955</a>
                         </div>
-                        <div class="flex items-center gap-3 text-gray-700">
-                            <i data-lucide="mail" class="w-6 h-6 text-blue-600"></i>
-                            <span class="font-bold text-lg">contact@renownedvalue.com</span>
+                        <div class="flex items-center justify-center md:justify-start gap-3 text-gray-600 hover:text-blue-600 transition">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                            <a href="mailto:valuerestoration@gmail.com" class="text-lg font-medium">valuerestoration@gmail.com</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col items-center md:items-end">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6 w-full text-center md:text-right">Follow Us</h3>
-                    <div class="flex items-center justify-center md:justify-end gap-6 w-full">
+                <div class="text-center md:text-right">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Follow Us</h3>
+                    <div class="flex items-center justify-center md:justify-end gap-6">
                         <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="home" class="w-8 h-8"></i></a>
                         <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="facebook" class="w-8 h-8"></i></a>
                         <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="instagram" class="w-8 h-8"></i></a>
@@ -182,11 +166,13 @@
 
             <div class="pt-8 border-t border-gray-200 w-full text-center">
                 <p class="text-blue-600 font-bold mb-4 text-lg">Proudly serving all of Oakland County, Michigan, including Rochester Hills, Troy, Auburn Hills, and Bloomfield.</p>
-                <p class="text-gray-500 font-medium">&copy; 2026 Renowned Value Restoration. All rights reserved.</p>
+                <p class="text-gray-500 font-medium">&copy; 2026 Renowned Value Restoration</p>
+                <p class="text-gray-400 text-sm mt-2 italic">Commercial Grade Honda-Powered Simpson ALH 4240 Equipment</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
