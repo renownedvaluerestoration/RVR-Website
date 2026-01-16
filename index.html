@@ -3,114 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renowned Value Restoration | Power Washing & Soft Washing</title>
+    <title>Renowned Value Restoration | Professional Power Washing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-    <header class="header">
-        <div class="nav-container">
-            <div class="logo" onclick="showPage('home')">
-                <i data-lucide="sparkles" class="blue-icon"></i>
+<body class="min-h-screen bg-white text-gray-900">
+
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center">
+            <div class="flex items-center cursor-pointer" onclick="showPage('home')">
+                <i data-lucide="sparkles" class="w-8 h-8 text-blue-600 mr-3"></i>
                 <div>
-                    <h1>Renowned Value Restoration</h1>
-                    <p>Power Washing & Soft Washing</p>
+                    <h1 class="text-2xl font-bold text-gray-900">Renowned Value Restoration</h1>
+                    <p class="text-sm text-gray-600">Power Washing & Soft Washing</p>
                 </div>
             </div>
-            <nav class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#process">Results</a>
-                <a href="#quote" class="btn-primary">Get Free Quote</a>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Services</a>
+                <a href="#local-reputation" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Reviews</a>
+                <a href="#process" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Results</a>
+                <a href="#quote" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Get Free Quote</a>
             </nav>
         </div>
     </header>
 
-    <main id="main-content">
-        <div id="home-page">
-            <section class="hero">
-                <h2>Restore Your Property's True Value</h2>
-                <p>Professional pressure washing and restoration services that transform your property's exterior and protect your investment.</p>
-            </section>
+    <main id="home-page">
+        <section class="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white py-20">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <h2 class="text-5xl font-bold mb-6">Restore Your Property's True Value</h2>
+                <p class="text-xl text-blue-50">Commercial-grade cleaning with the <strong>Simpson ALH 4240</strong>.</p>
+            </div>
+        </section>
 
-            <section id="services" class="services-section">
-                <h2 class="section-title">Our Services</h2>
-                <div class="services-grid" id="services-grid">
+        <section class="py-16 bg-white" id="services">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Our Services</h2>
+                <div id="services-container" class="space-y-8">
                     </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="process" class="results-section">
-                <h2 class="section-title">Value Restoration</h2>
-                <p class="subtitle">Drag the slider to see the transformation</p>
-                <div class="slider-container" id="before-after-slider">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200" alt="Before">
-                    <div class="after-image" id="after-img">
-                        <img src="https://images.unsplash.com/photo-1528204617857-4cc933706050?auto=format&fit=crop&q=80&w=1200" alt="After">
+        <section class="py-16 bg-white" id="local-reputation">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4">Our Local Reputation</h2>
+                <p class="text-xl text-gray-700 mb-10 max-w-3xl mx-auto">Superior results using 4200 PSI Honda-powered equipment.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border">
+                        <i data-lucide="home" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-6">Nextdoor</h3>
+                        <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">View Reviews</a>
                     </div>
-                    <div class="slider-handle" id="slider-handle">
-                        <div class="handle-line"></div>
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border">
+                        <i data-lucide="facebook" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-6">Facebook</h3>
+                        <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">View Gallery</a>
                     </div>
-                    <span class="label before">BEFORE</span>
-                    <span class="label after">AFTER</span>
-                </div>
-                <p class="equipment-note">We use commercial-grade Honda-powered equipment like the <strong>Simpson ALH 4240</strong>.</p>
-            </section>
-
-            <section id="quote" class="quote-section">
-                <div class="quote-card">
-                    <h2>Get Your Free Quote</h2>
-                    <p>Fill out the form below and we'll get back to you within 24 hours</p>
-                    <form id="quote-form" class="quote-form">
-                        <div class="form-row">
-                            <input type="text" placeholder="Full Name *" required>
-                            <input type="email" placeholder="Email *" required>
-                        </div>
-                        <div class="form-row">
-                            <input type="tel" placeholder="Phone *" required>
-                            <select id="service-select" required>
-                                <option value="">Select a service</option>
-                            </select>
-                        </div>
-                        <input type="text" placeholder="Property Address *" class="full-width" required>
-                        <textarea placeholder="Project Description *" rows="4" class="full-width" required></textarea>
-                        <input type="text" placeholder="Referral Name or Email (Optional)" class="full-width">
-                        <p class="referral-text">Earn a $30 Amazon gift card for each successful referral!</p>
-                        
-                        <div class="upload-area">
-                            <i data-lucide="camera"></i>
-                            <p>Click to upload or drag and drop (PNG, JPG up to 10MB)</p>
-                        </div>
-                        <button type="submit" class="btn-submit">Submit Request for Free Quote</button>
-                    </form>
-                </div>
-            </section>
-        </div>
-
-        <div id="service-page" class="hidden">
-            <div class="container">
-                <button class="back-link" onclick="showPage('home')">← Back to Services</button>
-                <h1 id="service-title" class="page-title"></h1>
-                <div class="service-details-card">
-                    <p id="service-desc" class="description"></p>
-                    <h3>Key Benefits</h3>
-                    <ul id="service-benefits" class="benefits-list"></ul>
-                    <h3>Pricing</h3>
-                    <div id="service-pricing" class="pricing-box"></div>
-                    <h3>Before & After Gallery</h3>
-                    <div class="gallery-placeholder">
-                        <div class="box">Before Image</div>
-                        <div class="box">After Image</div>
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border">
+                        <i data-lucide="star" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-6">Yelp</h3>
+                        <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">Read Reviews</a>
                     </div>
-                    <button class="btn-primary" onclick="scrollToQuote()">Get Your Free Quote</button>
                 </div>
             </div>
+        </section>
+
+        <section class="py-16 bg-gray-50" id="process">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">Value Restoration</h2>
+                <div class="slider-container relative w-full h-96 md:h-[500px] overflow-hidden rounded-2xl shadow-2xl cursor-ew-resize">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover">
+                    <div id="after-img-wrap" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
+                        <img src="https://images.unsplash.com/photo-1528204617857-4cc933706050?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div id="slider-handle" class="absolute top-0 bottom-0 w-1 bg-white shadow-xl" style="left: 50%;">
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full border-4 border-blue-600 flex items-center justify-center">
+                            <i data-lucide="chevrons-left-right" class="text-blue-600 w-5"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white" id="quote">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
+                    <h2 class="text-4xl font-bold text-center mb-8">Get Your Free Quote</h2>
+                    <form id="quote-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="Full Name *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
+                        <input type="email" placeholder="Email *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
+                        <input type="tel" placeholder="Phone *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
+                        
+                        <select id="service-dropdown" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
+                            <option value="">Select Service *</option>
+                        </select>
+                        
+                        <input type="text" placeholder="Property Address *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none md:col-span-2" required>
+                        <textarea placeholder="Describe your project..." rows="4" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none md:col-span-2" required></textarea>
+                        
+                        <div class="md:col-span-2">
+                            <input type="text" placeholder="Referral Name or Email (Optional)" class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none">
+                            <p class="text-sm text-blue-600 mt-2 font-medium italic">Earn a $30 Amazon gift card for each successful referral!</p>
+                        </div>
+
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 font-bold mb-2">Upload Job Photos (Optional)</label>
+                            <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6 text-center">
+                                    <i data-lucide="camera" class="w-8 h-8 text-gray-400 mb-2"></i>
+                                    <p class="text-sm text-gray-500">Click to upload or drag and drop</p>
+                                </div>
+                                <input type="file" class="hidden" multiple accept="image/*" />
+                            </label>
+                        </div>
+
+                        <button type="submit" class="md:col-span-2 bg-blue-600 text-white py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition">Request Quote Within 24 Hours</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="detail-page" class="hidden">
+        <div class="max-w-5xl mx-auto px-6 py-12">
+            <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+                <i data-lucide="arrow-left" class="mr-2"></i> Back to All Services
+            </button>
+            <div id="service-detail-content"></div>
         </div>
     </main>
 
-    <footer class="footer">
-        <p>(248) 313-8955 | valuerestoration@gmail.com</p>
-        <p class="location-text">Serving Oakland County: Rochester Hills, Troy, Auburn Hills, Bloomfield.</p>
+    <footer class="bg-gray-50 border-t border-gray-200 py-16">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center gap-12">
+            
+            <div class="flex flex-col items-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Us</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-center gap-3 text-gray-600 hover:text-blue-600 transition">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        <a href="tel:2483138955" class="text-lg font-medium">(248) 313-8955</a>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 text-gray-600 hover:text-blue-600 transition">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                        <a href="mailto:valuerestoration@gmail.com" class="text-lg font-medium">valuerestoration@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Follow Us</h3>
+                <div class="flex items-center gap-8">
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="home" class="w-8 h-8"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="facebook" class="w-8 h-8"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="twitter" class="w-8 h-8"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="instagram" class="w-8 h-8"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="youtube" class="w-8 h-8"></i></a>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-200 w-full max-w-2xl">
+                <p class="text-gray-500 font-medium">&copy; 2026 Renowned Value Restoration</p>
+                <p class="text-gray-400 text-sm mt-2">Commercial Grade Simpson ALH 4240 Equipment</p>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
