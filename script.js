@@ -21,22 +21,13 @@ const servicesData = {
                 pricingDetails: "Unit Rate: $0.22 per square foot (standard jobs)\nBulk Rate: $0.20 per square foot (large jobs)"
             },
             { 
-                id: "tennis-courts", 
-                name: "Tennis Courts", 
-                price: "$330", 
-                desc: "Professional deep cleaning for acrylic, asphalt, and concrete court surfaces.", 
-                benefits: ["Improved traction & safety", "Algae & mildew removal", "Surface life extension"],
-                process: ["Surface Inspection & Debris Removal", "Eco-friendly Algaecide Treatment", "Gentle High-Volume Rinse", "Surface Uniformity Check"],
-                pricingDetails: "Flat Rate Pricing:\nStandard Single Court $330"
-            },
-            { 
                 id: "dumpster", 
                 name: "Dumpster Pads", 
                 price: "$150", 
                 desc: "Sanitization and odor removal for commercial pads.", 
                 benefits: ["Health code compliance", "Pest reduction"],
                 process: ["Degreasing Soak", "Hot Water High-Pressure Scrub", "Sanitization & Deodorizing", "Containment Inspection"],
-                pricingDetails: "Flat Rate Pricing:\nStandard Pad $150"
+                pricingDetails: "Flat rate of $150 per standard dumpster pad cleaning."
             },
             { 
                 id: "roof", 
@@ -82,6 +73,15 @@ const servicesData = {
                 benefits: ["Restores color", "Stops structural erosion"],
                 process: ["Organic Growth Assessment", "Mineral Dissolving Pre-treatment", "Pressure Clean", "Growth Inhibitor Application"],
                 pricingDetails: "Unit Rate: $0.44 per square foot"
+            },
+            { 
+                id: "tennis-courts", 
+                name: "Tennis Courts", 
+                price: "$330", 
+                desc: "Deep cleaning for tennis court surfaces to restore traction and professional appearance.", 
+                benefits: ["Improved playability", "Removes slippery moss/algae", "Extends surface life"],
+                process: ["Surface Assessment", "Gentle Pressure Cleaning", "Targeted Algae Treatment", "Final Rinse & Detail"],
+                pricingDetails: "Flat rate of $330 for professional cleaning of a standard tennis court."
             }
         ]
     },
