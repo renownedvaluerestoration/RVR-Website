@@ -1,186 +1,195 @@
-// FULL SERVICE DATABASE WITH HIGH-END PROCESSES
-const servicesData = {
-    categoryA: {
-        title: "Pressure Wash & Treat",
-        items: [
-            { 
-                id: "house-wash", 
-                name: "House Washing", 
-                price: "From $300", 
-                pricing: "$300 (Small/Single Story) | $450+ (2-Story/Estate)",
-                desc: "Safely removing organic growth and environmental pollutants from your home's exterior using professional soft-wash techniques.",
-                process: [
-                    "Surface Inspection & Protection: We bag all outdoor outlets and pre-soak surrounding vegetation to prevent chemical burn.",
-                    "Biodegradable Treatment: Application of professional-grade surfactant and sodium hypochlorite blend to kill mold at the root.",
-                    "Low-Pressure Rinse: Gentle 150-PSI rinse to remove dirt and debris without damaging vinyl siding, brick, or stucco.",
-                    "Final Wax & Shield: Spot-free rinse application to repel future dust and enhance siding luster."
-                ],
-                benefits: ["Eliminates mold spores", "Protects siding integrity", "Boosts curb value instantly"]
-            },
-            { 
-                id: "driveway", 
-                name: "Driveway & Parking Lot Cleaning", 
-                price: "$0.22/sq ft", 
-                pricing: "$0.22 per sq ft ($250 Minimum)",
-                desc: "Industrial-strength concrete restoration for high-traffic surfaces using 4200 PSI equipment.",
-                process: [
-                    "Oil & Grease Pre-Treatment: Application of high-PH degreasers to lift deep-set petroleum stains.",
-                    "Surface Cleaning: Uniform orbital cleaning using professional flat-surface tools to prevent 'tiger striping'.",
-                    "Edge Detailing: Precision wand-work for joints, curbs, and perimeter corners.",
-                    "Post-Treatment Brightening: Sodium-based treatment to leave concrete white and bright."
-                ],
-                benefits: ["Removes hazardous oil slips", "Prevents concrete pitting", "Clean, even finish"]
-            },
-            { 
-                id: "roof", 
-                name: "Rooftop Softwash", 
-                price: "$0.44/sq ft", 
-                pricing: "$0.44 per sq ft ($500 Minimum)",
-                desc: "The only shingle manufacturer-approved method for removing black streaks safely.",
-                process: [
-                    "Gutter Protection: Installation of temporary diversions to protect landscaping.",
-                    "Eco-Friendly Kill-Coat: A non-pressure chemical application to kill moss and algae at the root.",
-                    "Organic Dissolution: Allowing chemistry to break down roots without high pressure.",
-                    "Nature-Rinse Protocol: Rain naturally washes away dead material over 4-6 weeks for zero-damage results."
-                ],
-                benefits: ["Extends roof life by 5-10 years", "Improves energy efficiency", "Removes damaging moss roots"]
-            }
-        ]
-    },
-    categoryB: {
-        title: "Protection & Finishing",
-        items: [
-            { 
-                id: "paver-seal", 
-                name: "Paver Sanding & Sealing", 
-                price: "$1.75/sq ft", 
-                pricing: "$1.75 - $2.25 per sq ft",
-                desc: "A premium 3-stage restoration for driveways, patios, and pool decks.",
-                process: [
-                    "Deep Extraction Clean: High-pressure washing to remove old sand, weeds, and debris.",
-                    "Polymeric Sand Infill: Application of premium sand to stabilize joints and prevent shifting.",
-                    "Vibratory Compaction: Ensuring sand is fully locked into the joints.",
-                    "Flood-Coat Sealing: Application of two coats of premium acrylic sealer (Matte or Wet-look)."
-                ],
-                benefits: ["Prevents weed growth", "Locks pavers in place", "Enhances stone color"]
-            }
-        ]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renowned Value Restoration | Pressure Washing & Soft Washing Oakland County</title>
+    <meta name="description" content="Professional Pressure Washing and Soft Washing in Rochester Hills, Troy, and Bloomfield. Restore your home's value with Renowned Value Restoration.">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Renowned Value Restoration",
+      "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a",
+      "telePhone": "248-313-8955",
+      "email": "valuerestoration@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rochester Hills",
+        "addressRegion": "MI",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Rochester Hills", "Troy", "Auburn Hills", "Bloomfield", "Oakland County"],
+      "priceRange": "$$"
     }
-    // Note: Other services follow the same pattern...
-};
+    </script>
 
-// PAGE NAVIGATION
-function showPage(pageId) {
-    const home = document.getElementById('home-page');
-    const detail = document.getElementById('detail-page');
-    const content = document.getElementById('service-detail-content');
-
-    if (pageId === 'home') {
-        home.classList.remove('hidden');
-        detail.classList.add('hidden');
-    } else {
-        home.classList.add('hidden');
-        detail.classList.remove('hidden');
-        
-        let service = null;
-        Object.values(servicesData).forEach(cat => {
-            const found = cat.items.find(i => i.id === pageId);
-            if (found) service = found;
-        });
-
-        if (service) {
-            content.innerHTML = `
-                <div class="grid lg:grid-cols-5 gap-16">
-                    <div class="lg:col-span-3">
-                        <h1 class="text-6xl font-black mb-6 leading-tight">${service.name}</h1>
-                        <p class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-themeBlue to-buttonBlue mb-10">
-                            Professional Pricing: ${service.pricing}
-                        </p>
-                        <div class="space-y-12">
-                            ${service.process.map((step, index) => `
-                                <div class="process-step">
-                                    <div class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-themeBlue text-white flex items-center justify-center font-black shadow-lg">
-                                        0${index + 1}
-                                    </div>
-                                    <h4 class="font-bold text-xl mb-2">${step.split(':')[0]}</h4>
-                                    <p class="text-gray-600 text-lg leading-relaxed">${step.split(':')[1]}</p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="lg:col-span-2">
-                        <div class="bg-white p-10 rounded-[2.5rem] shadow-xl border border-gray-100 sticky top-32">
-                            <h3 class="text-2xl font-black mb-6">Investment Value</h3>
-                            <ul class="space-y-6 mb-10">
-                                ${service.benefits.map(b => `
-                                    <li class="flex items-start text-gray-700 font-medium text-lg">
-                                        <i data-lucide="check-circle" class="text-green-500 mr-4 w-6 h-6 shrink-0 mt-1"></i>
-                                        <span>${b}</span>
-                                    </li>
-                                `).join('')}
-                            </ul>
-                            <a href="#quote" onclick="showPage('home')" class="block text-center bg-buttonBlue text-white py-6 rounded-2xl font-black text-xl shadow-lg hover:shadow-2xl transition">
-                                Request This Service
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            `;
-            lucide.createIcons();
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        themeBlue: '#0052FF',
+                        themeDark: '#002D8F',
+                        buttonBlue: '#375BD2',
+                        softBg: '#F8FAFF'
+                    }
+                }
+            }
         }
-    }
-    window.scrollTo(0,0);
-}
+    </script>
+</head>
+<body class="bg-softBg text-gray-900">
 
-// RENDER HOME CARDS
-const container = document.getElementById('services-container');
-const dropdown = document.getElementById('service-dropdown');
-
-Object.values(servicesData).forEach(category => {
-    const card = document.createElement('div');
-    card.className = "service-category-card p-10 rounded-[2.5rem] border border-gray-100 shadow-sm";
-    let itemsHtml = `<h3 class="text-2xl font-black mb-10 uppercase tracking-tighter text-themeBlue">${category.title}</h3><div class="grid md:grid-cols-2 gap-10">`;
-    const optGroup = document.createElement('optgroup');
-    optGroup.label = category.title;
-
-    category.items.forEach(item => {
-        itemsHtml += `
-            <div class="group cursor-pointer flex justify-between items-center" onclick="showPage('${item.id}')">
+    <header class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center cursor-pointer" onclick="showPage('home')">
+                <i data-lucide="droplets" class="w-8 h-8 text-themeBlue mr-3"></i>
                 <div>
-                    <h4 class="text-xl font-bold group-hover:text-themeBlue transition">${item.name}</h4>
-                    <span class="text-xs font-black text-gray-400 uppercase tracking-widest">${item.price}</span>
+                    <h1 class="text-xl font-bold leading-none">Renowned Value Restoration</h1>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Pressure Washing & Soft Washing</p>
                 </div>
-                <i data-lucide="arrow-right" class="w-5 h-5 text-gray-300 group-hover:text-themeBlue transition transform group-hover:translate-x-2"></i>
-            </div>`;
-        const opt = document.createElement('option');
-        opt.value = item.id;
-        opt.textContent = item.name;
-        optGroup.appendChild(opt);
-    });
-    card.innerHTML = itemsHtml + `</div>`;
-    container.appendChild(card);
-    dropdown.appendChild(optGroup);
-});
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#services" class="text-sm font-bold text-gray-600 hover:text-themeBlue" onclick="showPage('home')">SERVICES</a>
+                <a href="#process" class="text-sm font-bold text-gray-600 hover:text-themeBlue" onclick="showPage('home')">RESULTS</a>
+                <a href="#faq" class="text-sm font-bold text-gray-600 hover:text-themeBlue" onclick="showPage('home')">FAQ</a>
+                <a href="#quote" class="bg-buttonBlue text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg hover:scale-105 transition transform">GET FREE QUOTE</a>
+            </nav>
+        </div>
+    </header>
 
-// SLIDER INTERACTION
-const slider = document.querySelector('.slider-container');
-const handle = document.getElementById('slider-handle');
-const afterWrap = document.getElementById('after-img-wrap');
+    <main id="home-page">
+        <section class="bg-gradient-to-br from-themeBlue via-themeDark to-black text-white py-24 relative overflow-hidden">
+            <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+                <span class="inline-block px-4 py-1 bg-white/10 rounded-full text-xs font-bold mb-6 backdrop-blur-md">PROUDLY SERVING OAKLAND COUNTY, MI</span>
+                <h2 class="text-5xl md:text-6xl font-black mb-8 leading-tight">Restore Your Property's <br><span class="text-blue-400">True Market Value.</span></h2>
+                <p class="text-xl text-blue-100 font-light max-w-2xl mx-auto mb-10">
+                    Professional pressure washing and exterior restoration in **Rochester Hills**, **Troy**, and **Bloomfield**. We protect your investment with commercial-grade cleaning.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="#quote" class="bg-buttonBlue px-10 py-4 rounded-xl font-bold text-lg shadow-xl hover:bg-blue-700 transition">Request Instant Quote</a>
+                    <a href="tel:2483138955" class="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition">Call (248) 313-8955</a>
+                </div>
+            </div>
+        </section>
 
-function slide(e) {
-    const rect = slider.getBoundingClientRect();
-    let x = (e.pageX || e.touches[0].pageX) - rect.left;
-    let pos = (x / rect.width) * 100;
-    if (pos < 0) pos = 0; if (pos > 100) pos = 100;
-    handle.style.left = `${pos}%`;
-    afterWrap.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
-}
-slider.addEventListener('mousemove', (e) => { if(e.buttons === 1) slide(e); });
-slider.addEventListener('touchmove', slide);
+        <section class="py-20" id="services">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-black mb-4">Our Restoration Services</h2>
+                    <p class="text-gray-500">Expert exterior cleaning tailored to Michigan's climate.</p>
+                </div>
+                <div id="services-container" class="space-y-12"></div>
+            </div>
+        </section>
 
-// FORM SUBMIT
-document.getElementById('quote-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert("Quote request received! We'll reach out within 24 hours.");
-    e.target.reset();
-});
+        <section class="py-20 bg-white" id="process">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-4xl font-black text-center mb-12">See the Transformation</h2>
+                <div class="slider-container relative w-full h-96 md:h-[550px] overflow-hidden rounded-[2rem] shadow-2xl cursor-ew-resize">
+                    <div class="absolute top-6 left-6 z-20 bg-black/60 text-white px-5 py-1.5 rounded-full text-xs font-black backdrop-blur-md tracking-widest">BEFORE</div>
+                    <div class="absolute top-6 right-6 z-20 bg-themeBlue/80 text-white px-5 py-1.5 rounded-full text-xs font-black backdrop-blur-md tracking-widest">AFTER</div>
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover">
+                    <div id="after-img-wrap" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
+                        <img src="https://images.unsplash.com/photo-1528204617857-4cc933706050?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div id="slider-handle" class="absolute top-0 bottom-0 w-1.5 bg-white shadow-[0_0_20px_rgba(0,0,0,0.3)]" style="left: 50%;">
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-4 border-themeBlue shadow-xl flex items-center justify-center">
+                            <i data-lucide="chevrons-left-right" class="text-themeBlue w-6"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-softBg" id="faq">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-4xl font-black text-center mb-12">Oakland County Cleaning FAQs</h2>
+                <div class="space-y-4">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="font-bold text-lg mb-2">What is the difference between Pressure Washing and Soft Washing?</h3>
+                        <p class="text-gray-600">Pressure washing uses high-PSI (up to 4200) for hard surfaces like concrete driveways. Soft washing uses specialized chemicals and low pressure to safely clean siding and roofs without damage.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="font-bold text-lg mb-2">How often should I wash my home in Michigan?</h3>
+                        <p class="text-gray-600">We recommend a professional house wash once a year in Oakland County to remove algae, mold, and salt deposits that accumulate during Michigan winters.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white" id="quote">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="bg-softBg rounded-[3rem] p-8 md:p-16 border border-gray-100 shadow-inner">
+                    <h2 class="text-4xl font-black text-center mb-4">Request a Free Quote</h2>
+                    <p class="text-center text-gray-500 mb-12">Response within 24 hours — Proudly serving Rochester Hills & surrounding areas.</p>
+                    <form id="quote-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="Full Name *" class="p-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-themeBlue outline-none shadow-sm" required>
+                        <input type="email" placeholder="Email Address *" class="p-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-themeBlue outline-none shadow-sm" required>
+                        <input type="tel" placeholder="Phone Number *" class="p-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-themeBlue outline-none shadow-sm" required>
+                        <select id="service-dropdown" class="p-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-themeBlue outline-none shadow-sm" required>
+                            <option value="">Select a Service *</option>
+                        </select>
+                        <input type="text" placeholder="Service Address (Rochester Hills, Troy, etc) *" class="p-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-themeBlue outline-none shadow-sm md:col-span-2" required>
+                        <textarea placeholder="Tell us about your project..." rows="4" class="p-4 rounded-2xl border-none ring-1 ring-gray-200 focus:ring-2 focus:ring-themeBlue outline-none shadow-sm md:col-span-2" required></textarea>
+                        
+                        <div class="md:col-span-2 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                            <input type="text" placeholder="Referral Name (Optional)" class="w-full bg-transparent border-none outline-none text-blue-900 placeholder-blue-300">
+                            <p class="text-[10px] font-bold text-themeBlue uppercase mt-2 tracking-widest">Earn a $30 Amazon gift card for every successful referral!</p>
+                        </div>
+
+                        <button type="submit" class="md:col-span-2 bg-buttonBlue text-white py-6 rounded-2xl font-black text-xl shadow-xl hover:scale-[1.02] transition transform">REQUEST QUOTE WITHIN 24 HOURS</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="detail-page" class="hidden min-h-screen py-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <button onclick="showPage('home')" class="flex items-center text-themeBlue font-black uppercase text-xs tracking-widest mb-12 hover:opacity-70 transition">
+                <i data-lucide="arrow-left" class="mr-2 w-4 h-4"></i> Back to Services
+            </button>
+            <div id="service-detail-content"></div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-950 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+                <div class="text-center md:text-left">
+                    <h4 class="font-black text-lg mb-4">Contact Us</h4>
+                    <a href="tel:2483138955" class="block text-2xl font-light hover:text-themeBlue transition mb-2">(248) 313-8955</a>
+                    <a href="mailto:valuerestoration@gmail.com" class="text-gray-400 hover:text-white transition">valuerestoration@gmail.com</a>
+                </div>
+                
+                <div class="max-w-md text-center">
+                    <p class="text-[11px] text-gray-500 leading-relaxed uppercase tracking-widest">
+                        Proudly serving all of **Oakland County, Michigan**, including **Rochester Hills, Troy, Auburn Hills, and Bloomfield**. Professional Simpson ALH 4240 Equipment.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end">
+                    <h4 class="font-black text-xs uppercase tracking-[0.3em] mb-4 text-gray-500">Follow Our Work</h4>
+                    <div class="flex gap-6">
+                        <a href="#" class="text-gray-400 hover:text-buttonBlue transition"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-buttonBlue transition"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-buttonBlue transition"><i data-lucide="youtube" class="w-6 h-6"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/5 text-center">
+                <p class="text-[9px] text-gray-600 uppercase tracking-widest">&copy; 2026 Renowned Value Restoration. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
