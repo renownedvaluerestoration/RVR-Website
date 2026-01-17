@@ -18,61 +18,61 @@ const servicesData = {
                 desc: "4200 PSI deep cleaning for concrete to remove years of grime.", 
                 benefits: ["Removes oil stains", "Eliminates tire marks", "Safe for neighbors"],
                 process: ["Debris Removal & Edging", "Surface Pre-Treatment for Stains", "Commercial Surface Cleaner Pass", "High-Volume Rinse & Sediment Flush"],
-                pricingDetails: "Unit Rate: $0.22 per square foot (standard jobs)\nBulk Rate: $0.20 per square foot (large jobs)"
+                pricingDetails: "Unit Rate: $0.22 per square foot (standard jobs)\nBulk Rate (Over 5k sq ft): $0.18 per sq ft\nMinimum Service Charge: $250"
             },
             { 
                 id: "dumpster", 
                 name: "Dumpster Pads", 
                 price: "Custom Quote", 
-                desc: "Sanitization and odor removal for commercial pads.", 
-                benefits: ["Health code compliance", "Pest reduction"],
-                process: ["Degreasing Soak", "Hot Water High-Pressure Scrub", "Sanitization & Deodorizing", "Containment Inspection"],
-                pricingDetails: "Custom quote based on size and frequency of cleaning."
+                desc: "Sanitization and deodorizing for commercial waste areas.", 
+                benefits: ["Eliminates foul odors", "Reduces pest attraction", "Health code compliance"],
+                process: ["Area containment setup", "Heavy-duty degreaser application", "High-heat pressure extraction", "Post-cleaning sanitizer spray"],
+                pricingDetails: "Custom Quote based on size and frequency.\nStarting at $250 per service."
             },
             { 
                 id: "roof", 
                 name: "Rooftop Softwash", 
                 price: "$0.44/sq ft", 
-                desc: "Zero-pressure chemical treatment for shingle longevity.", 
-                benefits: ["Extends roof life", "Removes black streaks"],
-                process: ["Gutter Protection Setup", "Algaecide Treatment Application", "Dwell Time Monitoring", "Neutralizing Rinse"],
-                pricingDetails: "Flat Rate Pricing:\nSmall Roof $700\nMedium Roof $1,000\nLarge Roof $1,500\n\nUnit Rate: $0.44 per square foot"
+                desc: "Removing black streaks and moss to extend roof lifespan.", 
+                benefits: ["Extends roof life", "Lowers energy costs", "Manufacturer approved"],
+                process: ["Gutter downspout bagging", "Non-pressure chemical application", "Dwell time for moss root termination", "Nature-rinse protocol (rain washes away dead moss)"],
+                pricingDetails: "Unit Rate: $0.44 per square foot\nMinimum Service Charge: $500"
             },
             { 
                 id: "bins", 
                 name: "Garbage Bins", 
                 price: "$6 per bin", 
-                desc: "High-heat sanitization and deodorizing.", 
-                benefits: ["Bacteria removal", "No more smells"],
-                process: ["High-Temp Pressure Wash", "Antibacterial Scrubbing", "Deodorizing Spray", "Exterior Polish"],
-                pricingDetails: "Flat Rate Pricing:\nSingle Bin $6\n2 Bins $10"
+                desc: "High-heat cleaning for residential trash and recycle bins.", 
+                benefits: ["Kills bacteria", "Smells fresh", "No more maggots"],
+                process: ["High-pressure interior blast", "Disinfectant coating", "Exterior wipe down", "Deodorizer spray"],
+                pricingDetails: "$6 per bin (Add-on service)\nStand-alone minimum: 10 bins"
             },
             { 
                 id: "graffiti", 
                 name: "Graffiti Removal", 
                 price: "From $400", 
-                desc: "Specialized chemical removal without ghosting.", 
-                benefits: ["Fast response", "Surface preservation"],
-                process: ["Paint Identification", "Eco-friendly Solvents Application", "Agitation & Steam Pressure Lift", "Neutralizing Wash"],
-                pricingDetails: "Flat Rate Pricing:\nSmall Graffiti Area $400\nLarge Graffiti Area $550"
+                desc: "Specialized chemical removal for paint on various surfaces.", 
+                benefits: ["Restores property image", "Prevents copycats", "Safe for masonry"],
+                process: ["Surface type identification", "Specific solvent application", "Pressure rinse extraction", "Shadow removal treatment"],
+                pricingDetails: "Starting at $400\nPrice varies based on paint type and surface porosity."
             },
             { 
                 id: "gum", 
                 name: "Chewing Gum Removal", 
                 price: "$300", 
-                desc: "High-temp steam removal for sidewalks.", 
-                benefits: ["Spotless entrance", "Enhanced property value"],
-                process: ["Area Cordoning", "Targeted Steam Treatment", "Pressure Extraction", "Uniform Rinse"],
-                pricingDetails: "Flat Rate Pricing:\nStandard Service $300"
+                desc: "Steam removal of gum wads from sidewalks and entryways.", 
+                benefits: ["Cleaner entryway", "Prevents shoe tracking", "Improves customer experience"],
+                process: ["Gum freezing/hardening", "Scraper removal of bulk", "Steam treatment for residue", "Spot clean rinse"],
+                pricingDetails: "Minimum Service Charge: $300\nLarge areas: Custom quote"
             },
             { 
                 id: "algae", 
                 name: "Efflorescence, Algae & Moss Removal", 
                 price: "$0.44/sq ft", 
-                desc: "Specific mineral and organic stain treatment.", 
-                benefits: ["Restores color", "Stops structural erosion"],
-                process: ["Organic Growth Assessment", "Mineral Dissolving Pre-treatment", "Pressure Clean", "Growth Inhibitor Application"],
-                pricingDetails: "Unit Rate: $0.44 per square foot"
+                desc: "Treatment for organic growth and mineral deposits.", 
+                benefits: ["Restores color", "Prevents slip hazards", "Stops stone decay"],
+                process: ["Chemical application", "Agitation scrubbing", "Rinse", "Post-treatment inhibitor"],
+                pricingDetails: "$0.44 per square foot"
             }
         ]
     },
@@ -83,37 +83,46 @@ const servicesData = {
                 id: "concrete-seal", 
                 name: "Concrete Cleaning & Resealing", 
                 price: "$0.90/sq ft", 
-                desc: "Wash followed by premium siloxane sealer.", 
-                benefits: ["Waterproofing", "Salt protection"],
-                process: ["Deep Clean & Stain Extraction", "24-Hour Drying Window", "Siloxane Sealer Application", "Uniform Finish Inspection"],
-                pricingDetails: "Unit Rate: $0.90 per square foot"
+                desc: "Wash and seal to protect concrete from winter salt and cracking.", 
+                benefits: ["Prevents salt damage", "Stops spalling", "Easier to clean"],
+                process: ["Deep cleaning wash", "24-hour dry time", "Penetrating sealer application", "Hydrophobic test"],
+                pricingDetails: "$0.90 per square foot (Includes cleaning)\nMinimum: $350"
             },
             { 
                 id: "paver-seal", 
                 name: "Paver Sanding & Sealing", 
                 price: "$1.75/sq ft", 
-                desc: "Re-sanding joints and wet-look or matte sealing.", 
-                benefits: ["Stabilizes joints", "Prevents weeds"],
-                process: ["Bio-wash Clean", "Polymeric Sand Installation", "Compaction & Joint Setting", "Premium Sealant Coating"],
-                pricingDetails: "Unit Rate: $1.75 per square foot"
+                desc: "Restoring paver patios with new sand and protective sealant.", 
+                benefits: ["Stabilizes joints", "Enhances color", "Prevents weeds"],
+                process: ["Old sand removal", "Pressure clean", "Install Polymeric Sand", "Apply Acrylic Sealer"],
+                pricingDetails: "Range: $1.75 - $2.25 per square foot depending on sealer type."
+            },
+            { 
+                id: "tennis-court", 
+                name: "Tennis Court Cleaning", 
+                price: "Custom Quote", 
+                desc: "Specialized soft wash for recreational surfaces to maintain grip and appearance.", 
+                benefits: ["Removes slippery algae", "Preserves court paint", "Brightens play lines"],
+                process: ["Debris blowing", "Mild surfactant application", "Low-pressure surface cleaner", "Squeegee finish"],
+                pricingDetails: "Custom Quote based on number of courts and condition."
             },
             { 
                 id: "dusting", 
                 name: "Concrete Surface Dusting", 
                 price: "$1.30/sq ft", 
-                desc: "Hardener treatment for dusting concrete floors.", 
-                benefits: ["Industrial durability", "Easy cleaning"],
-                process: ["Industrial Scrubber Prep", "Lithium Densifier Application", "Buffing & Polishing", "Dust-Proof Testing"],
-                pricingDetails: "Unit Rate: $1.30 per square foot"
+                desc: "Hardener application to stop concrete floors from creating dust.", 
+                benefits: ["Dust-free environment", "Harder surface", "Professional look"],
+                process: ["Strip wash", "Densifier application", "Micro-polish", "Guard coat"],
+                pricingDetails: "$1.30 per square foot"
             },
             { 
                 id: "stone", 
                 name: "Resin-Bound Stone & Rock Stabilization", 
                 price: "Custom Quote", 
-                desc: "Binding loose gravel for a permanent walkable surface.", 
-                benefits: ["ADA compliant", "100% permeable"],
-                process: ["Substrate Preparation", "Resin-Aggregate Mixing", "Hand-Troweled Application", "Curing & Strength Check"],
-                pricingDetails: "Custom quote based on project size, stone type, and site conditions."
+                desc: "Binding loose stones for pathways and tree pits.", 
+                benefits: ["No loose rocks", "Permeable surface", "Low maintenance"],
+                process: ["Leveling", "Resin mixing", "Hand troweling", "Curing"],
+                pricingDetails: "Custom Quote"
             }
         ]
     },
@@ -124,178 +133,180 @@ const servicesData = {
                 id: "deck", 
                 name: "Deck & Fence Restoration", 
                 price: "$0.55/sq ft", 
-                desc: "Restoring grey wood to natural color.", 
-                benefits: ["Removes oxidation", "Prepares for stain"],
-                process: ["Wood Conditioning Treatment", "Controlled Pressure Wash", "Brightener Application", "Grain Inspection & Sanding Advice"],
-                pricingDetails: "Unit Rate: $0.55 per square foot"
+                desc: "Wood brightening and cleaning for weathered timber.", 
+                benefits: ["Restores wood color", "Removes grey oxidation", "Prepares for stain"],
+                process: ["Sodium Percarbonate application", "Low pressure rinse", "Oxalic acid brightening", "Neutralization"],
+                pricingDetails: "$0.55 per square foot"
             },
             { 
                 id: "gutters", 
                 name: "Gutter Cleaning", 
                 price: "Custom Quote", 
-                desc: "Debris removal and downspout flushing.", 
-                benefits: ["Prevents water damage", "Foundation protection"],
-                process: ["Manual Debris Removal", "Downspout Pressure Flush", "Structural Fastener Check", "Cleanup & Site Clearance"],
-                pricingDetails: "Custom quote based on linear feet of gutters and number of stories."
+                desc: "Debris removal and flow testing.", 
+                benefits: ["Prevents water damage", "Stops overflow", "Protects fascia"],
+                process: ["Hand removal of debris", "Bagging waste", "Downspout flush check", "Clean up"],
+                pricingDetails: "From $150 depending on linear footage and height."
             },
             { 
                 id: "softwash-any", 
                 name: "Softwash Any Surface", 
                 price: "$0.25/sq ft", 
-                desc: "Customized chemical cleaning for delicate areas.", 
-                benefits: ["Safe & effective", "Kills spores at root"],
-                process: ["Material Testing", "Chemical Dilution Setup", "Dwell-and-Rise Application", "Final PH Balance Check"],
-                pricingDetails: "Unit Rate: $0.25 per square foot"
+                desc: "Customized low-pressure chemical cleaning for delicate or unique surfaces.", 
+                benefits: ["Safe for all materials", "Deeper clean than pressure", "Eco-friendly approach"],
+                process: ["Substrate Analysis", "Chemical Tailoring", "Dwell Time Management", "Neutralizing Rinse"],
+                pricingDetails: "$0.25 per sq ft"
             }
         ]
     }
 };
 
-function showPage(pageId) {
-    const home = document.getElementById('home-page');
-    const detail = document.getElementById('detail-page');
-    const content = document.getElementById('service-detail-content');
+// --- RENDER LOGIC ---
 
-    if (pageId === 'home') {
-        home.classList.remove('hidden');
-        detail.classList.add('hidden');
-    } else {
-        home.classList.add('hidden');
-        detail.classList.remove('hidden');
-        
-        let service = null;
-        Object.values(servicesData).forEach(cat => {
-            const found = cat.items.find(i => i.id === pageId);
-            if (found) service = found;
-        });
-
-        if (service) {
-            content.innerHTML = `
-                <div class="mb-12">
-                    <h1 class="text-5xl font-extrabold mb-4 text-gray-900">${service.name}</h1>
-                    <p class="text-2xl text-blue-600 font-semibold mb-6">${service.price}</p>
-                    <p class="text-xl text-gray-700 leading-relaxed max-w-3xl">${service.desc}</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 items-start mb-16">
-                    <div class="space-y-8">
-                        <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100">
-                            <h3 class="text-2xl font-bold mb-6 flex items-center">
-                                <i data-lucide="shield-check" class="mr-3 text-blue-600"></i> Why Choose This Service?
-                            </h3>
-                            <ul class="space-y-4">
-                                ${service.benefits.map(b => `
-                                    <li class="flex items-start text-lg text-gray-700">
-                                        <i data-lucide="check-circle" class="text-green-500 mr-3 w-6 h-6 flex-shrink-0 mt-0.5"></i> 
-                                        <span>${b}</span>
-                                    </li>
-                                `).join('')}
-                            </ul>
-                        </div>
-                        
-                        <div class="flex justify-center md:justify-start">
-                            <a href="#quote" onclick="showPage('home')" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-blue-700 transition shadow-lg">Get Free Quote</a>
-                        </div>
-                    </div>
-
-                    <div class="space-y-8">
-                        <div class="bg-blue-50 rounded-3xl p-8 border border-blue-100 shadow-sm">
-                            <h3 class="text-2xl font-bold mb-4 text-blue-800">Pricing Details</h3>
-                            <p class="text-lg text-blue-900 leading-relaxed whitespace-pre-line font-medium">${service.pricingDetails}</p>
-                        </div>
-
-                        <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
-                            <h3 class="text-2xl font-bold mb-6 flex items-center">
-                                <i data-lucide="list-ordered" class="mr-3 text-blue-600"></i> Our Professional Process
-                            </h3>
-                            <div class="space-y-5">
-                                ${service.process.map((step, index) => `
-                                    <div class="flex gap-4">
-                                        <div class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">${index + 1}</div>
-                                        <p class="text-gray-700 text-lg">${step}</p>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pt-12 border-t border-gray-100">
-                    <h2 class="text-4xl font-bold text-center mb-12">Project Results</h2>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="relative group">
-                            <div class="bg-gray-100 rounded-2xl aspect-video w-full flex items-center justify-center overflow-hidden border-2 border-gray-200 shadow-sm">
-                                <span class="text-gray-400 font-bold uppercase tracking-widest text-lg">Before Restoration</span>
-                            </div>
-                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded text-xs font-bold uppercase">Before</div>
-                        </div>
-                        <div class="relative group">
-                            <div class="bg-blue-50 rounded-2xl aspect-video w-full flex items-center justify-center overflow-hidden border-2 border-blue-100 shadow-sm">
-                                <span class="text-blue-300 font-bold uppercase tracking-widest text-lg">Professional After</span>
-                            </div>
-                            <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded text-xs font-bold uppercase">After</div>
-                        </div>
-                    </div>
-                    <p class="text-center text-gray-500 mt-8 italic text-lg">Visualizing the value restoration for ${service.name} projects.</p>
-                </div>`;
-            lucide.createIcons();
-        }
-    }
-    window.scrollTo(0,0);
-}
-
-// Populate Home Page Services and Dropdown Groups
-const container = document.getElementById('services-container');
-const dropdown = document.getElementById('service-dropdown');
-
-Object.values(servicesData).forEach(category => {
-    const card = document.createElement('div');
-    card.className = "service-category-card bg-blue-50 rounded-2xl p-8 shadow-sm border border-blue-100";
-    let itemsHtml = `<h3 class="text-3xl font-black mb-8">${category.title}</h3><div class="space-y-4">`;
+// 1. Initial Page Load - Build the Home Services List
+function initHome() {
+    const container = document.getElementById('services-grid');
+    if(!container) return; // Guard clause
     
-    const optGroup = document.createElement('optgroup');
-    optGroup.label = category.title;
+    container.innerHTML = '';
 
-    category.items.forEach(item => {
-        itemsHtml += `
-            <div class="flex justify-between items-center group cursor-pointer border-b border-blue-100 pb-3" onclick="showPage('${item.id}')">
-                <span class="text-blue-600 font-bold text-lg group-hover:underline">${item.name}</span>
-                <span class="text-gray-900 font-medium">${item.price}</span>
-            </div>`;
+    // Populate the dropdown in the contact form while we are looping
+    const dropdown = document.getElementById('service-select');
+    if(dropdown) dropdown.innerHTML = '<option value="">Select a Service...</option>';
+
+    Object.values(servicesData).forEach(category => {
+        // Create the Category Card
+        const card = document.createElement('div');
+        card.className = "bg-blue-50 rounded-2xl p-8 border border-blue-100 shadow-sm service-category-card h-full";
         
-        const opt = document.createElement('option');
-        opt.value = item.id;
-        opt.textContent = item.name;
-        optGroup.appendChild(opt);
+        // Add Category Title
+        let itemsHtml = `<h3 class="text-2xl font-bold text-gray-900 mb-6">${category.title}</h3>`;
+        
+        // IMPORTANT: The container for items must be a Flex Column to prevent splitting
+        itemsHtml += `<div class="flex flex-col space-y-3">`;
+
+        // Create the Option Group for the dropdown
+        const optGroup = document.createElement('optgroup');
+        optGroup.label = category.title;
+
+        category.items.forEach((item, index) => {
+            // Check if it's the last item to remove the bottom border
+            const isLast = index === category.items.length - 1;
+            const borderClass = isLast ? '' : 'border-b border-blue-200';
+            
+            // Build the Service Item Row
+            itemsHtml += `
+            <div class="group flex justify-between items-center py-3 ${borderClass} hover:bg-blue-100/50 transition-colors rounded-lg px-2 -mx-2 cursor-pointer" onclick="showPage('${item.id}')">
+                <span class="text-blue-600 font-bold text-lg group-hover:underline flex-1">${item.name}</span>
+                <span class="text-gray-900 font-medium ml-4 whitespace-nowrap">${item.price}</span>
+            </div>`;
+            
+            // Add to dropdown
+            const opt = document.createElement('option');
+            opt.value = item.id;
+            opt.textContent = item.name;
+            optGroup.appendChild(opt);
+        });
+        
+        itemsHtml += `</div>`; // Close flex container
+        card.innerHTML = itemsHtml;
+        container.appendChild(card);
+        
+        if(dropdown) dropdown.appendChild(optGroup);
     });
     
-    card.innerHTML = itemsHtml + `</div>`;
-    container.appendChild(card);
-    dropdown.appendChild(optGroup);
-});
+    // Re-initialize Lucide icons for the newly created elements (if any)
+    if(window.lucide) lucide.createIcons();
+}
+
+// 2. Navigation - Show Individual Service Page
+function showPage(pageId) {
+    if (pageId === 'home') {
+        document.getElementById('detail-page').classList.add('hidden');
+        document.getElementById('home-page').classList.remove('hidden');
+        window.scrollTo(0, 0);
+        return;
+    }
+
+    // Find the service data
+    let selectedService = null;
+    Object.values(servicesData).forEach(cat => {
+        const found = cat.items.find(item => item.id === pageId);
+        if (found) selectedService = found;
+    });
+
+    if (!selectedService) return;
+
+    // Populate Detail View
+    document.getElementById('detail-title').innerText = selectedService.name;
+    document.getElementById('detail-desc').innerText = selectedService.desc;
+    document.getElementById('detail-pricing').innerText = selectedService.pricingDetails;
+
+    // Populate Process Steps
+    const processContainer = document.getElementById('detail-process');
+    processContainer.innerHTML = selectedService.process.map((step, i) => `
+        <div class="flex">
+            <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm mt-1">
+                ${i + 1}
+            </div>
+            <div class="ml-4">
+                <p class="text-gray-700 leading-relaxed">${step}</p>
+            </div>
+        </div>
+    `).join('');
+
+    // Populate Benefits
+    const benefitsContainer = document.getElementById('detail-benefits');
+    benefitsContainer.innerHTML = selectedService.benefits.map(benefit => `
+        <li class="flex items-start text-gray-600">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i>
+            ${benefit}
+        </li>
+    `).join('');
+
+    // Switch Views
+    document.getElementById('home-page').classList.add('hidden');
+    document.getElementById('detail-page').classList.remove('hidden');
+    
+    // Refresh icons
+    if(window.lucide) lucide.createIcons();
+    
+    window.scrollTo(0, 0);
+}
+
 
 // Slider logic
-const slider = document.querySelector('.slider-container');
-const handle = document.getElementById('slider-handle');
-const afterWrap = document.getElementById('after-img-wrap');
+document.addEventListener('DOMContentLoaded', () => {
+    initHome();
+    if(window.lucide) lucide.createIcons();
 
-function slide(e) {
-    if (!slider) return;
-    const rect = slider.getBoundingClientRect();
-    let x = (e.pageX || (e.touches ? e.touches[0].pageX : 0)) - rect.left;
-    let pos = (x / rect.width) * 100;
-    if (pos < 0) pos = 0; if (pos > 100) pos = 100;
-    handle.style.left = `${pos}%`;
-    afterWrap.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
-}
+    const slider = document.querySelector('.slider-container');
+    const handle = document.getElementById('slider-handle');
+    const afterWrap = document.getElementById('after-img-wrap');
 
-if (slider) {
-    slider.addEventListener('mousemove', (e) => { if(e.buttons === 1) slide(e); });
-    slider.addEventListener('touchmove', slide);
-}
+    if (slider && handle && afterWrap) {
+        function slide(e) {
+            const rect = slider.getBoundingClientRect();
+            let x = (e.pageX || (e.touches ? e.touches[0].pageX : 0)) - rect.left;
+            // Prevent sliding outside
+            if (x < 0) x = 0;
+            if (x > rect.width) x = rect.width;
+            
+            let pos = (x / rect.width) * 100;
+            
+            handle.style.left = `${pos}%`;
+            afterWrap.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
+        }
 
-document.getElementById('quote-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert("Quote request sent! We will contact you within 24 hours.");
-    e.target.reset();
+        slider.addEventListener('mousedown', () => {
+            slider.addEventListener('mousemove', slide);
+        });
+        
+        window.addEventListener('mouseup', () => {
+            slider.removeEventListener('mousemove', slide);
+        });
+        
+        slider.addEventListener('touchstart', () => {
+            slider.addEventListener('touchmove', slide);
+        });
+    }
 });
