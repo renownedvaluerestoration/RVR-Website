@@ -77,6 +77,7 @@
                 <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Services</a>
                 <a href="#local-reputation" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Reviews</a>
                 <a href="#process" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Results</a>
+                <a href="#blog" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('blog')">Blog</a>
                 
                 <!-- Desktop Phone & Quote Buttons -->
                 <div class="flex items-center gap-4">
@@ -195,18 +196,6 @@
                 <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
                     <h2 class="text-4xl font-bold text-center mb-8">Get Your Free Quote</h2>
                     
-                    <!-- Phone Call CTA Above Form -->
-                    <div class="mb-8 p-6 bg-blue-50 rounded-xl border border-blue-100 text-center">
-                        <p class="text-xl font-bold text-blue-800 mb-2">Prefer to talk?</p>
-                        <a href="tel:2483138955" 
-                           onclick="trackPhoneCall()" 
-                           class="inline-flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition shadow-lg">
-                            <i data-lucide="phone" class="w-6 h-6"></i>
-                            Call (248) 313-8955 for Immediate Quote
-                        </a>
-                        <p class="text-blue-600 mt-3 font-medium">24/7 Call Back Guarantee</p>
-                    </div>
-                    
                     <form id="quote-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <input type="text" placeholder="Full Name *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
                         <input type="email" placeholder="Email *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
@@ -248,6 +237,177 @@
                 <i data-lucide="arrow-left" class="mr-2"></i> Back to All Services
             </button>
             <div id="service-detail-content"></div>
+        </div>
+    </main>
+
+    <main id="blog-page" class="hidden">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+                <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
+            </button>
+            
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-extrabold text-gray-900 mb-6">Pressure Washing Blog & Tips</h1>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                    Expert advice, before/after transformations, and industry insights from Oakland County's premier pressure washing specialists.
+                </p>
+            </div>
+
+            <!-- Featured Blog Posts -->
+            <div class="space-y-16">
+                <!-- Post 1 -->
+                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="p-8 md:p-12">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-bold">SEASONAL TIPS</span>
+                                <span class="text-gray-500 text-sm">March 15, 2026</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">Spring Pressure Washing: Why April is the Perfect Time in Michigan</h2>
+                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                                <p>After Michigan's harsh winter, your property has accumulated salt, grime, and debris that can cause permanent damage if left untreated. Spring cleaning isn't just for interiors—your home's exterior needs attention too.</p>
+                                <p>April offers ideal conditions: temperatures are consistently above freezing, allowing proper drying, but before pollen season hits in May. Early spring washing prevents mold/algae from taking hold during warmer months.</p>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Seasonal Maintenance</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Michigan Weather</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Preventative Care</span>
+                            </div>
+                        </div>
+                        <div class="relative bg-gray-900 flex items-center justify-center p-8">
+                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
+                                <!-- Instagram-style video placeholder -->
+                                <div class="w-full h-full bg-gradient-to-br from-blue-900 to-gray-900 flex items-center justify-center">
+                                    <div class="text-center text-white p-8">
+                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-blue-400"></i>
+                                        <p class="text-xl font-bold mb-2">Video: Spring Washing Demo</p>
+                                        <p class="text-blue-200">Watch our 60-second transformation of a Rochester Hills driveway after winter</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">INSTAGRAM REEL</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="relative bg-gray-900 flex items-center justify-center p-8 order-2 md:order-1">
+                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
+                                <!-- Instagram-style video placeholder -->
+                                <div class="w-full h-full bg-gradient-to-br from-gray-800 to-blue-900 flex items-center justify-center">
+                                    <div class="text-center text-white p-8">
+                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-blue-400"></i>
+                                        <p class="text-xl font-bold mb-2">Video: Soft Wash vs Pressure Wash</p>
+                                        <p class="text-blue-200">See the difference on delicate surfaces in Auburn Hills</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">TIKTOK STYLE</div>
+                        </div>
+                        <div class="p-8 md:p-12 order-1 md:order-2">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-bold">EDUCATIONAL</span>
+                                <span class="text-gray-500 text-sm">February 28, 2026</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">Soft Washing vs Pressure Washing: What Your Home Actually Needs</h2>
+                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                                <p>Many homeowners don't realize that pressure washing can actually damage certain surfaces. Soft washing uses specialized low-pressure nozzles and eco-friendly detergents to clean without risking damage to delicate materials.</p>
+                                <p>For vinyl siding, stucco, and older brickwork in historic Bloomfield homes, soft washing is essential. It removes mold, algae, and dirt at the root level without blasting away protective surfaces or forcing water behind walls.</p>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Technique Guide</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Surface Protection</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Eco-Friendly</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="p-8 md:p-12">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-bold">PROPERTY VALUE</span>
+                                <span class="text-gray-500 text-sm">January 22, 2026</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">Pressure Washing ROI: How Cleaning Increases Home Value in Oakland County</h2>
+                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                                <p>A clean exterior isn't just about aesthetics—it's an investment. Real estate agents in Troy report that professionally cleaned homes can sell for 5-10% more and spend less time on the market.</p>
+                                <p>Regular maintenance prevents costly repairs. Mold and algae eat away at surfaces, while built-up grime accelerates wear. Our clients in Rochester Hills have reported appraisal increases after comprehensive exterior cleaning.</p>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Home Value</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Real Estate</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">ROI</span>
+                            </div>
+                        </div>
+                        <div class="relative bg-gray-900 flex items-center justify-center p-8">
+                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
+                                <!-- Instagram-style video placeholder -->
+                                <div class="w-full h-full bg-gradient-to-br from-purple-900 to-gray-900 flex items-center justify-center">
+                                    <div class="text-center text-white p-8">
+                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-purple-400"></i>
+                                        <p class="text-xl font-bold mb-2">Video: Before & After Home Sale</p>
+                                        <p class="text-purple-200">See how pressure washing helped a Troy home sell above asking</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">SHORT FORM VIDEO</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="relative bg-gray-900 flex items-center justify-center p-8 order-2 md:order-1">
+                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
+                                <!-- Instagram-style video placeholder -->
+                                <div class="w-full h-full bg-gradient-to-br from-amber-900 to-gray-800 flex items-center justify-center">
+                                    <div class="text-center text-white p-8">
+                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-amber-400"></i>
+                                        <p class="text-xl font-bold mb-2">Video: Commercial Cleaning Time-Lapse</p>
+                                        <p class="text-amber-200">30-second transform of an Auburn Hills shopping center</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">REEL DEMO</div>
+                        </div>
+                        <div class="p-8 md:p-12 order-1 md:order-2">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="bg-amber-100 text-amber-600 px-3 py-1 rounded-full text-sm font-bold">COMMERCIAL</span>
+                                <span class="text-gray-500 text-sm">December 15, 2025</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">Commercial Pressure Washing: Why Oakland County Businesses Can't Afford Dirty Exteriors</h2>
+                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                                <p>First impressions matter for businesses. A dirty storefront or parking lot tells customers you don't care about details. Studies show 68% of customers avoid businesses with unkempt exteriors.</p>
+                                <p>Regular commercial cleaning isn't just cosmetic—it's about safety, compliance, and brand image. From restaurant patios in Birmingham to medical facilities in Bloomfield, clean exteriors signal professionalism.</p>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Commercial</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Business Growth</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Customer Perception</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="mt-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-12 text-center text-white">
+                <h2 class="text-4xl font-bold mb-6">Get Weekly Pressure Washing Tips</h2>
+                <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Join our email list for seasonal advice, exclusive offers, and behind-the-scenes transformation videos.</p>
+                <form class="max-w-2xl mx-auto">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="Your email address" class="flex-grow p-4 rounded-xl text-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <button type="submit" class="bg-white text-blue-600 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition">Subscribe Now</button>
+                    </div>
+                    <p class="text-blue-200 text-sm mt-4">No spam. Unsubscribe anytime.</p>
+                </form>
+            </div>
         </div>
     </main>
 
