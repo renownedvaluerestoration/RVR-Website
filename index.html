@@ -74,9 +74,10 @@
             </div>
             
             <nav class="hidden md:flex items-center gap-6">
-                <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Services</a>
-                <a href="#local-reputation" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Reviews</a>
-                <a href="#process" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Results</a>
+                <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="scrollToSection('services')">Services</a>
+                <a href="#local-reputation" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="scrollToSection('local-reputation')">Reviews</a>
+                <a href="#process" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="scrollToSection('process')">Results</a>
+                <a href="#blog" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('blog')">Blog</a>
                 
                 <!-- Desktop Phone & Quote Buttons -->
                 <div class="flex items-center gap-4">
@@ -86,7 +87,7 @@
                         <i data-lucide="phone" class="w-5 h-5"></i>
                         (248) 313-8955
                     </a>
-                    <a href="#quote" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Get Free Quote</a>
+                    <a href="#quote" class="bg-blue-600 text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-blue-700 transition text-lg shadow-lg hover:shadow-xl" onclick="showPageAndScrollToQuote()">Get Free Quote</a>
                 </div>
             </nav>
         </div>
@@ -95,7 +96,7 @@
     <main id="home-page">
         <section class="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white py-24">
             <div class="max-w-7xl mx-auto px-6 text-center">
-                <h2 class="text-5xl md:text-6xl font-extrabold mb-6">Restore Your Property's True Value</h2>
+                <h2 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Restore Your Property's True Value</h2>
                 <p class="text-xl md:text-2xl text-blue-50 max-w-4xl mx-auto leading-relaxed">
                     Professional pressure washing and restoration services that transform your property's exterior and protect your investment.
                 </p>
@@ -103,7 +104,7 @@
                 <!-- Hero CTA with Phone Emphasis -->
                 <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a href="#quote" 
-                       onclick="showPage('home')" 
+                       onclick="showPageAndScrollToQuote()" 
                        class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-lg w-full sm:w-auto text-center">
                         Get Free Quote
                     </a>
@@ -136,42 +137,42 @@
             </div>
         </section>
 
-        <section class="py-16 bg-white" id="services">
+        <section class="py-16 bg-white pt-24 -mt-24" id="services">
             <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Our Services</h2>
+                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 tracking-tight">Our Services</h2>
                 <div id="services-container" class="space-y-8"></div>
             </div>
         </section>
 
-        <section class="py-16 bg-gray-50" id="local-reputation">
+        <section class="py-16 bg-gray-50 pt-24 -mt-24" id="local-reputation">
             <div class="max-w-7xl mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold mb-6">Our Local Reputation</h2>
+                <h2 class="text-4xl font-bold mb-6 tracking-tight">Our Local Reputation</h2>
                 <p class="text-xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed">
                     We ensure superior results and safety on every project by exclusively using commercial-grade, Honda-powered pressure washing equipment—like the <strong>Simpson ALH 4240</strong>—delivering the precise PSI and GPM required for a deeper clean without risking damage to delicate surfaces.
                 </p>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="bg-white rounded-2xl shadow-lg p-8 border">
                         <i data-lucide="home" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-6">Nextdoor</h3>
+                        <h3 class="text-2xl font-bold mb-6 tracking-tight">Nextdoor</h3>
                         <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">View Reviews</a>
                     </div>
                     <div class="bg-white rounded-2xl shadow-lg p-8 border">
                         <i data-lucide="facebook" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-6">Facebook</h3>
+                        <h3 class="text-2xl font-bold mb-6 tracking-tight">Facebook</h3>
                         <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">View Gallery</a>
                     </div>
                     <div class="bg-white rounded-2xl shadow-lg p-8 border">
                         <i data-lucide="star" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-6">Yelp</h3>
+                        <h3 class="text-2xl font-bold mb-6 tracking-tight">Yelp</h3>
                         <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">Read Reviews</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-16 bg-white" id="process">
+        <section class="py-16 bg-white pt-24 -mt-24" id="process">
             <div class="max-w-4xl mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12">Value Restoration</h2>
+                <h2 class="text-4xl font-bold text-center mb-12 tracking-tight">Value Restoration</h2>
                 <div class="slider-container relative w-full h-96 md:h-[500px] overflow-hidden rounded-2xl shadow-2xl cursor-ew-resize">
                     <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover">
                     <div class="absolute top-4 right-4 bg-blue-600/80 text-white px-3 py-1 rounded-md text-sm font-bold z-10 pointer-events-none">AFTER</div>
@@ -190,22 +191,10 @@
             </div>
         </section>
 
-        <section class="py-16 bg-gray-50" id="quote">
+        <section class="py-16 bg-gray-50 pt-24 -mt-24" id="quote">
             <div class="max-w-4xl mx-auto px-6">
                 <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
-                    <h2 class="text-4xl font-bold text-center mb-8">Get Your Free Quote</h2>
-                    
-                    <!-- Phone Call CTA Above Form -->
-                    <div class="mb-8 p-6 bg-blue-50 rounded-xl border border-blue-100 text-center">
-                        <p class="text-xl font-bold text-blue-800 mb-2">Prefer to talk?</p>
-                        <a href="tel:2483138955" 
-                           onclick="trackPhoneCall()" 
-                           class="inline-flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition shadow-lg">
-                            <i data-lucide="phone" class="w-6 h-6"></i>
-                            Call (248) 313-8955 for Immediate Quote
-                        </a>
-                        <p class="text-blue-600 mt-3 font-medium">24/7 Call Back Guarantee</p>
-                    </div>
+                    <h2 class="text-4xl font-bold text-center mb-8 tracking-tight">Get Your Free Quote</h2>
                     
                     <form id="quote-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <input type="text" placeholder="Full Name *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
@@ -251,11 +240,169 @@
         </div>
     </main>
 
+    <main id="blog-page" class="hidden">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+                <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
+            </button>
+            
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Pressure Washing Blog & Tips</h1>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                    Expert advice, before/after transformations, and industry insights from Oakland County's premier pressure washing specialists.
+                </p>
+            </div>
+
+            <!-- Featured Blog Posts -->
+            <div class="space-y-16">
+                <!-- Post 1 -->
+                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="p-8 md:p-12">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-bold">SEASONAL TIPS</span>
+                                <span class="text-gray-500 text-sm">January 15, 2026</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Spring Pressure Washing: Why April is the Perfect Time in Michigan</h2>
+                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                                <p>After Michigan's harsh winter, your property has accumulated salt, grime, and debris that can cause permanent damage if left untreated. Spring cleaning isn't just for interiors—your home's exterior needs attention too.</p>
+                                <p>April offers ideal conditions: temperatures are consistently above freezing, allowing proper drying, but before pollen season hits in May. Early spring washing prevents mold/algae from taking hold during warmer months.</p>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Seasonal Maintenance</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Michigan Weather</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Preventative Care</span>
+                            </div>
+                        </div>
+                        <div class="relative bg-gray-900 flex items-center justify-center p-8">
+                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
+                                <!-- Instagram-style video placeholder -->
+                                <div class="w-full h-full bg-gradient-to-br from-blue-900 to-gray-900 flex items-center justify-center">
+                                    <div class="text-center text-white p-8">
+                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-blue-400"></i>
+                                        <p class="text-xl font-bold mb-2">Video: Spring Washing Demo</p>
+                                        <p class="text-blue-200">Watch our 60-second transformation of a Rochester Hills driveway after winter</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">INSTAGRAM REEL</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="relative bg-gray-900 flex items-center justify-center p-8 order-2 md:order-1">
+                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
+                                <!-- Instagram-style video placeholder -->
+                                <div class="w-full h-full bg-gradient-to-br from-gray-800 to-blue-900 flex items-center justify-center">
+                                    <div class="text-center text-white p-8">
+                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-blue-400"></i>
+                                        <p class="text-xl font-bold mb-2">Video: Soft Wash vs Pressure Wash</p>
+                                        <p class="text-blue-200">See the difference on delicate surfaces in Auburn Hills</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">TIKTOK STYLE</div>
+                        </div>
+                        <div class="p-8 md:p-12 order-1 md:order-2">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-bold">EDUCATIONAL</span>
+                                <span class="text-gray-500 text-sm">January 10, 2026</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Soft Washing vs Pressure Washing: What Your Home Actually Needs</h2>
+                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                                <p>Many homeowners don't realize that pressure washing can actually damage certain surfaces. Soft washing uses specialized low-pressure nozzles and eco-friendly detergents to clean without risking damage to delicate materials.</p>
+                                <p>For vinyl siding, stucco, and older brickwork in historic Bloomfield homes, soft washing is essential. It removes mold, algae, and dirt at the root level without blasting away protective surfaces or forcing water behind walls.</p>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Technique Guide</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Surface Protection</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Eco-Friendly</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="p-8 md:p-12">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-bold">PROPERTY VALUE</span>
+                                <span class="text-gray-500 text-sm">January 8, 2026</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Pressure Washing ROI: How Cleaning Increases Home Value in Oakland County</h2>
+                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                                <p>A clean exterior isn't just about aesthetics—it's an investment. Real estate agents in Troy report that professionally cleaned homes can sell for 5-10% more and spend less time on the market.</p>
+                                <p>Regular maintenance prevents costly repairs. Mold and algae eat away at surfaces, while built-up grime accelerates wear. Our clients in Rochester Hills have reported appraisal increases after comprehensive exterior cleaning.</p>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Home Value</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Real Estate</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">ROI</span>
+                            </div>
+                        </div>
+                        <div class="relative bg-gray-900 flex items-center justify-center p-8">
+                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
+                                <!-- Instagram-style video placeholder -->
+                                <div class="w-full h-full bg-gradient-to-br from-purple-900 to-gray-900 flex items-center justify-center">
+                                    <div class="text-center text-white p-8">
+                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-purple-400"></i>
+                                        <p class="text-xl font-bold mb-2">Video: Before & After Home Sale</p>
+                                        <p class="text-purple-200">See how pressure washing helped a Troy home sell above asking</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">SHORT FORM VIDEO</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="relative bg-gray-900 flex items-center justify-center p-8 order-2 md:order-1">
+                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
+                                <!-- Instagram-style video placeholder -->
+                                <div class="w-full h-full bg-gradient-to-br from-amber-900 to-gray-800 flex items-center justify-center">
+                                    <div class="text-center text-white p-8">
+                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-amber-400"></i>
+                                        <p class="text-xl font-bold mb-2">Video: Commercial Cleaning Time-Lapse</p>
+                                        <p class="text-amber-200">30-second transform of an Auburn Hills shopping center</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">REEL DEMO</div>
+                        </div>
+                        <div class="p-8 md:p-12 order-1 md:order-2">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="bg-amber-100 text-amber-600 px-3 py-1 rounded-full text-sm font-bold">COMMERCIAL</span>
+                                <span class="text-gray-500 text-sm">January 5, 2026</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Commercial Pressure Washing: Why Oakland County Businesses Can't Afford Dirty Exteriors</h2>
+                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                                <p>First impressions matter for businesses. A dirty storefront or parking lot tells customers you don't care about details. Studies show 68% of customers avoid businesses with unkempt exteriors.</p>
+                                <p>Regular commercial cleaning isn't just cosmetic—it's about safety, compliance, and brand image. From restaurant patios in Birmingham to medical facilities in Bloomfield, clean exteriors signal professionalism.</p>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Commercial</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Business Growth</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Customer Perception</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
     <footer class="bg-gray-50 border-t border-gray-200 py-16">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-start mb-12">
                 <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6 w-full">Contact Us</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 w-full tracking-tight">Contact Us</h3>
                     <div class="space-y-4 w-full">
                         <div class="flex items-center justify-center md:justify-start gap-3 text-gray-600 hover:text-blue-600 transition">
                             <i data-lucide="phone" class="w-5 h-5"></i>
@@ -269,7 +416,7 @@
                 </div>
 
                 <div class="flex flex-col items-center md:items-end text-center md:text-right">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6 w-full">Follow Us</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 w-full tracking-tight">Follow Us</h3>
                     <div class="flex items-center justify-center md:justify-end gap-6 w-full">
                         <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="home" class="w-8 h-8"></i></a>
                         <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="facebook" class="w-8 h-8"></i></a>

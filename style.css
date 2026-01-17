@@ -6,6 +6,7 @@
 
 #detail-page.hidden { display: none; }
 #home-page.hidden { display: none; }
+#blog-page.hidden { display: none; }
 
 html { scroll-behavior: smooth; }
 
@@ -53,6 +54,62 @@ option {
 
 .aspect-video:hover {
     transform: scale(1.01);
+}
+
+/* ============================
+   IMPROVED TITLE STYLING
+   ============================ */
+
+/* Enhanced black title styling */
+.text-gray-900 {
+    color: #111827;
+}
+
+/* Improved title appearance */
+.font-bold, .font-extrabold, .font-black {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.tracking-tight {
+    letter-spacing: -0.025em;
+}
+
+/* Add subtle text shadow for better readability */
+.text-5xl, .text-6xl {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Gradient text effect for main hero title */
+.bg-gradient-to-br h2 {
+    background: linear-gradient(to right, #ffffff, #e5e7eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Subtle hover effect on section titles */
+.text-gray-900:hover {
+    color: #1f2937;
+}
+
+/* Improved contrast for better readability */
+.text-gray-700 {
+    color: #374151;
+}
+
+/* ============================
+   FIX FOR HEADER OVERLAP
+   ============================ */
+/* Add padding to sections for sticky header */
+#services, #local-reputation, #process, #quote {
+    scroll-margin-top: 80px; /* Adjust based on your header height */
+}
+
+/* Add extra padding to the top of sections */
+.py-16 {
+    padding-top: 6rem !important;
+    padding-bottom: 4rem !important;
 }
 
 /* ============================
@@ -174,6 +231,19 @@ option {
     p, li, span:not(.floating-phone *) {
         font-size: 16px;
         line-height: 1.6;
+    }
+    
+    /* Adjust header Get Free Quote button for mobile */
+    .bg-blue-600.text-white.px-7.py-3\\.5 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+    
+    /* Fix header overlap on mobile */
+    #services, #local-reputation, #process, #quote {
+        scroll-margin-top: 100px;
     }
 }
 
