@@ -1,56 +1,56 @@
-/* Custom slider logic */
-.slider-container {
-    user-select: none;
-    touch-action: pan-y;
+/* Services Section Layout [cite: 208] */
+.services-single-column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Space between categories */
+    max-width: 800px; /* Centered narrow column for better readability */
+    margin: 0 auto;
 }
 
-#detail-page.hidden { display: none; }
-#home-page.hidden { display: none; }
-
-html { scroll-behavior: smooth; }
-
-/* Animations for page switching */
-#service-detail-content {
-    animation: fadeIn 0.3s ease-in-out;
+.service-category {
+    background: linear-gradient(to bottom right, #eff6ff, #dbeafe);
+    padding: 32px;
+    border-radius: 16px;
+    shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Service Card Transitions */
-.service-category-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.service-category-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-/* Form Dropdown Styling for Categories */
-optgroup {
+.category-title {
+    font-size: 1.5rem;
     font-weight: bold;
+    color: #111827;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 8px;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-item-row {
+    display: flex;
+    justify-content: space-between; /* Name left, Price right [cite: 210] */
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.service-link {
     color: #2563eb;
-    background-color: #f8fafc;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.125rem;
 }
 
-option {
-    color: #1f2937;
-    background-color: white;
+.service-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
 }
 
-/* Smooth step numbering */
-.flex-shrink-0.w-8.h-8 {
-    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.4);
-}
-
-/* Gallery Hover Effects */
-.aspect-video {
-    transition: transform 0.3s ease;
-}
-
-.aspect-video:hover {
-    transform: scale(1.01);
+.service-price {
+    font-size: 0.875rem;
+    color: #4b5563;
+    font-weight: 500;
 }
