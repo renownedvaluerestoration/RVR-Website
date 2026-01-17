@@ -1,9 +1,9 @@
 const serviceCategories = [
     {
-        title: "Pressure Wash & Treat",
-        items: [
+    title: "Pressure Wash & Treat",
+    items: [
             { id: 'house-washing', name: 'House Washing', price: 'From $300', desc: 'Professional soft washing for home exteriors. [cite: 28]', benefits: ['Curb appeal', 'Prevent damage'], rate: '$0.25/sq ft' },
-            { id: 'tennis-courts', name: 'Tennis Courts', price: 'Custom Quote', desc: 'Deep cleaning and restoration for sports surfaces.', benefits: ['Improved traction', 'Surface longevity'], rate: 'Contact for pricing' },
+            { id: 'tennis-courts', name: 'Tennis Courts', price: '$1100', desc: 'Deep cleaning and restoration for sports surfaces.', benefits: ['Improved traction', 'Surface longevity'], rate: '$1100 per court' }, // Updated price
             { id: 'parking-lots', name: 'Driveway & Parking Lot Pressure Washing', price: '$0.22/sq ft', desc: 'Commercial grade cleaning for concrete and asphalt. [cite: 29]', benefits: ['Safety', 'Professional look'], rate: '$0.22/sq ft' },
             { id: 'dumpster-pads', name: 'Dumpster Pads', price: 'Custom Quote', desc: 'Sanitization and odor removal. [cite: 31]', benefits: ['Health compliance'], rate: 'Custom' },
             { id: 'rooftops', name: 'Rooftop Softwash', price: '$0.44/sq ft', desc: 'Safe removal of algae and moss. [cite: 32]', benefits: ['Roof longevity'], rate: '$0.44/sq ft' },
@@ -95,4 +95,5 @@ slider.addEventListener('mousemove', (e) => {
 });
 
 initServices();
+
 lucide.createIcons();
