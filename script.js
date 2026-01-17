@@ -361,7 +361,7 @@ function showPage(pageId) {
                                 </div>
                                 
                                 <a href="#quote" onclick="showPageAndScrollToQuote(); trackQuoteSubmission();" class="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold py-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition shadow-lg hover:shadow-xl">
-                                    Request Instant Quote
+                                    Request Free Quote
                                 </a>
                             </div>
                         </div>
@@ -547,4 +547,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
+
 });
