@@ -8,7 +8,8 @@ const servicesData = {
                 price: "From $300", 
                 desc: "Safe soft washing for vinyl, brick, and stucco using low-pressure nozzles.", 
                 benefits: ["Prevents siding damage", "Removes mold/algae", "Instant curb appeal"],
-                process: ["Property Inspection & Plant Protection", "Eco-friendly Detergent Application", "Low-Pressure Soft Wash Rinse", "Final Detail & Window Spot-Check"]
+                process: ["Property Inspection & Plant Protection", "Eco-friendly Detergent Application", "Low-Pressure Soft Wash Rinse", "Final Detail & Window Spot-Check"],
+                pricingDetails: "Flat Rate Pricing:\nSmall (1,500 sq ft) $300\nMedium (2,000 sq ft) $400\nLarge (3,000 sq ft) $550\n\nUnit Rate: $0.25 per square foot"
             },
             { 
                 id: "driveway", 
@@ -16,7 +17,8 @@ const servicesData = {
                 price: "$0.22/sq ft", 
                 desc: "4200 PSI deep cleaning for concrete to remove years of grime.", 
                 benefits: ["Removes oil stains", "Eliminates tire marks", "Safe for neighbors"],
-                process: ["Debris Removal & Edging", "Surface Pre-Treatment for Stains", "Commercial Surface Cleaner Pass", "High-Volume Rinse & Sediment Flush"]
+                process: ["Debris Removal & Edging", "Surface Pre-Treatment for Stains", "Commercial Surface Cleaner Pass", "High-Volume Rinse & Sediment Flush"],
+                pricingDetails: "Unit Rate: $0.22 per square foot (standard jobs)\nBulk Rate: $0.18 per square foot (over 5,000 sq ft)"
             },
             { 
                 id: "dumpster", 
@@ -65,6 +67,15 @@ const servicesData = {
                 desc: "Specific mineral and organic stain treatment.", 
                 benefits: ["Restores color", "Stops structural erosion"],
                 process: ["Organic Growth Assessment", "Mineral Dissolving Pre-treatment", "Pressure Clean", "Growth Inhibitor Application"]
+            },
+            { 
+                id: "tennis-courts", 
+                name: "Tennis Courts", 
+                price: "$330", 
+                desc: "Deep cleaning for tennis and pickleball courts to restore traction and professional aesthetics.", 
+                benefits: ["Improved playability", "Removes slippery moss/algae", "Extends surface life"],
+                process: ["Surface Assessment & Debris Removal", "Application of Surface-Safe Specialized Cleaners", "Precision Pressure Wash Treatment", "Final High-Volume Rinse & Inspection"],
+                pricingDetails: "Flat Rate: $330 per standard court\nMulti-court discount available."
             }
         ]
     },
@@ -144,10 +155,11 @@ function showPage(pageId) {
     if (pageId === 'home') {
         home.classList.remove('hidden');
         detail.classList.add('hidden');
+        lucide.createIcons();
     } else {
         home.classList.add('hidden');
         detail.classList.remove('hidden');
-        
+
         let service = null;
         Object.values(servicesData).forEach(cat => {
             const found = cat.items.find(i => i.id === pageId);
@@ -156,45 +168,69 @@ function showPage(pageId) {
 
         if (service) {
             content.innerHTML = `
-                <h1 class="text-5xl font-extrabold mb-6">${service.name}</h1>
-                <div class="bg-blue-50 border border-blue-200 rounded-3xl p-8 md:p-12 shadow-sm mb-12">
-                    <div class="grid md:grid-cols-2 gap-12">
-                        <div>
-                            <p class="text-2xl font-bold text-blue-600 mb-4">Pricing: ${service.price}</p>
-                            <p class="text-xl text-gray-700 leading-relaxed mb-8">${service.desc}</p>
-                            <h3 class="text-xl font-bold mb-4">Key Benefits:</h3>
-                            <ul class="space-y-3 mb-8">
-                                ${service.benefits.map(b => `<li class="flex items-center text-lg"><i data-lucide="check-circle" class="text-green-500 mr-3 w-6 h-6"></i> ${b}</li>`).join('')}
-                            </ul>
-                            <a href="#quote" onclick="showPage('home')" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 shadow-md">Get Your Free Quote</a>
-                        </div>
-                        <div class="bg-white p-8 rounded-2xl border border-blue-100 shadow-inner">
-                            <h3 class="text-2xl font-bold mb-6 flex items-center"><i data-lucide="clipboard-list" class="mr-2 text-blue-600"></i> Our Step-by-Step Process</h3>
-                            <div class="space-y-6">
-                                ${service.process.map((step, index) => `
-                                    <div class="flex gap-4">
-                                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">${index + 1}</div>
-                                        <p class="text-gray-700 text-lg font-medium pt-1">${step}</p>
-                                    </div>
+                <div class="mb-12">
+                    <h1 class="text-5xl font-extrabold mb-4 text-gray-900">${service.name}</h1>
+                    <p class="text-2xl text-blue-600 font-semibold mb-6">${service.price}</p>
+                    <p class="text-xl text-gray-700 leading-relaxed max-w-3xl">${service.desc}</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-start mb-16">
+                    <div class="space-y-8">
+                        <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100">
+                            <h3 class="text-2xl font-bold mb-6 flex items-center">
+                                <i data-lucide="shield-check" class="mr-3 text-blue-600"></i> Why Choose This Service?
+                            </h3>
+                            <ul class="space-y-4">
+                                ${service.benefits.map(b => `
+                                    <li class="flex items-start text-lg text-gray-700">
+                                        <i data-lucide="check-circle" class="text-green-500 mr-3 w-6 h-6 flex-shrink-0 mt-0.5"></i>
+                                        ${b}
+                                    </li>
                                 `).join('')}
-                            </div>
+                            </ul>
                         </div>
                     </div>
-                </div>`;
+
+                    <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                        <h3 class="text-2xl font-bold mb-8 flex items-center">
+                            <i data-lucide="clock" class="mr-3 text-blue-600"></i> Our Restoration Process
+                        </h3>
+                        <div class="space-y-8">
+                            ${service.process.map((step, index) => `
+                                <div class="flex gap-4">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                                        ${index + 1}
+                                    </div>
+                                    <p class="text-lg text-gray-700 font-medium pt-0.5">${step}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-600 to-blue-500 rounded-3xl p-12 text-center text-white">
+                    <h3 class="text-3xl font-bold mb-4">Ready to Restore Your Property?</h3>
+                    <p class="text-xl text-blue-50 mb-8 max-w-2xl mx-auto">Get a free, no-obligation quote for your ${service.name} project today.</p>
+                    <button onclick="showPage('home'); setTimeout(() => { document.getElementById('quote').scrollIntoView({ behavior: 'smooth' }); }, 100);" class="bg-white text-blue-600 px-12 py-4 rounded-xl font-bold text-xl hover:bg-blue-50 transition-all shadow-xl">
+                        Request Your Quote
+                    </button>
+                </div>
+            `;
             lucide.createIcons();
+            window.scrollTo(0, 0);
         }
     }
-    window.scrollTo(0,0);
 }
 
-// Populate Home Page Services and Dropdown Groups
 const container = document.getElementById('services-container');
-const dropdown = document.getElementById('service-dropdown');
+const dropdown = document.getElementById('quote-service-dropdown');
 
 Object.values(servicesData).forEach(category => {
     const card = document.createElement('div');
-    card.className = "service-category-card bg-blue-50 rounded-2xl p-8 shadow-sm border border-blue-100";
-    let itemsHtml = `<h3 class="text-3xl font-black mb-8">${category.title}</h3><div class="space-y-4">`;
+    card.className = 'service-category-card bg-white rounded-3xl shadow-sm border border-gray-100 p-8';
+    
+    let itemsHtml = `<h3 class="text-2xl font-bold text-gray-900 mb-6 pb-4 border-b border-gray-50">${category.title}</h3>
+                     <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">`;
     
     const optGroup = document.createElement('optgroup');
     optGroup.label = category.title;
@@ -217,25 +253,35 @@ Object.values(servicesData).forEach(category => {
     dropdown.appendChild(optGroup);
 });
 
-// Slider logic
 const slider = document.querySelector('.slider-container');
 const handle = document.getElementById('slider-handle');
 const afterWrap = document.getElementById('after-img-wrap');
 
 function slide(e) {
+    if (!slider) return;
     const rect = slider.getBoundingClientRect();
-    let x = (e.pageX || e.touches[0].pageX) - rect.left;
+    let x = (e.pageX || (e.touches ? e.touches[0].pageX : 0)) - rect.left;
     let pos = (x / rect.width) * 100;
     if (pos < 0) pos = 0; if (pos > 100) pos = 100;
     handle.style.left = `${pos}%`;
     afterWrap.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
 }
 
-slider.addEventListener('mousemove', (e) => { if(e.buttons === 1) slide(e); });
-slider.addEventListener('touchmove', slide);
+if (slider) {
+    ['mousedown', 'touchstart'].forEach(evt => {
+        slider.addEventListener(evt, (e) => {
+            window.addEventListener('mousemove', slide);
+            window.addEventListener('touchmove', slide);
+            slide(e);
+        });
+    });
 
-document.getElementById('quote-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert("Quote request sent! We will contact you within 24 hours.");
-    e.target.reset();
-});
+    ['mouseup', 'touchend'].forEach(evt => {
+        window.addEventListener(evt, () => {
+            window.removeEventListener('mousemove', slide);
+            window.removeEventListener('touchmove', slide);
+        });
+    });
+}
+
+lucide.createIcons();
