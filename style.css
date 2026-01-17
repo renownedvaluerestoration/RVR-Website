@@ -40,12 +40,3 @@ option {
     color: #1f2937;
     background-color: white;
 }
-
-/* Smooth step numbering */
-.flex-shrink-0.w-8.h-8 {
-    transition: transform 0.2s ease;
-}
-
-.flex.gap-4:hover .flex-shrink-0.w-8.h-8 {
-    transform: scale(1.1);
-}
