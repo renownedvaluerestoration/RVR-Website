@@ -3,7 +3,7 @@ const serviceCategories = [
         title: "Pressure Wash & Treat",
         items: [
             { id: 'house-washing', name: 'House Washing', price: 'From $300', desc: 'Professional soft washing for home exteriors. [cite: 28]', benefits: ['Curb appeal', 'Prevent damage'], rate: '$0.25/sq ft' },
-            { id: 'tennis-courts', name: 'Tennis Courts', price: '$1100', desc: 'Deep cleaning and restoration for sports surfaces.', benefits: ['Improved traction', 'Surface longevity'], rate: '$1100 per court' },
+            { id: 'tennis-courts', name: 'Tennis Courts', price: '$1100', desc: 'Deep cleaning and restoration for sports surfaces.', benefits: ['Improved traction', 'Surface longevity'], rate: 'Starting at $1100' },
             { id: 'parking-lots', name: 'Driveway & Parking Lot Pressure Washing', price: '$0.22/sq ft', desc: 'Commercial grade cleaning for concrete and asphalt. [cite: 29]', benefits: ['Safety', 'Professional look'], rate: '$0.22/sq ft' },
             { id: 'dumpster-pads', name: 'Dumpster Pads', price: 'Custom Quote', desc: 'Sanitization and odor removal. [cite: 31]', benefits: ['Health compliance'], rate: 'Custom' },
             { id: 'rooftops', name: 'Rooftop Softwash', price: '$0.44/sq ft', desc: 'Safe removal of algae and moss. [cite: 32]', benefits: ['Roof longevity'], rate: '$0.44/sq ft' },
@@ -36,6 +36,12 @@ const serviceCategories = [
 function initServices() {
     const container = document.getElementById('services-container');
     const select = document.getElementById('service-select');
+    
+    // Clear existing content
+    container.innerHTML = '';
+    
+    // Clear and rebuild dropdown options
+    select.innerHTML = '<option value="">Select a service [cite: 111]</option>';
 
     serviceCategories.forEach(cat => {
         const group = document.createElement('div');
@@ -54,8 +60,8 @@ function initServices() {
 
             // Add to quote dropdown
             const opt = document.createElement('option');
-                opt.value = item.id;
-                opt.innerText = item.name;
+            opt.value = item.id;
+            opt.innerText = item.name;
             select.appendChild(opt);
         });
         container.appendChild(group);
@@ -71,28 +77,38 @@ function showPage(pageId) {
         detail.classList.add('hidden');
     } else {
         const item = serviceCategories.flatMap(c => c.items).find(i => i.id === pageId);
-        document.getElementById('service-title').innerText = item.name;
-        document.getElementById('service-desc').innerText = item.desc;
-        document.getElementById('service-pricing').innerText = `Rate: ${item.rate}`;
-        document.getElementById('service-benefits').innerHTML = item.benefits.map(b => `<li>${b}</li>`).join('');
-        
-        home.classList.add('hidden');
-        detail.classList.remove('hidden');
-        window.scrollTo(0,0);
+        if (item) {
+            document.getElementById('service-title').innerText = item.name;
+            document.getElementById('service-desc').innerText = item.desc;
+            document.getElementById('service-pricing').innerText = `Rate: ${item.rate}`;
+            document.getElementById('service-benefits').innerHTML = item.benefits.map(b => `<li>${b}</li>`).join('');
+            
+            home.classList.add('hidden');
+            detail.classList.remove('hidden');
+            window.scrollTo(0,0);
+        } else {
+            // Fallback to home if service not found
+            showPage('home');
+        }
     }
 }
 
 // Slider Functionality [cite: 14-16]
 const slider = document.getElementById('before-after-slider');
-slider.addEventListener('mousemove', (e) => {
-    const rect = slider.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const percent = (x / rect.width) * 100;
-    if (percent >= 0 && percent <= 100) {
-        document.getElementById('after-img').style.width = `${percent}%`;
-        document.getElementById('slider-handle').style.left = `${percent}%`;
-    }
-});
+if (slider) {
+    slider.addEventListener('mousemove', (e) => {
+        const rect = slider.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percent = (x / rect.width) * 100;
+        if (percent >= 0 && percent <= 100) {
+            document.getElementById('after-img').style.width = `${percent}%`;
+            document.getElementById('slider-handle').style.left = `${percent}%`;
+        }
+    });
+}
 
-initServices();
-lucide.createIcons();
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initServices();
+    lucide.createIcons();
+});
