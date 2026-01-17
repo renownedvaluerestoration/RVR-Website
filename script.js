@@ -207,8 +207,7 @@ function showPage(pageId) {
                             </div>
                         </div>
                         <div class="flex-shrink-0">
-                            <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-2xl hover:shadow-3xl flex items-center gap-3 whitespace-nowrap">
-                                <i data-lucide="message-square-quote" class="w-6 h-6"></i>
+                            <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-2xl hover:shadow-3xl whitespace-nowrap">
                                 Get Free Quote
                             </a>
                         </div>
@@ -276,17 +275,12 @@ function showPage(pageId) {
                     <div class="space-y-8">
                         <!-- Pricing Card -->
                         <div class="bg-gradient-to-br from-blue-50 to-white rounded-3xl shadow-xl p-8 border border-blue-200">
-                            <div class="flex items-center gap-3 mb-6">
-                                <i data-lucide="dollar-sign" class="w-8 h-8 text-blue-600"></i>
-                                <h2 class="text-3xl font-bold text-blue-900">Pricing & Investment</h2>
+                            <div class="text-center mb-6">
+                                <p class="text-5xl font-extrabold text-blue-700 mb-2">${service.price}</p>
+                                <p class="text-blue-600 font-medium">Transparent Pricing</p>
                             </div>
                             
                             <div class="bg-white rounded-2xl p-6 border border-blue-100 shadow-sm">
-                                <div class="text-center mb-6">
-                                    <p class="text-5xl font-extrabold text-blue-700 mb-2">${service.price}</p>
-                                    <p class="text-blue-600 font-medium">Transparent Pricing</p>
-                                </div>
-                                
                                 <div class="space-y-4">
                                     ${service.pricingDetails.split('\n').map(line => line.trim()).filter(line => line).map(line => {
                                         if (line.includes(':')) {
@@ -321,10 +315,7 @@ function showPage(pageId) {
 
                         <!-- Quick Action Card -->
                         <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-xl p-8 text-white">
-                            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                                <i data-lucide="zap" class="w-6 h-6 text-yellow-400"></i>
-                                Ready to Transform?
-                            </h3>
+                            <h3 class="text-2xl font-bold mb-6">Ready to Transform?</h3>
                             
                             <div class="space-y-6">
                                 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5">
@@ -344,21 +335,9 @@ function showPage(pageId) {
                                 </div>
                                 
                                 <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold py-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition shadow-lg hover:shadow-xl">
-                                    <div class="flex items-center justify-center gap-3">
-                                        <i data-lucide="message-square-quote" class="w-5 h-5"></i>
-                                        Request Instant Quote
-                                    </div>
+                                    Request Instant Quote
                                 </a>
                             </div>
-                        </div>
-
-                        <!-- Equipment Badge -->
-                        <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-sm p-6 border border-gray-200 text-center">
-                            <div class="inline-block bg-blue-100 p-3 rounded-full mb-4">
-                                <i data-lucide="settings" class="w-8 h-8 text-blue-600"></i>
-                            </div>
-                            <h4 class="font-bold text-gray-900 mb-2">Commercial-Grade Equipment</h4>
-                            <p class="text-gray-600 text-sm">Honda-powered Simpson ALH 4240</p>
                         </div>
                     </div>
                 </div>
@@ -399,8 +378,7 @@ function showPage(pageId) {
                     </div>
                     
                     <div class="mt-12 text-center">
-                        <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="inline-flex items-center gap-3 bg-blue-600 text-white px-12 py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-xl hover:shadow-2xl">
-                            <i data-lucide="calendar-check" class="w-6 h-6"></i>
+                        <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-blue-600 text-white px-12 py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-xl hover:shadow-2xl">
                             Schedule Your ${service.name} Today
                         </a>
                     </div>
