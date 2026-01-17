@@ -17,7 +17,9 @@ const servicesData = {
                 price: '$1100', 
                 desc: 'Deep cleaning and restoration for sports surfaces.', 
                 benefits: ['Improved traction', 'Surface longevity'], 
-                rate: 'Starting at $1100' 
+                rate: 'Starting at $1100',
+                process: ["Surface Inspection & Preparation", "Specialized Sports Surface Cleaner Application", "Low-Pressure Rinse & Extraction", "Traction & Line Inspection"],
+                pricingDetails: "Flat Rate Pricing:\nStandard Court: $1,100\nMultiple Courts: Call for Quote"
             },
             { 
                 id: "driveway", 
@@ -167,6 +169,7 @@ function showPage(pageId) {
     if (pageId === 'home') {
         home.classList.remove('hidden');
         detail.classList.add('hidden');
+        window.scrollTo(0,0);
     } else {
         home.classList.add('hidden');
         detail.classList.remove('hidden');
@@ -182,4 +185,203 @@ function showPage(pageId) {
                 <div class="mb-12">
                     <h1 class="text-5xl font-extrabold mb-4 text-gray-900">${service.name}</h1>
                     <p class="text-2xl text-blue-600 font-semibold mb-6">${service.price}</p>
-                    <p class="text-xl
+                    <p class="text-xl text-gray-700 leading-relaxed max-w-3xl">${service.desc}</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-start mb-16">
+                    <div class="space-y-8">
+                        <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100">
+                            <h3 class="text-2xl font-bold mb-6 flex items-center">
+                                <i data-lucide="shield-check" class="mr-3 text-blue-600"></i> Why Choose This Service?
+                            </h3>
+                            <ul class="space-y-4">
+                                ${service.benefits.map(b => `
+                                    <li class="flex items-start text-lg text-gray-700">
+                                        <i data-lucide="check-circle" class="text-green-500 mr-3 w-6 h-6 flex-shrink-0 mt-0.5"></i> 
+                                        <span>${b}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="flex justify-center md:justify-start">
+                            <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-blue-700 transition shadow-lg">Get Free Quote</a>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="bg-blue-50 rounded-3xl p-8 border border-blue-100 shadow-sm">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-800">Pricing Details</h3>
+                            <p class="text-lg text-blue-900 leading-relaxed whitespace-pre-line font-medium">${service.pricingDetails}</p>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+                            <h3 class="text-2xl font-bold mb-6 flex items-center">
+                                <i data-lucide="list-ordered" class="mr-3 text-blue-600"></i> Our Professional Process
+                            </h3>
+                            <div class="space-y-5">
+                                ${service.process.map((step, index) => `
+                                    <div class="flex gap-4">
+                                        <div class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">${index + 1}</div>
+                                        <p class="text-gray-700 text-lg">${step}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pt-12 border-t border-gray-100">
+                    <h2 class="text-4xl font-bold text-center mb-12">Project Results</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="relative group">
+                            <div class="bg-gray-100 rounded-2xl aspect-video w-full flex items-center justify-center overflow-hidden border-2 border-gray-200 shadow-sm">
+                                <span class="text-gray-400 font-bold uppercase tracking-widest text-lg">Before Restoration</span>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded text-xs font-bold uppercase">Before</div>
+                        </div>
+                        <div class="relative group">
+                            <div class="bg-blue-50 rounded-2xl aspect-video w-full flex items-center justify-center overflow-hidden border-2 border-blue-100 shadow-sm">
+                                <span class="text-blue-300 font-bold uppercase tracking-widest text-lg">Professional After</span>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded text-xs font-bold uppercase">After</div>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-500 mt-8 italic text-lg">Visualizing the value restoration for ${service.name} projects.</p>
+                </div>`;
+            lucide.createIcons();
+        }
+    }
+    window.scrollTo(0,0);
+}
+
+// Populate Home Page Services and Dropdown Groups
+function initializeServices() {
+    const container = document.getElementById('services-container');
+    const dropdown = document.getElementById('service-dropdown');
+    
+    // Clear existing content
+    container.innerHTML = '';
+    
+    // Clear and reset dropdown
+    dropdown.innerHTML = '<option value="">Select Service *</option>';
+
+    Object.values(servicesData).forEach(category => {
+        const card = document.createElement('div');
+        card.className = "service-category-card bg-blue-50 rounded-2xl p-8 shadow-sm border border-blue-100";
+        let itemsHtml = `<h3 class="text-3xl font-black mb-8">${category.title}</h3><div class="space-y-4">`;
+        
+        const optGroup = document.createElement('optgroup');
+        optGroup.label = category.title;
+
+        category.items.forEach(item => {
+            itemsHtml += `
+                <div class="flex justify-between items-center group cursor-pointer border-b border-blue-100 pb-3" onclick="showPage('${item.id}')">
+                    <span class="text-blue-600 font-bold text-lg group-hover:underline">${item.name}</span>
+                    <span class="text-gray-900 font-medium">${item.price}</span>
+                </div>`;
+            
+            const opt = document.createElement('option');
+            opt.value = item.id;
+            opt.textContent = item.name;
+            optGroup.appendChild(opt);
+        });
+        
+        card.innerHTML = itemsHtml + `</div>`;
+        container.appendChild(card);
+        dropdown.appendChild(optGroup);
+    });
+}
+
+// Slider logic
+function initializeSlider() {
+    const slider = document.querySelector('.slider-container');
+    const handle = document.getElementById('slider-handle');
+    const afterWrap = document.getElementById('after-img-wrap');
+
+    function slide(e) {
+        if (!slider) return;
+        const rect = slider.getBoundingClientRect();
+        let x = (e.pageX || (e.touches ? e.touches[0].pageX : 0)) - rect.left;
+        let pos = (x / rect.width) * 100;
+        if (pos < 0) pos = 0; 
+        if (pos > 100) pos = 100;
+        handle.style.left = `${pos}%`;
+        afterWrap.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
+    }
+
+    if (slider) {
+        slider.addEventListener('mousemove', (e) => { 
+            if(e.buttons === 1) slide(e); 
+        });
+        slider.addEventListener('touchmove', slide);
+    }
+}
+
+// Form submission with tracking
+function initializeForm() {
+    const form = document.getElementById('quote-form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Track in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'quote_request', {
+                    'event_category': 'conversion',
+                    'event_label': 'free_quote_form'
+                });
+            }
+            
+            // Track in Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead');
+            }
+            
+            alert("Quote request sent! We will contact you within 24 hours.");
+            form.reset();
+        });
+    }
+}
+
+// Track phone calls
+function trackPhoneCall() {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'phone_call', {
+            'event_category': 'conversion',
+            'event_label': 'header_phone'
+        });
+    }
+    
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact');
+    }
+}
+
+// Track quote submissions
+function trackQuoteSubmission() {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'quote_request', {
+            'event_category': 'conversion',
+            'event_label': 'quote_button'
+        });
+    }
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeServices();
+    initializeSlider();
+    initializeForm();
+    lucide.createIcons();
+    
+    // Add click listeners to all phone links
+    document.querySelectorAll('a[href^="tel"]').forEach(link => {
+        link.addEventListener('click', trackPhoneCall);
+    });
+});
+
+// Also initialize on window load for safety
+window.addEventListener('load', function() {
+    lucide.createIcons();
+});
