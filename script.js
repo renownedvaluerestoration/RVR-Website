@@ -12,6 +12,14 @@ const servicesData = {
                 pricingDetails: "Flat Rate Pricing:\nSmall (1,500 sq ft) $300\nMedium (2,000 sq ft) $400\nLarge (3,000 sq ft) $550\n\nUnit Rate: $0.25 per square foot"
             },
             { 
+                id: 'tennis-courts', 
+                name: 'Tennis Courts', 
+                price: '$1100', 
+                desc: 'Deep cleaning and restoration for sports surfaces.', 
+                benefits: ['Improved traction', 'Surface longevity'], 
+                rate: 'Starting at $1100' 
+            },
+            { 
                 id: "driveway", 
                 name: "Driveway & Parking Lot Pressure Washing", 
                 price: "$0.22/sq ft", 
@@ -298,4 +306,5 @@ document.getElementById('quote-form').addEventListener('submit', (e) => {
     e.preventDefault();
     alert("Quote request sent! We will contact you within 24 hours.");
     e.target.reset();
+
 });
