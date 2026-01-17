@@ -4,6 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renowned Value Restoration | Professional Pressure Washing</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+      
+      // Track quote form submissions
+      function trackQuoteSubmission() {
+        gtag('event', 'quote_request', {
+          'event_category': 'conversion',
+          'event_label': 'free_quote_form'
+        });
+      }
+      
+      // Track phone clicks
+      function trackPhoneCall() {
+        gtag('event', 'phone_call', {
+          'event_category': 'conversion',
+          'event_label': 'header_phone'
+        });
+      }
+    </script>
+
+    <!-- Facebook Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'FB_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=FB_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -19,11 +62,32 @@
                     <p class="text-sm text-gray-600">Pressure Washing and Soft Washing</p>
                 </div>
             </div>
+            
+            <!-- Mobile Phone Button (Visible on mobile only) -->
+            <div class="md:hidden flex items-center">
+                <a href="tel:2483138955" 
+                   onclick="trackPhoneCall()" 
+                   class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center gap-2">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    Call Now
+                </a>
+            </div>
+            
             <nav class="hidden md:flex items-center gap-6">
                 <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Services</a>
                 <a href="#local-reputation" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Reviews</a>
                 <a href="#process" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Results</a>
-                <a href="#quote" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Get Free Quote</a>
+                
+                <!-- Desktop Phone & Quote Buttons -->
+                <div class="flex items-center gap-4">
+                    <a href="tel:2483138955" 
+                       onclick="trackPhoneCall()" 
+                       class="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-medium text-lg">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        (248) 313-8955
+                    </a>
+                    <a href="#quote" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Get Free Quote</a>
+                </div>
             </nav>
         </div>
     </header>
@@ -35,6 +99,40 @@
                 <p class="text-xl md:text-2xl text-blue-50 max-w-4xl mx-auto leading-relaxed">
                     Professional pressure washing and restoration services that transform your property's exterior and protect your investment.
                 </p>
+                
+                <!-- Hero CTA with Phone Emphasis -->
+                <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#quote" 
+                       onclick="showPage('home')" 
+                       class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-lg w-full sm:w-auto text-center">
+                        Get Free Quote
+                    </a>
+                    <div class="flex items-center gap-2 text-lg">
+                        <span class="text-blue-100">Or call now:</span>
+                        <a href="tel:2483138955" 
+                           onclick="trackPhoneCall()" 
+                           class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-xl font-bold hover:bg-white/10 transition flex items-center gap-2">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                            (248) 313-8955
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class="mt-12 flex flex-wrap justify-center gap-6 text-blue-100">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="clock" class="w-5 h-5"></i>
+                        <span>Same-Day Quotes</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                        <span>Insured & Licensed</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="award" class="w-5 h-5"></i>
+                        <span>5-Star Rated</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -96,6 +194,19 @@
             <div class="max-w-4xl mx-auto px-6">
                 <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
                     <h2 class="text-4xl font-bold text-center mb-8">Get Your Free Quote</h2>
+                    
+                    <!-- Phone Call CTA Above Form -->
+                    <div class="mb-8 p-6 bg-blue-50 rounded-xl border border-blue-100 text-center">
+                        <p class="text-xl font-bold text-blue-800 mb-2">Prefer to talk?</p>
+                        <a href="tel:2483138955" 
+                           onclick="trackPhoneCall()" 
+                           class="inline-flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition shadow-lg">
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                            Call (248) 313-8955 for Immediate Quote
+                        </a>
+                        <p class="text-blue-600 mt-3 font-medium">24/7 Call Back Guarantee</p>
+                    </div>
+                    
                     <form id="quote-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <input type="text" placeholder="Full Name *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
                         <input type="email" placeholder="Email *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
@@ -148,7 +259,7 @@
                     <div class="space-y-4 w-full">
                         <div class="flex items-center justify-center md:justify-start gap-3 text-gray-600 hover:text-blue-600 transition">
                             <i data-lucide="phone" class="w-5 h-5"></i>
-                            <a href="tel:2483138955" class="text-lg font-medium">(248) 313-8955</a>
+                            <a href="tel:2483138955" onclick="trackPhoneCall()" class="text-lg font-medium">(248) 313-8955</a>
                         </div>
                         <div class="flex items-center justify-center md:justify-start gap-3 text-gray-600 hover:text-blue-600 transition">
                             <i data-lucide="mail" class="w-5 h-5"></i>
@@ -176,7 +287,28 @@
         </div>
     </footer>
 
+    <!-- Floating Phone Buttons (Mobile Only) -->
+    <a href="tel:2483138955" 
+       onclick="trackPhoneCall()" 
+       class="floating-phone phone-call md:hidden">
+        <i data-lucide="phone" class="w-6 h-6"></i>
+    </a>
+    
+    <a href="https://wa.me/12483138955?text=Hi!%20I'm%20interested%20in%20a%20pressure%20washing%20quote" 
+       onclick="trackPhoneCall()"
+       class="floating-phone whatsapp-call md:hidden" 
+       target="_blank">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+    </a>
+
     <script src="script.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+    </script>
 </body>
 </html>
