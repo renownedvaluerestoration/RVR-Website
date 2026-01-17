@@ -6,6 +6,7 @@
 
 #detail-page.hidden { display: none; }
 #home-page.hidden { display: none; }
+#blog-page.hidden { display: none; }
 
 html { scroll-behavior: smooth; }
 
@@ -56,6 +57,48 @@ option {
 }
 
 /* ============================
+   IMPROVED TITLE STYLING
+   ============================ */
+
+/* Enhanced black title styling */
+.text-gray-900 {
+    color: #111827;
+}
+
+/* Improved title appearance */
+.font-bold, .font-extrabold, .font-black {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.tracking-tight {
+    letter-spacing: -0.025em;
+}
+
+/* Add subtle text shadow for better readability */
+.text-5xl, .text-6xl {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Gradient text effect for main hero title */
+.bg-gradient-to-br h2 {
+    background: linear-gradient(to right, #ffffff, #e5e7eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Subtle hover effect on section titles */
+.text-gray-900:hover {
+    color: #1f2937;
+}
+
+/* Improved contrast for better readability */
+.text-gray-700 {
+    color: #374151;
+}
+
+/* ============================
    MOBILE OPTIMIZATION
    ============================ */
 
@@ -97,138 +140,4 @@ option {
     background: #1d4ed8;
 }
 
-.floating-phone.whatsapp-call:hover {
-    background: #128C7E;
-}
-
-/* Mobile Responsive Adjustments */
-@media (max-width: 768px) {
-    /* Header adjustments */
-    header .max-w-7xl {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    
-    /* Hero section */
-    .bg-gradient-to-br h2 {
-        font-size: 2.5rem;
-        line-height: 1.2;
-    }
-    
-    .bg-gradient-to-br p {
-        font-size: 1.125rem;
-    }
-    
-    /* Trust badges stack vertically */
-    .bg-gradient-to-br .flex-wrap {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-    
-    /* Local reputation grid */
-    .grid.md\\:grid-cols-3 {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    /* Slider height */
-    .slider-container {
-        height: 300px;
-    }
-    
-    /* Quote form */
-    .bg-white.rounded-3xl {
-        padding: 1.5rem;
-    }
-    
-    /* Form inputs */
-    .p-4.border.rounded-xl {
-        padding: 0.75rem;
-    }
-    
-    /* Footer layout */
-    .grid.md\\:grid-cols-2 {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    /* Service detail page */
-    #service-detail-content .grid.md\\:grid-cols-2 {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Prevent horizontal overflow */
-    body {
-        overflow-x: hidden;
-    }
-    
-    /* Improve button tap targets */
-    button, 
-    a[href^="tel"],
-    .cursor-pointer {
-        min-height: 44px;
-        min-width: 44px;
-    }
-    
-    /* Better text readability */
-    p, li, span:not(.floating-phone *) {
-        font-size: 16px;
-        line-height: 1.6;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Extra small adjustments */
-    .bg-gradient-to-br h2 {
-        font-size: 2rem;
-    }
-    
-    .bg-gradient-to-br .flex.flex-col.sm\\:flex-row {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .bg-gradient-to-br .flex.flex-col.sm\\:flex-row a,
-    .bg-gradient-to-br .flex.flex-col.sm\\:flex-row div {
-        width: 100%;
-    }
-    
-    /* Floating buttons positioning */
-    .floating-phone.phone-call {
-        bottom: 100px;
-        right: 15px;
-    }
-    
-    .floating-phone.whatsapp-call {
-        bottom: 20px;
-        right: 15px;
-    }
-}
-
-/* Hide floating buttons on desktop */
-@media (min-width: 769px) {
-    .floating-phone {
-        display: none !important;
-    }
-}
-
-/* Mobile menu improvements */
-@media (max-width: 768px) {
-    /* Ensure navigation is accessible */
-    nav.hidden.md\\:flex {
-        display: none;
-    }
-    
-    /* Mobile header spacing */
-    .max-w-7xl.mx-auto.px-6.py-4 {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-}
-
-/* Fix for iOS Safari 100vh issue */
-@supports (-webkit-touch-callout: none) {
-    .min-h-screen {
-        min-height: -webkit-fill-available;
-    }
-}
+.fl
