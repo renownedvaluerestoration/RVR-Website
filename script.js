@@ -187,17 +187,21 @@ function scrollToSection(sectionId) {
     }, 100);
 }
 
+// Update the showPage function to include new pages
 function showPage(pageId) {
     const home = document.getElementById('home-page');
     const detail = document.getElementById('detail-page');
     const blog = document.getElementById('blog-page');
+    const equipment = document.getElementById('equipment-page');
+    const safety = document.getElementById('safety-page');
+    const procedures = document.getElementById('procedures-page');
     const content = document.getElementById('service-detail-content');
 
     // Hide all pages first
     home.classList.add('hidden');
     detail.classList.add('hidden');
     blog.classList.add('hidden');
-
+   
     if (pageId === 'home') {
         home.classList.remove('hidden');
         window.scrollTo(0,0);
@@ -549,4 +553,5 @@ window.addEventListener('load', function() {
     lucide.createIcons();
 
 });
+
 
