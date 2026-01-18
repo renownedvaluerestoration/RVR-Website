@@ -187,24 +187,43 @@ function scrollToSection(sectionId) {
     }, 100);
 }
 
+// Update the showPage function to include all pages
 function showPage(pageId) {
+    // Get all page elements
     const home = document.getElementById('home-page');
     const detail = document.getElementById('detail-page');
     const blog = document.getElementById('blog-page');
+    const equipment = document.getElementById('equipment-page');
+    const safety = document.getElementById('safety-page');
+    const procedures = document.getElementById('procedures-page');
     const content = document.getElementById('service-detail-content');
 
-    // Hide all pages first
+    // Hide ALL pages first
     home.classList.add('hidden');
     detail.classList.add('hidden');
     blog.classList.add('hidden');
+    equipment.classList.add('hidden');
+    safety.classList.add('hidden');
+    procedures.classList.add('hidden');
 
+    // Show the requested page
     if (pageId === 'home') {
         home.classList.remove('hidden');
         window.scrollTo(0,0);
     } else if (pageId === 'blog') {
         blog.classList.remove('hidden');
         window.scrollTo(0,0);
+    } else if (pageId === 'equipment') {
+        equipment.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else if (pageId === 'safety') {
+        safety.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else if (pageId === 'procedures') {
+        procedures.classList.remove('hidden');
+        window.scrollTo(0,0);
     } else {
+        // Service detail page
         detail.classList.remove('hidden');
         
         let service = null;
@@ -212,6 +231,12 @@ function showPage(pageId) {
             const found = cat.items.find(i => i.id === pageId);
             if (found) service = found;
         });
+
+        if (service) {
+            // ... existing service detail page code ...
+        }
+    }
+}
 
         if (service) {
             content.innerHTML = `
@@ -361,7 +386,7 @@ function showPage(pageId) {
                                 </div>
                                 
                                 <a href="#quote" onclick="showPageAndScrollToQuote(); trackQuoteSubmission();" class="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold py-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition shadow-lg hover:shadow-xl">
-                                    Request Instant Quote
+                                    Get Free Quote
                                 </a>
                             </div>
                         </div>
@@ -547,4 +572,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
+
 });
+
+
+
+
