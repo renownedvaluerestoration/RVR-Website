@@ -158,7 +158,40 @@ const servicesData = {
                 pricingDetails: "Unit Rate: $0.25 per square foot"
             }
         ]
-    }
+   },
+        // Add this inside the servicesData object in script.js
+  categoryD: {
+    title: "Company Standards",
+    items: [
+        { 
+            id: "equipment", 
+            name: "Equipment Standards", 
+            price: "Commercial Grade", 
+            desc: "We exclusively use Honda-powered commercial equipment to ensure consistent, professional results without the reliability issues of residential-grade washers.", 
+            benefits: ["Simpson ALH 4240 (4200 PSI / 4.0 GPM)", "Honda GX390 Professional Engines", "Dual-Bearing Surface Cleaners", "Commercial Grade Hoses & Tips"],
+            process: ["Equipment Pre-Check: Oil and pressure verification", "Pressure Regulation: Adjusting PSI specifically for your surface type", "Surface Cleaner Deployment: Ensuring even, streak-free cleaning", "Post-Job Maintenance: Full equipment flush to prevent cross-contamination"],
+            pricingDetails: "Top-tier equipment allows us to work faster and safer, keeping your costs competitive."
+        },
+        { 
+            id: "safety", 
+            name: "Safety Protocols", 
+            price: "Fully Insured", 
+            desc: "Safety is our priority. We follow strict protocols to protect your family, your pets, and your property's landscaping.", 
+            benefits: ["Plant & Landscape Protection", "OSHA Compliance", "Property Liability Insurance", "Non-Slip Work Area Signage"],
+            process: ["Site Assessment: Identifying hazards and delicate surfaces", "Pre-Wet Plants: Saturating vegetation to prevent chemical absorption", "Property Shielding: Covering outlets and sensitive fixtures", "Post-Wash Rinse: Final neutralizer to ensure zero chemical residue"],
+            pricingDetails: "Our safety measures are included in every quote at no extra cost."
+        },
+        { 
+            id: "procedures", 
+            name: "Operational Procedures", 
+            price: "Standardized Excellence", 
+            desc: "We follow a standardized workflow on every job to ensure 'Renowned Value' results every single time.", 
+            benefits: ["Detailed Pre-Inspection", "Standardized Cleaning Ratios", "Quality Control Checklists", "Transparent Communication"],
+            process: ["Arrival & Setup: Uniformed technician walk-through", "The Clean: Systematic execution of the service plan", "Detailing: Hand-cleaning edges and corners", "The Hand-off: Final walkthrough with the client for 100% satisfaction"],
+            pricingDetails: "Consistent procedures lead to consistent results."
+        }
+    ]
+  }
 };
 
 // Add this function to handle quote button clicks from any page
@@ -547,4 +580,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
+
 });
