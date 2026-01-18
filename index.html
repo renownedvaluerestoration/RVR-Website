@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renowned Value Restoration | Professional Pressure Washing</title>
     
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,24 +12,15 @@
       gtag('js', new Date());
       gtag('config', 'G-XXXXXXXXXX');
       
-      // Track quote form submissions
       function trackQuoteSubmission() {
-        gtag('event', 'quote_request', {
-          'event_category': 'conversion',
-          'event_label': 'free_quote_form'
-        });
+        gtag('event', 'quote_request', { 'event_category': 'conversion', 'event_label': 'free_quote_form' });
       }
       
-      // Track phone clicks
       function trackPhoneCall() {
-        gtag('event', 'phone_call', {
-          'event_category': 'conversion',
-          'event_label': 'header_phone'
-        });
+        gtag('event', 'phone_call', { 'event_category': 'conversion', 'event_label': 'header_phone' });
       }
     </script>
 
-    <!-- Facebook Pixel -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -43,9 +33,7 @@
       fbq('init', 'FB_PIXEL_ID');
       fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=FB_PIXEL_ID&ev=PageView&noscript=1"
-    /></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=FB_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
@@ -63,13 +51,9 @@
                 </div>
             </div>
             
-            <!-- Mobile Phone Button (Visible on mobile only) -->
             <div class="md:hidden flex items-center">
-                <a href="tel:2483138955" 
-                   onclick="trackPhoneCall()" 
-                   class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center gap-2">
-                    <i data-lucide="phone" class="w-4 h-4"></i>
-                    Call Now
+                <a href="tel:2483138955" onclick="trackPhoneCall()" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center gap-2">
+                    <i data-lucide="phone" class="w-4 h-4"></i> Call Now
                 </a>
             </div>
             
@@ -78,14 +62,9 @@
                 <a href="#local-reputation" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="scrollToSection('local-reputation')">Reviews</a>
                 <a href="#process" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="scrollToSection('process')">Results</a>
                 <a href="#blog" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('blog')">Blog</a>
-                
-                <!-- Desktop Phone & Quote Buttons -->
                 <div class="flex items-center gap-4">
-                    <a href="tel:2483138955" 
-                       onclick="trackPhoneCall()" 
-                       class="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-medium text-lg">
-                        <i data-lucide="phone" class="w-5 h-5"></i>
-                        (248) 313-8955
+                    <a href="tel:2483138955" onclick="trackPhoneCall()" class="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-medium text-lg">
+                        <i data-lucide="phone" class="w-5 h-5"></i> (248) 313-8955
                     </a>
                     <a href="#quote" class="bg-blue-600 text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-blue-700 transition text-lg shadow-lg hover:shadow-xl" onclick="showPageAndScrollToQuote()">Get Free Quote</a>
                 </div>
@@ -93,914 +72,184 @@
         </div>
     </header>
 
-    <main id="home-page">
-        <section class="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white py-24">
-            <div class="max-w-7xl mx-auto px-6 text-center">
-                <h2 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Restore Your Property's True Value</h2>
-                <p class="text-xl md:text-2xl text-blue-50 max-w-4xl mx-auto leading-relaxed">
-                    Professional pressure washing and restoration services that transform your property's exterior and protect your investment.
-                </p>
-                
-                <!-- Hero CTA with Phone Emphasis -->
-                <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#quote" 
-                       onclick="showPageAndScrollToQuote()" 
-                       class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-lg w-full sm:w-auto text-center">
-                        Get Free Quote
-                    </a>
-                    <div class="flex items-center gap-2 text-lg">
-                        <span class="text-blue-100">Or call now:</span>
-                        <a href="tel:2483138955" 
-                           onclick="trackPhoneCall()" 
-                           class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-xl font-bold hover:bg-white/10 transition flex items-center gap-2">
-                            <i data-lucide="phone" class="w-5 h-5"></i>
-                            (248) 313-8955
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Trust Badges -->
-                <div class="mt-12 flex flex-wrap justify-center gap-6 text-blue-100">
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="clock" class="w-5 h-5"></i>
-                        <span>Same-Day Quotes</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="shield-check" class="w-5 h-5"></i>
-                        <span>Commercial Equipment</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="award" class="w-5 h-5"></i>
-                        <span>5-Star Rated</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-16 bg-white pt-24 -mt-24" id="services">
-            <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 tracking-tight">Our Services</h2>
-                <div id="services-container" class="space-y-8"></div>
-            </div>
-        </section>
-
-        <section class="py-16 bg-gray-50 pt-24 -mt-24" id="local-reputation">
-            <div class="max-w-7xl mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold mb-6 tracking-tight">Our Local Reputation</h2>
-                <p class="text-xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed">
-                    We ensure superior results and safety on every project by exclusively using commercial-grade, Honda-powered pressure washing equipment—like the <strong>Simpson ALH 4240</strong>—delivering the precise PSI and GPM required for a deeper clean without risking damage to delicate surfaces.
-                </p>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl shadow-lg p-8 border">
-                        <i data-lucide="home" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-6 tracking-tight">Nextdoor</h3>
-                        <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">View Reviews</a>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8 border">
-                        <i data-lucide="facebook" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-6 tracking-tight">Facebook</h3>
-                        <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">View Gallery</a>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8 border">
-                        <i data-lucide="star" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-6 tracking-tight">Yelp</h3>
-                        <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">Read Reviews</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-16 bg-white pt-24 -mt-24" id="process">
-            <div class="max-w-4xl mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 tracking-tight">Value Restoration</h2>
-                <div class="slider-container relative w-full h-96 md:h-[500px] overflow-hidden rounded-2xl shadow-2xl cursor-ew-resize">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute top-4 right-4 bg-blue-600/80 text-white px-3 py-1 rounded-md text-sm font-bold z-10 pointer-events-none">AFTER</div>
-                    
-                    <div id="after-img-wrap" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
-                        <img src="https://images.unsplash.com/photo-1528204617857-4cc933706050?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold pointer-events-none">BEFORE</div>
-                    </div>
-                    
-                    <div id="slider-handle" class="absolute top-0 bottom-0 w-1 bg-white shadow-xl" style="left: 50%;">
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full border-4 border-blue-600 flex items-center justify-center">
-                            <i data-lucide="chevrons-left-right" class="text-blue-600 w-5"></i>
+    <main>
+        <div id="home-page">
+            <section class="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white py-24">
+                <div class="max-w-7xl mx-auto px-6 text-center">
+                    <h2 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Restore Your Property's True Value</h2>
+                    <p class="text-xl md:text-2xl text-blue-50 max-w-4xl mx-auto leading-relaxed">Professional pressure washing and restoration services that transform your property's exterior and protect your investment.</p>
+                    <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="#quote" onclick="showPageAndScrollToQuote()" class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-lg w-full sm:w-auto text-center">Get Free Quote</a>
+                        <div class="flex items-center gap-2 text-lg">
+                            <span class="text-blue-100">Or call now:</span>
+                            <a href="tel:2483138955" onclick="trackPhoneCall()" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-xl font-bold hover:bg-white/10 transition flex items-center gap-2">
+                                <i data-lucide="phone" class="w-5 h-5"></i> (248) 313-8955
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="py-16 bg-gray-50 pt-24 -mt-24" id="quote">
-            <div class="max-w-4xl mx-auto px-6">
-                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
-                    <h2 class="text-4xl font-bold text-center mb-8 tracking-tight">Get Your Free Quote</h2>
-                    
-                    <form id="quote-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="text" placeholder="Full Name *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
-                        <input type="email" placeholder="Email *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
-                        <input type="tel" placeholder="Phone *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
-                        
-                        <select id="service-dropdown" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none" required>
-                            <option value="">Select Service *</option>
-                        </select>
-                        
-                        <input type="text" placeholder="Property Address *" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none md:col-span-2" required>
-                        <textarea placeholder="Describe your project..." rows="4" class="p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none md:col-span-2" required></textarea>
-                        
-                        <div class="md:col-span-2">
-                            <input type="text" placeholder="Referral Name or Email (Optional)" class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-600 outline-none">
-                            <p class="text-sm text-blue-600 mt-2 font-medium italic">Earn a $30 Amazon gift card for each successful referral!</p>
-                        </div>
-
-                        <div class="md:col-span-2">
-                            <label class="block text-gray-700 font-bold mb-2">Upload Job Photos (Optional)</label>
-                            <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition">
-                                <div class="flex flex-col items-center justify-center pt-5 pb-6 text-center">
-                                    <i data-lucide="camera" class="w-8 h-8 text-gray-400 mb-2"></i>
-                                    <p class="text-sm text-gray-500">Click to upload or drag and drop</p>
-                                </div>
-                                <input type="file" class="hidden" multiple accept="image/*" />
-                            </label>
-                        </div>
-
-                        <button type="submit" class="md:col-span-2 bg-blue-600 text-white py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-lg">Get Free Quote</button>
-                    </form>
+            <section class="py-16 bg-white pt-24 -mt-24" id="services">
+                <div class="max-w-5xl mx-auto px-6">
+                    <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 tracking-tight">Our Services</h2>
+                    <div id="services-container" class="space-y-8"></div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <section id="quote" class="py-16 bg-white border-t border-gray-100">
+                <div class="max-w-3xl mx-auto px-6">
+                    <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-4 text-center">Get Your Free Quote</h2>
+                        <form id="quote-form" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-2">Name</label><input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none bg-gray-50"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-2">Phone</label><input type="tel" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none bg-gray-50"></div>
+                            </div>
+                            <div><label class="block text-sm font-semibold text-gray-700 mb-2">Service Needed</label><select id="quote-service-select" required class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none bg-gray-50"><option value="">Select a service...</option></select></div>
+                            <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-lg">Send Request</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="equipment-page" class="hidden">
+            <section class="py-20 bg-white">
+                <div class="max-w-4xl mx-auto px-6">
+                    <div class="flex justify-between items-center mb-8">
+                        <button onclick="showPage('home')" class="flex items-center text-blue-600 font-semibold hover:text-blue-700 transition"><i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i> Back to Home</button>
+                        <a href="#quote" onclick="showPageAndScrollToQuote()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition shadow-md">Get Free Quote</a>
+                    </div>
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-8">Industrial Grade Equipment & Chemistry</h2>
+                    <div class="prose prose-blue max-w-none space-y-12 text-gray-700">
+                        <p class="text-xl italic font-medium">We don't believe in "one size fits all." We match the specific chemical to the substrate to ensure a deep clean to restore the value of your property. [cite: 4]</p>
+                        
+                        <div>
+                            <h3 class="text-2xl font-bold text-blue-900 mb-4">Industrial Machinery</h3>
+                            <ul class="grid md:grid-cols-1 gap-3 list-disc pl-5">
+                                <li><strong>Simpson ALH 4240:</strong> 4.0 GPM Commercial Grade Pressure Washer [cite: 4]</li>
+                                <li><strong>WOJET 18”:</strong> 4500 PSI Surface Cleaner Attachment [cite: 4]</li>
+                                <li><strong>YAMATIC:</strong> Non-marking 3/8" Steel Braided Hose (100FT) [cite: 4]</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-blue-900 mb-4">Restorative Agents</h3>
+                            <div class="space-y-4">
+                                <p><strong>Sodium Hypochlorite:</strong> Eliminates organic growth like algae, mold, and mildew at the source. [cite: 4]</p>
+                                <p><strong>Sodium Hydroxide:</strong> Breaks down stubborn oils, grease, and animal fats. [cite: 4]</p>
+                                <p><strong>Oxalic Acid:</strong> Safely lifts orange rust stains from well-water or metal furniture. [cite: 4]</p>
+                                <p><strong>F9 BARC:</strong> The industry king for battery acid restoration. [cite: 4]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="safety-page" class="hidden">
+            <section class="py-20 bg-gray-50">
+                <div class="max-w-4xl mx-auto px-6">
+                    <div class="flex justify-between items-center mb-8">
+                        <button onclick="showPage('home')" class="flex items-center text-blue-600 font-semibold hover:text-blue-700 transition"><i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i> Back to Home</button>
+                        <a href="#quote" onclick="showPageAndScrollToQuote()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition shadow-md">Get Free Quote</a>
+                    </div>
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-8">Safety Procedures & Standards</h2>
+                    <div class="grid md:grid-cols-2 gap-8 text-gray-700">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                            <h3 class="font-bold text-blue-600 mb-3">Personnel Safety</h3>
+                            <p class="text-sm">We strictly enforce PPE usage including ANSI-approved goggles, full-face shields, insulated gloves, and steel-toed boots to protect against 4200 PSI and 210°F water. [cite: 5]</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                            <h3 class="font-bold text-blue-600 mb-3">Work Zone Security</h3>
+                            <p class="text-sm">We use safety cones and "Caution" tape to mark work areas, protecting residents and pets from slip hazards and hot water runoff. [cite: 5]</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 space-y-4 text-gray-700 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
+                        <p><strong>Carbon Monoxide Mitigation:</strong> Engines are operated exclusively in well-ventilated outdoor areas. [cite: 5]</p>
+                        <p><strong>Fire-Safe Zones:</strong> Minimum 15-foot clearance from diesel burners to any flammable materials. [cite: 5]</p>
+                        <p><strong>Saturation Protection:</strong> Flooding vegetation with fresh water before and after chemical application. [cite: 5]</p>
+                        <p><strong>SDS Binders:</strong> We maintain complete Safety Data Sheets on every job site as required by law. [cite: 5]</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="procedures-page" class="hidden">
+            <section class="py-20 bg-white">
+                <div class="max-w-4xl mx-auto px-6">
+                    <div class="flex justify-between items-center mb-8">
+                        <button onclick="showPage('home')" class="flex items-center text-blue-600 font-semibold hover:text-blue-700 transition"><i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i> Back to Home</button>
+                        <a href="#quote" onclick="showPageAndScrollToQuote()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition shadow-md">Get Free Quote</a>
+                    </div>
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-8">Our Restoration Procedures</h2>
+                    <div class="space-y-12 text-gray-700">
+                        <div>
+                            <h3 class="text-2xl font-bold text-blue-600 mb-4 border-b pb-2">House Wash (Soft Wash)</h3>
+                            <ol class="list-decimal pl-5 space-y-2">
+                                <li>Saturate landscaping to create a protective barrier. [cite: 6]</li>
+                                <li>Clear siding of loose debris and spider webs. [cite: 6]</li>
+                                <li>Apply specialized soap bottom-up to prevent streaks. [cite: 6]</li>
+                                <li>Allow 10-15 minutes dwell time to kill organic spores. [cite: 6]</li>
+                                <li>High-volume, low-pressure rinse (top-down). [cite: 6]</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-blue-600 mb-4 border-b pb-2">Driveway Deep Cleaning</h3>
+                            <ol class="list-decimal pl-5 space-y-2">
+                                <li>Spot treat oil with professional-grade degreaser. [cite: 6]</li>
+                                <li>Commercial surface cleaner pass for uniform results. [cite: 6]</li>
+                                <li>Detail edges with a 25-degree nozzle. [cite: 6]</li>
+                                <li>Post-treat with SH for maximum concrete brightening. [cite: 6]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="blog-page" class="hidden">
+            <section class="py-20 bg-gray-50"><div class="max-w-4xl mx-auto px-6"><button onclick="showPage('home')" class="mb-8 flex items-center text-blue-600 font-semibold hover:text-blue-700 transition"><i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i> Back to Home</button><h2 class="text-4xl font-extrabold text-gray-900 mb-8">Blog</h2><p class="text-xl text-gray-600 italic">Coming Soon...</p></div></section>
+        </div>
+
+        <div id="detail-page" class="hidden"><div id="service-detail-content"></div></div>
     </main>
 
-    <main id="detail-page" class="hidden">
-        <div class="max-w-5xl mx-auto px-6 py-12">
-            <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
-                <i data-lucide="arrow-left" class="mr-2"></i> Back to All Services
-            </button>
-            <div id="service-detail-content"></div>
-        </div>
-    </main>
-
-    <main id="blog-page" class="hidden">
-        <div class="max-w-7xl mx-auto px-6 py-12">
-            <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
-                <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
-            </button>
-            
-            <div class="text-center mb-16">
-                <h1 class="text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Pressure Washing Blog & Tips</h1>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                    Expert advice, before/after transformations, and industry insights from Oakland County's premier pressure washing specialists.
-                </p>
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center mb-6"><i data-lucide="sparkles" class="w-8 h-8 text-blue-600 mr-3"></i><h3 class="text-xl font-bold text-gray-900">Renowned Value Restoration</h3></div>
+                    <p class="text-gray-600 leading-relaxed">Professional restoration and maintenance services dedicated to preserving and enhancing your property's value.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-6">Contact Us</h4>
+                    <a href="tel:2483138955" onclick="trackPhoneCall()" class="flex items-center text-gray-600 hover:text-blue-600 transition"><i data-lucide="phone" class="w-5 h-5 mr-3 text-blue-600"></i> (248) 313-8955</a>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-6">Social Media</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all hover:scale-110"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                        <a href="#" class="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all hover:scale-110"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Featured Blog Posts -->
-            <div class="space-y-16">
-                <!-- Post 1 -->
-                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="p-8 md:p-12">
-                            <div class="flex items-center gap-2 mb-4">
-                                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-bold">SEASONAL TIPS</span>
-                                <span class="text-gray-500 text-sm">January 15, 2026</span>
-                            </div>
-                            <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Spring Pressure Washing: Why April is the Perfect Time in Michigan</h2>
-                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
-                                <p>After Michigan's harsh winter, your property has accumulated salt, grime, and debris that can cause permanent damage if left untreated. Spring cleaning isn't just for interiors—your home's exterior needs attention too.</p>
-                                <p>April offers ideal conditions: temperatures are consistently above freezing, allowing proper drying, but before pollen season hits in May. Early spring washing prevents mold/algae from taking hold during warmer months.</p>
-                            </div>
-                            <div class="mt-8 flex flex-wrap gap-3">
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Seasonal Maintenance</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Michigan Weather</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Preventative Care</span>
-                            </div>
-                        </div>
-                        <div class="relative bg-gray-900 flex items-center justify-center p-8">
-                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
-                                <!-- Instagram-style video placeholder -->
-                                <div class="w-full h-full bg-gradient-to-br from-blue-900 to-gray-900 flex items-center justify-center">
-                                    <div class="text-center text-white p-8">
-                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-blue-400"></i>
-                                        <p class="text-xl font-bold mb-2">Video: Spring Washing Demo</p>
-                                        <p class="text-blue-200">Watch our 60-second transformation of a Rochester Hills driveway after winter</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">INSTAGRAM REEL</div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 2 -->
-                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="relative bg-gray-900 flex items-center justify-center p-8 order-2 md:order-1">
-                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
-                                <!-- Instagram-style video placeholder -->
-                                <div class="w-full h-full bg-gradient-to-br from-gray-800 to-blue-900 flex items-center justify-center">
-                                    <div class="text-center text-white p-8">
-                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-blue-400"></i>
-                                        <p class="text-xl font-bold mb-2">Video: Soft Wash vs Pressure Wash</p>
-                                        <p class="text-blue-200">See the difference on delicate surfaces in Auburn Hills</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">TIKTOK STYLE</div>
-                        </div>
-                        <div class="p-8 md:p-12 order-1 md:order-2">
-                            <div class="flex items-center gap-2 mb-4">
-                                <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-bold">EDUCATIONAL</span>
-                                <span class="text-gray-500 text-sm">January 10, 2026</span>
-                            </div>
-                            <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Soft Washing vs Pressure Washing: What Your Home Actually Needs</h2>
-                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
-                                <p>Many homeowners don't realize that pressure washing can actually damage certain surfaces. Soft washing uses specialized low-pressure nozzles and eco-friendly detergents to clean without risking damage to delicate materials.</p>
-                                <p>For vinyl siding, stucco, and older brickwork in historic Bloomfield homes, soft washing is essential. It removes mold, algae, and dirt at the root level without blasting away protective surfaces or forcing water behind walls.</p>
-                            </div>
-                            <div class="mt-8 flex flex-wrap gap-3">
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Technique Guide</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Surface Protection</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Eco-Friendly</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 3 -->
-                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="p-8 md:p-12">
-                            <div class="flex items-center gap-2 mb-4">
-                                <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-bold">PROPERTY VALUE</span>
-                                <span class="text-gray-500 text-sm">January 8, 2026</span>
-                            </div>
-                            <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Pressure Washing ROI: How Cleaning Increases Home Value in Oakland County</h2>
-                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
-                                <p>A clean exterior isn't just about aesthetics—it's an investment. Real estate agents in Troy report that professionally cleaned homes can sell for 5-10% more and spend less time on the market.</p>
-                                <p>Regular maintenance prevents costly repairs. Mold and algae eat away at surfaces, while built-up grime accelerates wear. Our clients in Rochester Hills have reported appraisal increases after comprehensive exterior cleaning.</p>
-                            </div>
-                            <div class="mt-8 flex flex-wrap gap-3">
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Home Value</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Real Estate</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">ROI</span>
-                            </div>
-                        </div>
-                        <div class="relative bg-gray-900 flex items-center justify-center p-8">
-                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
-                                <!-- Instagram-style video placeholder -->
-                                <div class="w-full h-full bg-gradient-to-br from-purple-900 to-gray-900 flex items-center justify-center">
-                                    <div class="text-center text-white p-8">
-                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-purple-400"></i>
-                                        <p class="text-xl font-bold mb-2">Video: Before & After Home Sale</p>
-                                        <p class="text-purple-200">See how pressure washing helped a Troy home sell above asking</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">SHORT FORM VIDEO</div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 4 -->
-                <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="relative bg-gray-900 flex items-center justify-center p-8 order-2 md:order-1">
-                            <div class="aspect-[9/16] max-h-[600px] w-full rounded-xl overflow-hidden shadow-2xl">
-                                <!-- Instagram-style video placeholder -->
-                                <div class="w-full h-full bg-gradient-to-br from-amber-900 to-gray-800 flex items-center justify-center">
-                                    <div class="text-center text-white p-8">
-                                        <i data-lucide="play-circle" class="w-16 h-16 mx-auto mb-4 text-amber-400"></i>
-                                        <p class="text-xl font-bold mb-2">Video: Commercial Cleaning Time-Lapse</p>
-                                        <p class="text-amber-200">30-second transform of an Auburn Hills shopping center</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-md text-sm font-bold">REEL DEMO</div>
-                        </div>
-                        <div class="p-8 md:p-12 order-1 md:order-2">
-                            <div class="flex items-center gap-2 mb-4">
-                                <span class="bg-amber-100 text-amber-600 px-3 py-1 rounded-full text-sm font-bold">COMMERCIAL</span>
-                                <span class="text-gray-500 text-sm">January 5, 2026</span>
-                            </div>
-                            <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Commercial Pressure Washing: Why Oakland County Businesses Can't Afford Dirty Exteriors</h2>
-                            <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
-                                <p>First impressions matter for businesses. A dirty storefront or parking lot tells customers you don't care about details. Studies show 68% of customers avoid businesses with unkempt exteriors.</p>
-                                <p>Regular commercial cleaning isn't just cosmetic—it's about safety, compliance, and brand image. From restaurant patios in Birmingham to medical facilities in Bloomfield, clean exteriors signal professionalism.</p>
-                            </div>
-                            <div class="mt-8 flex flex-wrap gap-3">
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Commercial</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Business Growth</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">Customer Perception</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    <!-- Add these new main sections before the footer -->
-<main id="equipment-page" class="hidden">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-        <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
-            <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
-        </button>
-        
-        <div class="text-center mb-16">
-            <h1 class="text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Professional Equipment & Chemicals</h1>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                We don't believe in "one size fits all." We match the specific chemical to the substrate to ensure a deep clean to restore value of your property.
-            </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-12">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-                <div class="flex-1">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3">
-                            <i data-lucide="tool" class="w-8 h-8"></i>
-                        </div>
-                        <span class="bg-white/20 backdrop-blur-sm text-sm font-bold px-4 py-2 rounded-full">INDUSTRIAL GRADE</span>
-                    </div>
-                    <h1 class="text-4xl font-extrabold mb-4">Our Industrial Grade Equipment</h1>
-                    <p class="text-xl text-blue-100 max-w-3xl">
-                        We use professional-grade equipment designed for durability and superior performance on every job.
-                    </p>
+            <div class="pt-8 border-t border-gray-200 w-full text-center">
+                <p class="text-blue-600 font-bold mb-4 text-lg">Proudly serving all of Oakland County, Michigan.</p>
+                <p class="text-gray-500 font-medium">&copy; 2026 Renowned Value Restoration</p>
+                <div class="flex justify-center gap-4 mt-4 text-gray-400 text-sm font-medium">
+                    <a href="javascript:void(0)" onclick="showPage('equipment')" class="hover:text-blue-600 transition">Equipment</a>
+                    <span>|</span>
+                    <a href="javascript:void(0)" onclick="showPage('safety')" class="hover:text-blue-600 transition">Safety</a>
+                    <span>|</span>
+                    <a href="javascript:void(0)" onclick="showPage('procedures')" class="hover:text-blue-600 transition">Procedures</a>
                 </div>
             </div>
         </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="space-y-8">
-                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                        <i data-lucide="zap" class="w-8 h-8 text-blue-600"></i>
-                        Pressure Washing Equipment
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
-                            <h3 class="text-xl font-bold text-blue-800 mb-3">Simpson ALH 4240</h3>
-                            <p class="text-gray-700">4.0 GPM Commercial Grade Pressure Washer with Honda engine for reliable, powerful cleaning performance.</p>
-                        </div>
-                        <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
-                            <h3 class="text-xl font-bold text-blue-800 mb-3">WOJET 18" Surface Cleaner</h3>
-                            <p class="text-gray-700">4500 PSI surface cleaner attachment with Surface Cleaner Attachment for uniform, streak-free cleaning.</p>
-                        </div>
-                        <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
-                            <h3 class="text-xl font-bold text-blue-800 mb-3">YAMATIC Pressure Washer Hose</h3>
-                            <p class="text-gray-700">100FT 4200 PSI - Rubber Steel Braided Wear Resistant Industry Grade for Hot/Cold Water Gas Power Washer.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                        <i data-lucide="flask-conical" class="w-8 h-8 text-green-600"></i>
-                        Wood Restoration & Specialty Cleaning
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="bg-green-50 rounded-xl p-6 border border-green-100">
-                            <h3 class="text-xl font-bold text-green-800 mb-3">Sodium Metasilicate</h3>
-                            <p class="text-gray-700">A powerful cleaner and stripper we use on weathered decks to remove old stains and deep-seated grime.</p>
-                        </div>
-                        <div class="bg-green-50 rounded-xl p-6 border border-green-100">
-                            <h3 class="text-xl font-bold text-green-800 mb-3">Sodium Percarbonate</h3>
-                            <p class="text-gray-700">A gentle, eco-friendly wood cleaner that kills mold and brightens wood fibers without the harshness of standard bleach.</p>
-                        </div>
-                        <div class="bg-green-50 rounded-xl p-6 border border-green-100">
-                            <h3 class="text-xl font-bold text-green-800 mb-3">Butyl Degreaser</h3>
-                            <p class="text-gray-700">Specifically removes "tiger stripes"—those stubborn black streaks on gutters caused by asphalt shingle runoff.</p>
-                        </div>
-                        <div class="bg-green-50 rounded-xl p-6 border border-green-100">
-                            <h3 class="text-xl font-bold text-green-800 mb-3">Citrus & Purple Degreasers</h3>
-                            <p class="text-gray-700">Specialized solvents we employ to target rubber tire marks and deep engine oil stains.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="space-y-8">
-                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                        <i data-lucide="flask-conical" class="w-8 h-8 text-blue-600"></i>
-                        The "Big 3" Restorative Agents
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
-                            <h3 class="text-xl font-bold text-blue-800 mb-3">Sodium Hypochlorite</h3>
-                            <p class="text-gray-700">Commercial bleach used to sanitize surfaces and completely eliminate organic growth like algae, mold, and mildew at the source.</p>
-                        </div>
-                        <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
-                            <h3 class="text-xl font-bold text-blue-800 mb-3">Sodium Hydroxide</h3>
-                            <p class="text-gray-700">Heavy duty degreaser for breaking down stubborn oils, grease, and animal fats on high-traffic surfaces like driveways and dumpster pads.</p>
-                        </div>
-                        <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
-                            <h3 class="text-xl font-bold text-blue-800 mb-3">Oxalic Acid</h3>
-                            <p class="text-gray-700">Specialized acid to safely lift orange rust stains caused by well-water irrigation or metal furniture.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                        <i data-lucide="shield" class="w-8 h-8 text-amber-600"></i>
-                        Masonry, Safety & Specialized Cleaners
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                            <h3 class="text-xl font-bold text-amber-800 mb-3">F9 Efflo</h3>
-                            <p class="text-gray-700">Our gold-standard treatment for removing efflorescence (white mineral powder) and calcium deposits from brick and stone.</p>
-                        </div>
-                        <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                            <h3 class="text-xl font-bold text-amber-800 mb-3">EBC (Enviro Bio Cleaner)</h3>
-                            <p class="text-gray-700">A biodegradable, multi-purpose powerhouse we mix with our house wash for superior cling and grease-cutting capabilities.</p>
-                        </div>
-                        <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                            <h3 class="text-xl font-bold text-amber-800 mb-3">Gold Assassin</h3>
-                            <p class="text-gray-700">A specialized high-alkaline cleaner for the toughest restaurant grease and "kitchen-to-curb" sanitization.</p>
-                        </div>
-                        <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                            <h3 class="text-xl font-bold text-amber-800 mb-3">Elemonator (Surfactant)</h3>
-                            <p class="text-gray-700">High-cling soap that increases "dwell time" on siding, ensuring chemicals work effectively before rinsing.</p>
-                        </div>
-                        <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                            <h3 class="text-xl font-bold text-amber-800 mb-3">F9 BARC</h3>
-                            <p class="text-gray-700">Industry king for "orange battery acid" stains from golf carts or car batteries.</p>
-                        </div>
-                        <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                            <h3 class="text-xl font-bold text-amber-800 mb-3">Citric Acid</h3>
-                            <p class="text-gray-700">Professional wood brightener used as second step after Sodium metasilicate to restore proper PH to wood.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-
-<main id="safety-page" class="hidden">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-        <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
-            <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
-        </button>
-        
-        <div class="text-center mb-16">
-            <h1 class="text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Safety Procedures & Operational Standards</h1>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                Your safety and property protection are our top priorities. We follow strict protocols on every job.
-            </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-green-600 to-green-700 rounded-3xl p-10 text-white mb-12">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-                <div class="flex-1">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3">
-                            <i data-lucide="shield-check" class="w-8 h-8"></i>
-                        </div>
-                        <span class="bg-white/20 backdrop-blur-sm text-sm font-bold px-4 py-2 rounded-full">CERTIFIED SAFETY</span>
-                    </div>
-                    <h1 class="text-4xl font-extrabold mb-4">Committed to Your Safety</h1>
-                    <p class="text-xl text-green-100 max-w-3xl">
-                        We strictly enforce comprehensive safety procedures to protect our team, your property, and the environment.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="space-y-8">
-                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                        <i data-lucide="user-check" class="w-8 h-8 text-green-600"></i>
-                        Personal Protective Equipment (PPE)
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="bg-green-100 p-3 rounded-lg">
-                                <i data-lucide="eye" class="w-6 h-6 text-green-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">ANSI-Approved Eye Protection</h3>
-                                <p class="text-gray-700">Our technician always wears ANSI-approved safety goggles or full-face shields to prevent injury from 4200 PSI pressure or debris.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-green-100 p-3 rounded-lg">
-                                <i data-lucide="thermometer" class="w-6 h-6 text-green-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Thermal Protection</h3>
-                                <p class="text-gray-700">We wear insulated, waterproof gloves and steel-toed boots to protect our team from high-velocity debris and scalding water reaching temperatures up to 210°F.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-green-100 p-3 rounded-lg">
-                                <i data-lucide="hand" class="w-6 h-6 text-green-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Two-Handed Operation</h3>
-                                <p class="text-gray-700">Our team maintains a firm, two-handled grip on the trigger gun at all times to safely manage the "kickback" force of our 4.0 GPM flow.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                        <i data-lucide="alert-triangle" class="w-8 h-8 text-red-600"></i>
-                        Hazard Prevention & Environmental Safety
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="bg-red-100 p-3 rounded-lg">
-                                <i data-lucide="wind" class="w-6 h-6 text-red-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Carbon Monoxide Mitigation</h3>
-                                <p class="text-gray-700">We operate our gas engines and diesel burners exclusively in well-ventilated outdoor areas and never run equipment inside enclosed spaces like garages or vans.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-red-100 p-3 rounded-lg">
-                                <i data-lucide="flame" class="w-6 h-6 text-red-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Fire Safety Zones</h3>
-                                <p class="text-gray-700">We keep a minimum 15-foot clearance between our diesel burner's exhaust stack and any flammable materials, including your home's siding and nearby landscaping.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-red-100 p-3 rounded-lg">
-                                <i data-lucide="droplets" class="w-6 h-6 text-red-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Grey Water Management</h3>
-                                <p class="text-gray-700">We direct & collect grey water with diversion from storm drains & retrieval into greywater tank when using potent chemicals.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-red-100 p-3 rounded-lg">
-                                <i data-lucide="leaf" class="w-6 h-6 text-red-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Biodegradable Solutions</h3>
-                                <p class="text-gray-700">We use Biodegradable Degreasers in large areas: Our use of EBC ensures that heavy oils are broken down into environmentally safe byproducts.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="space-y-8">
-                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                        <i data-lucide="clipboard-check" class="w-8 h-8 text-blue-600"></i>
-                        Equipment & Chemical Safety
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="bg-blue-100 p-3 rounded-lg">
-                                <i data-lucide="inspection" class="w-6 h-6 text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Daily Equipment Inspections</h3>
-                                <p class="text-gray-700">We check our high-pressure hoses for kinks, bubbles, or wear every morning and replace any compromised equipment immediately to ensure a safe job site.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-blue-100 p-3 rounded-lg">
-                                <i data-lucide="book-open" class="w-6 h-6 text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Complete SDS Documentation</h3>
-                                <p class="text-gray-700">We maintain a complete SDS (Safety Data Sheet) binder on every job site for all chemicals, including SH, EBC, and Ure-Seal, as required by Michigan Right-to-Know laws.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-blue-100 p-3 rounded-lg">
-                                <i data-lucide="gauge" class="w-6 h-6 text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Pressure Relief Protocols</h3>
-                                <p class="text-gray-700">After every shut-down, we bleed the trapped pressure from the lines before disconnecting, ensuring no accidental high-pressure releases occur.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-blue-100 p-3 rounded-lg">
-                                <i data-lucide="droplet" class="w-6 h-6 text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Cool Down Cycle</h3>
-                                <p class="text-gray-700">We follow a strict "cool down" cycle: We turn off our diesel burners several minutes before the job ends, running cold water through the system to protect our equipment and ensure no scalding water remains in the lines.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-blue-100 p-3 rounded-lg">
-                                <i data-lucide="scale" class="w-6 h-6 text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Strict Dilution Ratios</h3>
-                                <p class="text-gray-700">We strictly follow dilution ratios: We never use "raw" chemicals; our downstream injection systems ensure that only the minimum effective amount of product is used on your home.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                        <i data-lucide="home" class="w-8 h-8 text-purple-600"></i>
-                        Property & Site Safety
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="bg-purple-100 p-3 rounded-lg">
-                                <i data-lucide="tree-pine" class="w-6 h-6 text-purple-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Saturation Protection</h3>
-                                <p class="text-gray-700">Before and after chemical application, we flood all surrounding vegetation with fresh water to ensure your landscaping remains healthy.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-purple-100 p-3 rounded-lg">
-                                <i data-lucide="cone" class="w-6 h-6 text-purple-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Secure Work Zones</h3>
-                                <p class="text-gray-700">We secure the work zone: We use safety cones and "Caution" tape to clearly mark our work area, protecting residents and pets from slip hazards and hot water runoff.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-purple-100 p-3 rounded-lg">
-                                <i data-lucide="package" class="w-6 h-6 text-purple-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">Stable Equipment Placement</h3>
-                                <p class="text-gray-700">We ensure stable equipment placement: We operate our machinery on level ground to prevent fuel spills and ensure the internal components of our Simpson ALH 4240 function safely and efficiently.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-
-<main id="procedures-page" class="hidden">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-        <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
-            <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
-        </button>
-        
-        <div class="text-center mb-16">
-            <h1 class="text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Professional Cleaning Procedures</h1>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                Step-by-step professional protocols for every service we provide to ensure consistent, high-quality results.
-            </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl p-10 text-white mb-12">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-                <div class="flex-1">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3">
-                            <i data-lucide="clipboard-check" class="w-8 h-8"></i>
-                        </div>
-                        <span class="bg-white/20 backdrop-blur-sm text-sm font-bold px-4 py-2 rounded-full">STEP-BY-STEP</span>
-                    </div>
-                    <h1 class="text-4xl font-extrabold mb-4">Professional Cleaning Protocols</h1>
-                    <p class="text-xl text-purple-100 max-w-3xl">
-                        Detailed procedures for each service to ensure thorough cleaning, property protection, and customer satisfaction.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="space-y-12">
-            <!-- House Wash Procedures -->
-            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                    <i data-lucide="home" class="w-8 h-8 text-blue-600"></i>
-                    House Wash Procedures
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4 text-blue-700">Vinyl Siding Soft Wash</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <div class="bg-blue-100 text-blue-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">1</div>
-                                <p class="text-gray-700">Saturate all surrounding landscaping with fresh water to create a protective barrier</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-blue-100 text-blue-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">2</div>
-                                <p class="text-gray-700">Clear siding of loose debris, spider webs, and nests using low-pressure rinse</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-blue-100 text-blue-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">3</div>
-                                <p class="text-gray-700">Apply Sodium Hypochlorite and surfactant solution from bottom to top</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-blue-100 text-blue-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">4</div>
-                                <p class="text-gray-700">Allow 10-15 minute dwell time, then rinse thoroughly from top down</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4 text-blue-700">Brick or Stucco Soft Wash</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <div class="bg-blue-100 text-blue-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">1</div>
-                                <p class="text-gray-700">Extended saturation of porous masonry to prevent chemical absorption</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-blue-100 text-blue-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">2</div>
-                                <p class="text-gray-700">Apply stronger chemical blend with increased surfactant ratio</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-blue-100 text-blue-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">3</div>
-                                <p class="text-gray-700">15-20 minute dwell time for deep pore penetration</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-blue-100 text-blue-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">4</div>
-                                <p class="text-gray-700">Ultra-low pressure rinse (below 100 PSI) to protect masonry</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Driveway & Surface Procedures -->
-            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                    <i data-lucide="square" class="w-8 h-8 text-green-600"></i>
-                    Driveway & Surface Cleaning
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4 text-green-700">Cement Driveway Pressure Wash</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-start gap-3">
-                                <div class="bg-green-100 text-green-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">1</div>
-                                <p class="text-gray-700">Clear surface and spot treat oil stains with professional degreaser</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-green-100 text-green-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">2</div>
-                                <p class="text-gray-700">Apply SH, EBC degreaser, and surfactant via soft-wash method</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-green-100 text-green-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">3</div>
-                                <p class="text-gray-700">Deep clean with professional surface cleaner at consistent pace</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-green-100 text-green-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">4</div>
-                                <p class="text-gray-700">Apply post-treatment brightener and neutralize surrounding plants</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4 text-green-700">Brick Driveway Pressure Wash</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-start gap-3">
-                                <div class="bg-green-100 text-green-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">1</div>
-                                <p class="text-gray-700">Remove heavy moss and debris from paver joints</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-green-100 text-green-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">2</div>
-                                <p class="text-gray-700">Pressure wash with surface cleaner to strip old sand and contaminants</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-green-100 text-green-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">3</div>
-                                <p class="text-gray-700">Apply specialized cleaning chemical for brick surfaces</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="bg-green-100 text-green-700 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">4</div>
-                                <p class="text-gray-700">Sweep kiln-dried joint sand and perform final inspection</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Specialized Services -->
-            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
-                    <i data-lucide="star" class="w-8 h-8 text-amber-600"></i>
-                    Specialized Services
-                </h2>
-                
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                        <h3 class="text-lg font-bold text-amber-800 mb-3">Rooftop Softwash</h3>
-                        <p class="text-gray-700 text-sm">Chemical treatment with X-Jet M5 nozzle, extended dwell times, and biocide application for long-term protection.</p>
-                    </div>
-                    <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                        <h3 class="text-lg font-bold text-amber-800 mb-3">Dumpster Pad Cleaning</h3>
-                        <p class="text-gray-700 text-sm">Hot water (180-200°F) with heavy-duty degreasers, followed by deodorizing and enzyme treatment.</p>
-                    </div>
-                    <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                        <h3 class="text-lg font-bold text-amber-800 mb-3">Tennis Court Cleaning</h3>
-                        <p class="text-gray-700 text-sm">Specialized cleaning for Plexipave/DecoTurf systems with low-pressure cleaning and professional surface tools.</p>
-                    </div>
-                    <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                        <h3 class="text-lg font-bold text-amber-800 mb-3">Graffiti Removal</h3>
-                        <p class="text-gray-700 text-sm">Professional solvent application, heat-assisted removal, and anti-graffiti coating options.</p>
-                    </div>
-                    <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                        <h3 class="text-lg font-bold text-amber-800 mb-3">Gum Removal</h3>
-                        <p class="text-gray-700 text-sm">Steam treatment (200-212°F) with specialized nozzles and citrus-based solvents for complete removal.</p>
-                    </div>
-                    <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
-                        <h3 class="text-lg font-bold text-amber-800 mb-3">Concrete Resealing</h3>
-                        <p class="text-gray-700 text-sm">Ure-Seal H2O or Acrylic application with proper drying times and multiple coat application.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-    </main>
-
-    <!-- Footer section (updated) -->
-<footer class="bg-gray-50 border-t border-gray-200 py-16">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-12 items-start mb-12">
-            <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6 w-full tracking-tight">Contact Us</h3>
-                <div class="space-y-4 w-full">
-                    <div class="flex items-center justify-center md:justify-start gap-3 text-gray-600 hover:text-blue-600 transition">
-                        <i data-lucide="phone" class="w-5 h-5"></i>
-                        <a href="tel:2483138955" onclick="trackPhoneCall()" class="text-lg font-medium">(248) 313-8955</a>
-                    </div>
-                    <div class="flex items-center justify-center md:justify-start gap-3 text-gray-600 hover:text-blue-600 transition">
-                        <i data-lucide="mail" class="w-5 h-5"></i>
-                        <a href="mailto:valuerestoration@gmail.com" class="text-lg font-medium">valuerestoration@gmail.com</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-col items-center md:items-end text-center md:text-right">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6 w-full tracking-tight">Follow Us</h3>
-                <div class="flex items-center justify-center md:justify-end gap-6 w-full">
-                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="home" class="w-8 h-8"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="facebook" class="w-8 h-8"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="instagram" class="w-8 h-8"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="youtube" class="w-8 h-8"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="pt-8 border-t border-gray-200 w-full text-center">
-            <p class="text-blue-600 font-bold mb-6 text-lg">Proudly serving all of Oakland County, Michigan, including Rochester Hills, Troy, Auburn Hills, and Bloomfield.</p>
-            
-            <!-- New resource links -->
-            <div class="flex flex-wrap justify-center gap-6 mb-6">
-                <a href="#equipment" onclick="showPage('equipment')" class="text-gray-700 hover:text-blue-600 font-medium text-lg transition hover:underline flex items-center gap-2">
-                    <i data-lucide="tool" class="w-5 h-5"></i>
-                    Equipment
-                </a>
-                <a href="#safety" onclick="showPage('safety')" class="text-gray-700 hover:text-blue-600 font-medium text-lg transition hover:underline flex items-center gap-2">
-                    <i data-lucide="shield-check" class="w-5 h-5"></i>
-                    Safety
-                </a>
-                <a href="#procedures" onclick="showPage('procedures')" class="text-gray-700 hover:text-blue-600 font-medium text-lg transition hover:underline flex items-center gap-2">
-                    <i data-lucide="clipboard-check" class="w-5 h-5"></i>
-                    Procedures
-                </a>
-            </div>
-            
-            <p class="text-gray-500 font-medium">&copy; 2026 Renowned Value Restoration</p>
-        </div>
-    </div>
-</footer>
-
-    <!-- Floating Phone Buttons (Mobile Only) -->
-    <a href="tel:2483138955" 
-       onclick="trackPhoneCall()" 
-       class="floating-phone phone-call md:hidden">
-        <i data-lucide="phone" class="w-6 h-6"></i>
-    </a>
-    
-    <a href="https://wa.me/12483138955?text=Hi!%20I'm%20interested%20in%20a%20pressure%20washing%20quote" 
-       onclick="trackPhoneCall()"
-       class="floating-phone whatsapp-call md:hidden" 
-       target="_blank">
-        <i data-lucide="message-circle" class="w-6 h-6"></i>
-    </a>
+    </footer>
 
     <script src="script.js"></script>
-    <script>
-        lucide.createIcons();
-        
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            lucide.createIcons();
-        });
-    </script>
 </body>
-
 </html>
- 
-
-
