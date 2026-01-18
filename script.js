@@ -233,6 +233,12 @@ function showPage(pageId) {
         });
 
         if (service) {
+            // ... existing service detail page code ...
+        }
+    }
+}
+
+        if (service) {
             content.innerHTML = `
                 <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-12">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
@@ -568,6 +574,7 @@ window.addEventListener('load', function() {
     lucide.createIcons();
 
 });
+
 
 
 
