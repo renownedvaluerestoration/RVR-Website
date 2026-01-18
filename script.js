@@ -187,8 +187,9 @@ function scrollToSection(sectionId) {
     }, 100);
 }
 
-// Update the showPage function to include new pages
+// Update the showPage function to include all pages
 function showPage(pageId) {
+    // Get all page elements
     const home = document.getElementById('home-page');
     const detail = document.getElementById('detail-page');
     const blog = document.getElementById('blog-page');
@@ -197,18 +198,32 @@ function showPage(pageId) {
     const procedures = document.getElementById('procedures-page');
     const content = document.getElementById('service-detail-content');
 
-    // Hide all pages first
+    // Hide ALL pages first
     home.classList.add('hidden');
     detail.classList.add('hidden');
     blog.classList.add('hidden');
-   
+    equipment.classList.add('hidden');
+    safety.classList.add('hidden');
+    procedures.classList.add('hidden');
+
+    // Show the requested page
     if (pageId === 'home') {
         home.classList.remove('hidden');
         window.scrollTo(0,0);
     } else if (pageId === 'blog') {
         blog.classList.remove('hidden');
         window.scrollTo(0,0);
+    } else if (pageId === 'equipment') {
+        equipment.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else if (pageId === 'safety') {
+        safety.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else if (pageId === 'procedures') {
+        procedures.classList.remove('hidden');
+        window.scrollTo(0,0);
     } else {
+        // Service detail page
         detail.classList.remove('hidden');
         
         let service = null;
@@ -553,5 +568,6 @@ window.addEventListener('load', function() {
     lucide.createIcons();
 
 });
+
 
 
