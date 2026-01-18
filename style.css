@@ -301,12 +301,4 @@ option {
     .min-h-screen {
         min-height: -webkit-fill-available;
     }
-
 }
-
-#detail-page.hidden { display: none; }
-#home-page.hidden { display: none; }
-#blog-page.hidden { display: none; }
-#equipment-page.hidden { display: none; }
-#safety-page.hidden { display: none; }
-#procedures-page.hidden { display: none; }
