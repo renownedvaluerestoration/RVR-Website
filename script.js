@@ -158,40 +158,7 @@ const servicesData = {
                 pricingDetails: "Unit Rate: $0.25 per square foot"
             }
         ]
-   },
-        // Add this inside the servicesData object in script.js
-  categoryD: {
-    title: "Company Standards",
-    items: [
-        { 
-            id: "equipment", 
-            name: "Equipment Standards", 
-            price: "Commercial Grade", 
-            desc: "We exclusively use Honda-powered commercial equipment to ensure consistent, professional results without the reliability issues of residential-grade washers.", 
-            benefits: ["Simpson ALH 4240 (4200 PSI / 4.0 GPM)", "Honda GX390 Professional Engines", "Dual-Bearing Surface Cleaners", "Commercial Grade Hoses & Tips"],
-            process: ["Equipment Pre-Check: Oil and pressure verification", "Pressure Regulation: Adjusting PSI specifically for your surface type", "Surface Cleaner Deployment: Ensuring even, streak-free cleaning", "Post-Job Maintenance: Full equipment flush to prevent cross-contamination"],
-            pricingDetails: "Top-tier equipment allows us to work faster and safer, keeping your costs competitive."
-        },
-        { 
-            id: "safety", 
-            name: "Safety Protocols", 
-            price: "Fully Insured", 
-            desc: "Safety is our priority. We follow strict protocols to protect your family, your pets, and your property's landscaping.", 
-            benefits: ["Plant & Landscape Protection", "OSHA Compliance", "Property Liability Insurance", "Non-Slip Work Area Signage"],
-            process: ["Site Assessment: Identifying hazards and delicate surfaces", "Pre-Wet Plants: Saturating vegetation to prevent chemical absorption", "Property Shielding: Covering outlets and sensitive fixtures", "Post-Wash Rinse: Final neutralizer to ensure zero chemical residue"],
-            pricingDetails: "Our safety measures are included in every quote at no extra cost."
-        },
-        { 
-            id: "procedures", 
-            name: "Operational Procedures", 
-            price: "Standardized Excellence", 
-            desc: "We follow a standardized workflow on every job to ensure 'Renowned Value' results every single time.", 
-            benefits: ["Detailed Pre-Inspection", "Standardized Cleaning Ratios", "Quality Control Checklists", "Transparent Communication"],
-            process: ["Arrival & Setup: Uniformed technician walk-through", "The Clean: Systematic execution of the service plan", "Detailing: Hand-cleaning edges and corners", "The Hand-off: Final walkthrough with the client for 100% satisfaction"],
-            pricingDetails: "Consistent procedures lead to consistent results."
-        }
-    ]
-  }
+    }
 };
 
 // Add this function to handle quote button clicks from any page
@@ -220,24 +187,43 @@ function scrollToSection(sectionId) {
     }, 100);
 }
 
+// Update the showPage function to include all pages
 function showPage(pageId) {
+    // Get all page elements
     const home = document.getElementById('home-page');
     const detail = document.getElementById('detail-page');
     const blog = document.getElementById('blog-page');
+    const equipment = document.getElementById('equipment-page');
+    const safety = document.getElementById('safety-page');
+    const procedures = document.getElementById('procedures-page');
     const content = document.getElementById('service-detail-content');
 
-    // Hide all pages first
+    // Hide ALL pages first
     home.classList.add('hidden');
     detail.classList.add('hidden');
     blog.classList.add('hidden');
+    equipment.classList.add('hidden');
+    safety.classList.add('hidden');
+    procedures.classList.add('hidden');
 
+    // Show the requested page
     if (pageId === 'home') {
         home.classList.remove('hidden');
         window.scrollTo(0,0);
     } else if (pageId === 'blog') {
         blog.classList.remove('hidden');
         window.scrollTo(0,0);
+    } else if (pageId === 'equipment') {
+        equipment.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else if (pageId === 'safety') {
+        safety.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else if (pageId === 'procedures') {
+        procedures.classList.remove('hidden');
+        window.scrollTo(0,0);
     } else {
+        // Service detail page
         detail.classList.remove('hidden');
         
         let service = null;
@@ -245,6 +231,12 @@ function showPage(pageId) {
             const found = cat.items.find(i => i.id === pageId);
             if (found) service = found;
         });
+
+        if (service) {
+            // ... existing service detail page code ...
+        }
+    }
+}
 
         if (service) {
             content.innerHTML = `
@@ -394,7 +386,7 @@ function showPage(pageId) {
                                 </div>
                                 
                                 <a href="#quote" onclick="showPageAndScrollToQuote(); trackQuoteSubmission();" class="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold py-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition shadow-lg hover:shadow-xl">
-                                    Request Instant Quote
+                                    Get Free Quote
                                 </a>
                             </div>
                         </div>
@@ -582,3 +574,7 @@ window.addEventListener('load', function() {
     lucide.createIcons();
 
 });
+
+
+
+
