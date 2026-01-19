@@ -1,17 +1,3 @@
-function debugServices() {
-    console.log("=== DEBUG SERVICES ===");
-    console.log("1. Checking if services-container exists...");
-    const container = document.getElementById('services-container');
-    console.log("services-container found:", container ? "YES" : "NO");
-    
-    if (container) {
-        console.log("2. Checking servicesData...");
-        console.log("servicesData exists:", servicesData ? "YES" : "NO");
-        console.log("Number of categories:", Object.keys(servicesData).length);
-    }
-    
-    console.log("3. Checking if initializeServices is called...");
-}
 const servicesData = {
     // ... (keep your existing servicesData exactly as is) ...
 };
@@ -374,32 +360,11 @@ function loadProceduresPage() {
 
 // Populate Home Page Services and Dropdown Groups
 function initializeServices() {
-    console.log("TESTING SERVICES LOAD");
-    
     const container = document.getElementById('services-container');
+    const dropdown = document.getElementById('service-dropdown');
     
-    if (container) {
-        // Simple test to see if container exists
-        container.innerHTML = `
-            <div class="service-category-card bg-blue-50 rounded-2xl p-8 shadow-sm border border-blue-100">
-                <h3 class="text-3xl font-black mb-8 tracking-tight">TEST: Pressure Wash & Treat</h3>
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center group cursor-pointer border-b border-blue-100 pb-3" onclick="showPage('house-wash')">
-                        <span class="text-blue-600 font-bold text-lg group-hover:underline">House Washing</span>
-                        <span class="text-gray-900 font-medium">From $300</span>
-                    </div>
-                    <div class="flex justify-between items-center group cursor-pointer border-b border-blue-100 pb-3" onclick="showPage('driveway')">
-                        <span class="text-blue-600 font-bold text-lg group-hover:underline">Driveway Pressure Washing</span>
-                        <span class="text-gray-900 font-medium">$0.22/sq ft</span>
-                    </div>
-                </div>
-            </div>
-        `;
-        console.log("Test services added to container");
-    } else {
-        console.error("ERROR: Could not find services-container element");
-    }
-}
+    // Clear existing content
+    container.innerHTML = '';
     
     // Clear and reset dropdown
     dropdown.innerHTML = '<option value="">Select Service *</option>';
@@ -507,24 +472,20 @@ function trackQuoteSubmission() {
 }
 
 // Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOMContentLoaded fired - starting initialization");
-    
-    // Run debug first
-    debugServices();
-    
-    // Then initialize everything
+document.addEventListener('DOMContentLoaded', async function() {
+    await loadJSONData();
     initializeServices();
     initializeSlider();
     initializeForm();
     lucide.createIcons();
     
-    console.log("All initialization complete");
+    // Add click listeners to all phone links
+    document.querySelectorAll('a[href^="tel"]').forEach(link => {
+        link.addEventListener('click', trackPhoneCall);
+    });
 });
 
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
-
 });
-
