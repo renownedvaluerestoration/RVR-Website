@@ -691,11 +691,11 @@ function showPage(pageId) {
                             </div>
                         </div>
 
-                       <!-- Professional Process --> HIGH LEVEL PROCEDURE SECTION COMMENTED OUT WITH SLASH''
-                    <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">''
-                          <div class="flex items-center gap-3 mb-8">''
-                               <i data-lucide="list-ordered" class="w-8 h-8 text-blue-600"></i>''
-                               <h2 class="text-3xl font-bold text-gray-900">Our 4-Step Professional Process</h2>''
+                       <!-- Professional Process --> HIGH LEVEL PROCEDURE SECTION COMMENTED OUT WITH SLASH``
+                    <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">``
+                          <div class="flex items-center gap-3 mb-8">``
+                               <i data-lucide="list-ordered" class="w-8 h-8 text-blue-600"></i>``
+                               <h2 class="text-3xl font-bold text-gray-900">Our 4-Step Professional Process</h2>``
                            </div>''
                             
                             <div class="relative">
@@ -763,10 +763,10 @@ function showPage(pageId) {
                             </div>
                         </div>
 
-                         <!-- Quick Action Card -->Ready to Transform Call/click Card Slashed Out''
-                          <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-xl p-8 text-white">''
-                             <h3 class="text-2xl font-bold mb-6">Ready to Transform?</h3>''
-                                                    <div class="space-y-6">''
+                         <!-- Quick Action Card -->Ready to Transform Call/click Card Slashed Out``
+                          <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-xl p-8 text-white">``
+                             <h3 class="text-2xl font-bold mb-6">Ready to Transform?</h3>``
+                                                    <div class="space-y-6">``
                                                         
                                 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5">
                                     <div class="flex items-center gap-3 mb-3">
@@ -984,5 +984,6 @@ window.addEventListener('load', function() {
 
 
 });
+
 
 
