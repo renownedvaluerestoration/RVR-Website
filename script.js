@@ -493,19 +493,24 @@ function initializeServices() {
     const container = document.getElementById('services-container');
     const dropdown = document.getElementById('service-dropdown');
     
-    // Clear existing content
+    // Safety check: Stop if the container doesn't exist
+    if (!container) return; 
+    
     container.innerHTML = '';
     
-    // Clear and reset dropdown
-    dropdown.innerHTML = '<option value="">Select Service *</option>';
+    // Safety check for dropdown
+    if (dropdown) {
+        dropdown.innerHTML = '<option value="">Select Service *</option>';
+    }
 
     Object.values(servicesData).forEach(category => {
         const card = document.createElement('div');
         card.className = "service-category-card bg-blue-50 rounded-2xl p-8 shadow-sm border border-blue-100";
         let itemsHtml = `<h3 class="text-3xl font-black mb-8 tracking-tight">${category.title}</h3><div class="space-y-4">`;
         
-        const optGroup = document.createElement('optgroup');
-        optGroup.label = category.title;
+        // Only create optGroups if the dropdown exists
+        let optGroup = dropdown ? document.createElement('optgroup') : null;
+        if (optGroup) optGroup.label = category.title;
 
         category.items.forEach(item => {
             itemsHtml += `
@@ -514,15 +519,17 @@ function initializeServices() {
                     <span class="text-gray-900 font-medium">${item.price}</span>
                 </div>`;
             
-            const opt = document.createElement('option');
-            opt.value = item.id;
-            opt.textContent = item.name;
-            optGroup.appendChild(opt);
+            if (dropdown && optGroup) {
+                const opt = document.createElement('option');
+                opt.value = item.id;
+                opt.textContent = item.name;
+                optGroup.appendChild(opt);
+            }
         });
         
         card.innerHTML = itemsHtml + `</div>`;
         container.appendChild(card);
-        dropdown.appendChild(optGroup);
+        if (dropdown && optGroup) dropdown.appendChild(optGroup);
     });
 }
 
@@ -618,4 +625,5 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     lucide.createIcons();
 });
+
 [file content end]
