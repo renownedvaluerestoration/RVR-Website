@@ -398,6 +398,34 @@
         </div>
     </main>
 
+    <!-- New Pages -->
+    <main id="equipment-page" class="hidden">
+        <div class="max-w-5xl mx-auto px-6 py-12">
+            <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+                <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
+            </button>
+            <div id="equipment-content"></div>
+        </div>
+    </main>
+
+    <main id="safety-page" class="hidden">
+        <div class="max-w-5xl mx-auto px-6 py-12">
+            <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+                <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
+            </button>
+            <div id="safety-content"></div>
+        </div>
+    </main>
+
+    <main id="procedures-page" class="hidden">
+        <div class="max-w-5xl mx-auto px-6 py-12">
+            <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+                <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
+            </button>
+            <div id="procedures-content"></div>
+        </div>
+    </main>
+
     <footer class="bg-gray-50 border-t border-gray-200 py-16">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-start mb-12">
@@ -428,8 +456,16 @@
 
             <div class="pt-8 border-t border-gray-200 w-full text-center">
                 <p class="text-blue-600 font-bold mb-4 text-lg">Proudly serving all of Oakland County, Michigan, including Rochester Hills, Troy, Auburn Hills, and Bloomfield.</p>
+                
+                <!-- Updated Footer Links -->
+                <div class="flex flex-wrap justify-center gap-8 mb-6">
+                    <a href="#" onclick="showPage('equipment')" class="text-blue-600 font-semibold hover:text-blue-800 transition hover:underline text-lg">Equipment</a>
+                    <a href="#" onclick="showPage('safety')" class="text-blue-600 font-semibold hover:text-blue-800 transition hover:underline text-lg">Safety</a>
+                    <a href="#" onclick="showPage('procedures')" class="text-blue-600 font-semibold hover:text-blue-800 transition hover:underline text-lg">Procedures</a>
+                </div>
+                
                 <p class="text-gray-500 font-medium">&copy; 2026 Renowned Value Restoration</p>
-                <p class="text-gray-400 text-sm mt-2 italic">Commercial Grade Honda-Powered Simpson ALH 4240 Equipment</p>
+                <p class="text-gray-400 text-sm mt-2 italic">Professional Pressure Washing & Restoration Services</p>
             </div>
         </div>
     </footer>

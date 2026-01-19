@@ -1,0 +1,39 @@
+{
+  "company_philosophy": "Our Company doesn't believe in \"one size fits all.\" We match the specific chemical to the substrate to ensure a deep clean to restore value of your property.",
+  "restorative_agents": [
+    {
+      "name": "Sodium Hypochlorite (Commercial Bleach)",
+      "description": "We use this to sanitize surfaces and completely eliminate organic growth like algae, mold, and mildew at the source."
+    },
+    {
+      "name": "Sodium Hydroxide (Heavy Duty Degreaser)",
+      "description": "Our go-to for breaking down stubborn oils, grease, and animal fats on high-traffic surfaces like driveways and dumpster pads."
+    },
+    {
+      "name": "Oxalic Acid",
+      "description": "We utilize this specialized acid to safely lift orange rust stains caused by well-water irrigation or metal furniture."
+    }
+  ],
+  "wood_and_specialty": [
+    "Sodium Metasilicate: A powerful cleaner and stripper we use on weathered decks to remove old stains and deep-seated grime.",
+    "Sodium Percarbonate (Oxygen Bleach): A gentle, eco-friendly wood cleaner that kills mold and brightens wood fibers without the harshness of standard bleach.",
+    "Butyl Degreaser: We use this specifically to remove \"tiger stripes\"—those stubborn black streaks on gutters caused by asphalt shingle runoff.",
+    "Citrus & Purple Degreasers: Specialized solvents we employ to target rubber tire marks and deep engine oil stains."
+  ],
+  "masonry_and_commercial": [
+    "F9 Efflo: Our gold-standard treatment for removing efflorescence (white mineral powder) and calcium deposits from brick and stone.",
+    "EBC (Enviro Bio Cleaner): A biodegradable, multi-purpose powerhouse we mix with our house wash to provide superior cling and grease-cutting capabilities.",
+    "Gold Assassin: A specialized high-alkaline cleaner we reserve for the toughest restaurant grease and \"kitchen-to-curb\" sanitization."
+  ],
+  "safety_and_protection_products": [
+    "Elemonator (Surfactant): A high-cling soap we add to our mixtures to increase \"dwell time\" on your siding, ensuring the chemicals work effectively before being rinsed away.",
+    "Bleach Neutralizer: We spray this on all surrounding plants and grass after our cleaning process to neutralize any residual salts and protect your landscaping.",
+    "F9 BARC (Battery Acid Restoration Cleaner): F9 BARC is the industry king for \"orange battery acid\" stains. If your surface has a golf cart or a car battery acid stains this will work effectively.",
+    "Citric Acid (Professional Wood Brightener): The second step for washing wood after Sodium metasilicate. The Citric Acid adds the proper PH back into the wood."
+  ],
+  "industrial_hardware": [
+    "Simpson ALH 4240: 4.0 GPM Commercial Grade Pressure Washer.",
+    "WOJET 18” Pressure Washer Surface Cleaner: Professional attachment with 4500 PSI capacity.",
+    "YAMATIC Non-Marking Hose: 3/8\" Pressure Washer Hose, 100FT, 4200 PSI, Rubber Steel Braided, Wear Resistant, Industry Grade for Hot/Cold water."
+  ]
+}
