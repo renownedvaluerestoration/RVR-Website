@@ -322,7 +322,7 @@ option {
     }
     
     .floating-phone.whatsapp-call {
-        bottom: 80px;
+        bottom: 225px;
         right: 15px;
     }
 }
@@ -354,4 +354,5 @@ option {
         min-height: -webkit-fill-available;
     }
 }
+
 
