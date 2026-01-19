@@ -322,7 +322,7 @@ option {
     /* Floating buttons positioning */
     .floating-phone.phone-call {
         bottom: 0px;
-        right: 82px;
+        right: 39px;
     }
     
     .floating-phone.whatsapp-call {
@@ -360,6 +360,7 @@ option {
     }
 
 }
+
 
 
 
