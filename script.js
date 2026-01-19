@@ -161,32 +161,6 @@ const servicesData = {
     }
 };
 
-// Add this function to handle quote button clicks from any page
-function showPageAndScrollToQuote() {
-    showPage('home');
-    
-    // Small delay to ensure home page is loaded before scrolling
-    setTimeout(() => {
-        const quoteSection = document.getElementById('quote');
-        if (quoteSection) {
-            quoteSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 100);
-}
-
-// Function to handle smooth scrolling to sections on home page
-function scrollToSection(sectionId) {
-    showPage('home');
-    
-    // Small delay to ensure home page is loaded before scrolling
-    setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 100);
-}
-
 function showPage(pageId) {
     const home = document.getElementById('home-page');
     const detail = document.getElementById('detail-page');
@@ -233,7 +207,7 @@ function showPage(pageId) {
                             </div>
                         </div>
                         <div class="flex-shrink-0">
-                            <a href="#quote" onclick="showPageAndScrollToQuote(); trackQuoteSubmission();" class="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-2xl hover:shadow-3xl whitespace-nowrap">
+                            <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-2xl hover:shadow-3xl whitespace-nowrap">
                                 Get Free Quote
                             </a>
                         </div>
@@ -360,7 +334,7 @@ function showPage(pageId) {
                                     <p class="text-xl font-bold text-green-400">Within 24 Hours</p>
                                 </div>
                                 
-                                <a href="#quote" onclick="showPageAndScrollToQuote(); trackQuoteSubmission();" class="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold py-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition shadow-lg hover:shadow-xl">
+                                <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold py-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition shadow-lg hover:shadow-xl">
                                     Request Instant Quote
                                 </a>
                             </div>
@@ -404,7 +378,7 @@ function showPage(pageId) {
                     </div>
                     
                     <div class="mt-12 text-center">
-                        <a href="#quote" onclick="showPageAndScrollToQuote(); trackQuoteSubmission();" class="bg-blue-600 text-white px-12 py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-xl hover:shadow-2xl">
+                        <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-blue-600 text-white px-12 py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-xl hover:shadow-2xl">
                             Schedule Your ${service.name} Today
                         </a>
                     </div>
@@ -547,36 +521,4 @@ document.addEventListener('DOMContentLoaded', function() {
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
-
 });
-// Check if we are on the service-detail page
-if (window.location.pathname.includes('service-detail.html')) {
-    const params = new URLSearchParams(window.location.search);
-    const serviceId = params.get('id');
-
-    fetch('procedures.json')
-        .then(response => response.json())
-        .then(data => {
-            const procedureSteps = data.service_procedures[serviceId];
-            
-            if (procedureSteps) {
-                // Update Page Title (Format: house_wash_vinyl -> House Wash Vinyl)
-                const cleanTitle = serviceId.replace(/_/g, ' ').toUpperCase();
-                document.getElementById('service-title').innerText = cleanTitle;
-                document.getElementById('service-subtitle').innerText = `Professional procedure for ${cleanTitle.toLowerCase()}.`;
-
-                // Inject the steps
-                const list = document.getElementById('steps-list');
-                list.innerHTML = ""; // Clear loader
-                procedureSteps.forEach(step => {
-                    const li = document.createElement('li');
-                    li.style.marginBottom = "12px";
-                    li.innerText = step;
-                    list.appendChild(li);
-                });
-            } else {
-                document.getElementById('service-title').innerText = "Procedure Not Found";
-            }
-        })
-        .catch(err => console.error("Error loading procedures:", err));
-}

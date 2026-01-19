@@ -99,20 +99,6 @@ option {
 }
 
 /* ============================
-   FIX FOR HEADER OVERLAP
-   ============================ */
-/* Add padding to sections for sticky header */
-#services, #local-reputation, #process, #quote {
-    scroll-margin-top: 80px; /* Adjust based on your header height */
-}
-
-/* Add extra padding to the top of sections */
-.py-16 {
-    padding-top: 6rem !important;
-    padding-bottom: 4rem !important;
-}
-
-/* ============================
    MOBILE OPTIMIZATION
    ============================ */
 
@@ -239,11 +225,6 @@ option {
         padding-right: 1.5rem;
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
-    }
-    
-    /* Fix header overlap on mobile */
-    #services, #local-reputation, #process, #quote {
-        scroll-margin-top: 100px;
     }
 }
 

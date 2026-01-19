@@ -74,9 +74,9 @@
             </div>
             
             <nav class="hidden md:flex items-center gap-6">
-                <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="scrollToSection('services')">Services</a>
-                <a href="#local-reputation" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="scrollToSection('local-reputation')">Reviews</a>
-                <a href="#process" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="scrollToSection('process')">Results</a>
+                <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Services</a>
+                <a href="#local-reputation" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Reviews</a>
+                <a href="#process" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('home')">Results</a>
                 <a href="#blog" class="text-gray-700 hover:text-blue-600 font-medium text-lg" onclick="showPage('blog')">Blog</a>
                 
                 <!-- Desktop Phone & Quote Buttons -->
@@ -87,7 +87,7 @@
                         <i data-lucide="phone" class="w-5 h-5"></i>
                         (248) 313-8955
                     </a>
-                    <a href="#quote" class="bg-blue-600 text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-blue-700 transition text-lg shadow-lg hover:shadow-xl" onclick="showPageAndScrollToQuote()">Get Free Quote</a>
+                    <a href="#quote" class="bg-blue-600 text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-blue-700 transition text-lg shadow-lg hover:shadow-xl">Get Free Quote</a>
                 </div>
             </nav>
         </div>
@@ -104,7 +104,7 @@
                 <!-- Hero CTA with Phone Emphasis -->
                 <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a href="#quote" 
-                       onclick="showPageAndScrollToQuote()" 
+                       onclick="showPage('home')" 
                        class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-lg w-full sm:w-auto text-center">
                         Get Free Quote
                     </a>
@@ -137,14 +137,14 @@
             </div>
         </section>
 
-        <section class="py-16 bg-white pt-24 -mt-24" id="services">
+        <section class="py-16 bg-white" id="services">
             <div class="max-w-5xl mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 tracking-tight">Our Services</h2>
                 <div id="services-container" class="space-y-8"></div>
             </div>
         </section>
 
-        <section class="py-16 bg-gray-50 pt-24 -mt-24" id="local-reputation">
+        <section class="py-16 bg-gray-50" id="local-reputation">
             <div class="max-w-7xl mx-auto px-6 text-center">
                 <h2 class="text-4xl font-bold mb-6 tracking-tight">Our Local Reputation</h2>
                 <p class="text-xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed">
@@ -170,7 +170,7 @@
             </div>
         </section>
 
-        <section class="py-16 bg-white pt-24 -mt-24" id="process">
+        <section class="py-16 bg-white" id="process">
             <div class="max-w-4xl mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center mb-12 tracking-tight">Value Restoration</h2>
                 <div class="slider-container relative w-full h-96 md:h-[500px] overflow-hidden rounded-2xl shadow-2xl cursor-ew-resize">
@@ -191,7 +191,7 @@
             </div>
         </section>
 
-        <section class="py-16 bg-gray-50 pt-24 -mt-24" id="quote">
+        <section class="py-16 bg-gray-50" id="quote">
             <div class="max-w-4xl mx-auto px-6">
                 <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
                     <h2 class="text-4xl font-bold text-center mb-8 tracking-tight">Get Your Free Quote</h2>
@@ -261,7 +261,7 @@
                         <div class="p-8 md:p-12">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-bold">SEASONAL TIPS</span>
-                                <span class="text-gray-500 text-sm">January 15, 2026</span>
+                                <span class="text-gray-500 text-sm">March 15, 2026</span>
                             </div>
                             <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Spring Pressure Washing: Why April is the Perfect Time in Michigan</h2>
                             <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
@@ -309,7 +309,7 @@
                         <div class="p-8 md:p-12 order-1 md:order-2">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-bold">EDUCATIONAL</span>
-                                <span class="text-gray-500 text-sm">January 10, 2026</span>
+                                <span class="text-gray-500 text-sm">February 28, 2026</span>
                             </div>
                             <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Soft Washing vs Pressure Washing: What Your Home Actually Needs</h2>
                             <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
@@ -331,7 +331,7 @@
                         <div class="p-8 md:p-12">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-bold">PROPERTY VALUE</span>
-                                <span class="text-gray-500 text-sm">January 8, 2026</span>
+                                <span class="text-gray-500 text-sm">January 22, 2026</span>
                             </div>
                             <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Pressure Washing ROI: How Cleaning Increases Home Value in Oakland County</h2>
                             <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
@@ -379,7 +379,7 @@
                         <div class="p-8 md:p-12 order-1 md:order-2">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="bg-amber-100 text-amber-600 px-3 py-1 rounded-full text-sm font-bold">COMMERCIAL</span>
-                                <span class="text-gray-500 text-sm">January 5, 2026</span>
+                                <span class="text-gray-500 text-sm">December 15, 2025</span>
                             </div>
                             <h2 class="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Commercial Pressure Washing: Why Oakland County Businesses Can't Afford Dirty Exteriors</h2>
                             <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
