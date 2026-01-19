@@ -170,14 +170,14 @@ option {
 .floating-phone.phone-call {
     background: #2563eb;
     color: white;
-    right: 190px;
-    bottom: 190px;
+    right: 0px;
+    bottom: 90px;
 }
 
 .floating-phone.whatsapp-call {
     background: #2563eb;
     color: white;
-    right: 20px;
+    right: 0px;
 }
 
 .floating-phone:hover {
@@ -321,13 +321,13 @@ option {
     
     /* Floating buttons positioning */
     .floating-phone.phone-call {
-        bottom: 0px;
-        right: 39px;
+        bottom: 100px;
+        right: 15px;
     }
     
     .floating-phone.whatsapp-call {
         bottom: 0px;
-        right: 140px;
+        right: 40px;
     }
 }
 
@@ -360,6 +360,7 @@ option {
     }
 
 }
+
 
 
 
