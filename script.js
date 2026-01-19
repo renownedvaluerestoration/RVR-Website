@@ -547,4 +547,36 @@ document.addEventListener('DOMContentLoaded', function() {
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
+
 });
+// Check if we are on the service-detail page
+if (window.location.pathname.includes('service-detail.html')) {
+    const params = new URLSearchParams(window.location.search);
+    const serviceId = params.get('id');
+
+    fetch('procedures.json')
+        .then(response => response.json())
+        .then(data => {
+            const procedureSteps = data.service_procedures[serviceId];
+            
+            if (procedureSteps) {
+                // Update Page Title (Format: house_wash_vinyl -> House Wash Vinyl)
+                const cleanTitle = serviceId.replace(/_/g, ' ').toUpperCase();
+                document.getElementById('service-title').innerText = cleanTitle;
+                document.getElementById('service-subtitle').innerText = `Professional procedure for ${cleanTitle.toLowerCase()}.`;
+
+                // Inject the steps
+                const list = document.getElementById('steps-list');
+                list.innerHTML = ""; // Clear loader
+                procedureSteps.forEach(step => {
+                    const li = document.createElement('li');
+                    li.style.marginBottom = "12px";
+                    li.innerText = step;
+                    list.appendChild(li);
+                });
+            } else {
+                document.getElementById('service-title').innerText = "Procedure Not Found";
+            }
+        })
+        .catch(err => console.error("Error loading procedures:", err));
+}
