@@ -374,31 +374,31 @@ function loadProceduresPage() {
 
 // Populate Home Page Services and Dropdown Groups
 function initializeServices() {
-    console.log("initializeServices() STARTING");
+    console.log("TESTING SERVICES LOAD");
     
     const container = document.getElementById('services-container');
-    const dropdown = document.getElementById('service-dropdown');
     
-    if (!container) {
-        console.error("ERROR: services-container element not found!");
-        return;
+    if (container) {
+        // Simple test to see if container exists
+        container.innerHTML = `
+            <div class="service-category-card bg-blue-50 rounded-2xl p-8 shadow-sm border border-blue-100">
+                <h3 class="text-3xl font-black mb-8 tracking-tight">TEST: Pressure Wash & Treat</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center group cursor-pointer border-b border-blue-100 pb-3" onclick="showPage('house-wash')">
+                        <span class="text-blue-600 font-bold text-lg group-hover:underline">House Washing</span>
+                        <span class="text-gray-900 font-medium">From $300</span>
+                    </div>
+                    <div class="flex justify-between items-center group cursor-pointer border-b border-blue-100 pb-3" onclick="showPage('driveway')">
+                        <span class="text-blue-600 font-bold text-lg group-hover:underline">Driveway Pressure Washing</span>
+                        <span class="text-gray-900 font-medium">$0.22/sq ft</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        console.log("Test services added to container");
+    } else {
+        console.error("ERROR: Could not find services-container element");
     }
-    
-    if (!dropdown) {
-        console.error("ERROR: service-dropdown element not found!");
-        return;
-    }
-    
-    console.log("Both elements found, populating services...");
-    
-    // Clear existing content
-    container.innerHTML = '';
-    dropdown.innerHTML = '<option value="">Select Service *</option>';
-    
-    // Rest of your existing initializeServices code...
-    // (keep all the category and item generation code)
-    
-    console.log("initializeServices() COMPLETED");
 }
     
     // Clear and reset dropdown
@@ -527,3 +527,4 @@ window.addEventListener('load', function() {
     lucide.createIcons();
 
 });
+
