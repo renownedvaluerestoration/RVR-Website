@@ -317,7 +317,7 @@ option {
     
     /* Floating buttons positioning */
     .floating-phone.phone-call {
-        bottom: 160px;
+        bottom: 175px;
         right: 15px;
     }
     
@@ -354,3 +354,4 @@ option {
         min-height: -webkit-fill-available;
     }
 }
+
