@@ -1,0 +1,266 @@
+[file name]: procedure-detail.html
+[file content begin]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Procedure | Renowned Value Restoration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .procedure-step {
+            padding: 1.5rem;
+            border-left: 4px solid #2563eb;
+            background: #f8fafc;
+            margin-bottom: 1rem;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        .procedure-step:hover {
+            background: #eff6ff;
+            transform: translateX(4px);
+        }
+        .step-number {
+            position: absolute;
+            left: -20px;
+            top: 1.5rem;
+            background: #2563eb;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.4);
+        }
+        .cite-badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center cursor-pointer" onclick="window.location.href='index.html'">
+                <i data-lucide="sparkles" class="w-8 h-8 text-blue-600 mr-3"></i>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900">Renowned Value Restoration</h1>
+                    <p class="text-sm text-gray-600">Professional Procedure</p>
+                </div>
+            </div>
+            
+            <a href="procedures.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                All Procedures
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <div id="procedure-content">
+            <div class="text-center py-12">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i data-lucide="loader" class="w-8 h-8 text-blue-600 animate-spin"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-700">Loading procedure...</h2>
+            </div>
+        </div>
+        
+        <div class="mt-12 flex justify-center gap-4">
+            <a href="procedures.html" class="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                <i data-lucide="list" class="w-5 h-5"></i>
+                View All Procedures
+            </a>
+            <a href="index.html" class="flex items-center gap-2 bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                Back to Home
+            </a>
+        </div>
+    </main>
+
+    <script>
+        async function loadProcedure() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const procedureKey = urlParams.get('key');
+            
+            if (!procedureKey) {
+                document.getElementById('procedure-content').innerHTML = `
+                    <div class="text-center py-12">
+                        <i data-lucide="alert-circle" class="w-16 h-16 text-gray-400 mx-auto mb-6"></i>
+                        <h2 class="text-2xl font-bold text-gray-700 mb-4">Procedure Not Found</h2>
+                        <p class="text-gray-600 mb-6">Please select a valid procedure from the list.</p>
+                        <a href="procedures.html" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                            View All Procedures
+                        </a>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+            
+            try {
+                const response = await fetch('procedures.json');
+                const data = await response.json();
+                const procedures = data.service_procedures;
+                const steps = procedures[procedureKey];
+                
+                if (!steps) {
+                    throw new Error('Procedure not found');
+                }
+                
+                const formattedName = procedureKey.split('_')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+                
+                let html = `
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-12">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                                <i data-lucide="clipboard-list" class="w-10 h-10"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-4xl font-bold mb-2">${formattedName} Procedure</h1>
+                                <p class="text-blue-100 text-lg">Professional step-by-step guide</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i data-lucide="list-ordered" class="w-5 h-5"></i>
+                                    <p class="font-bold">Total Steps</p>
+                                </div>
+                                <p class="text-2xl font-bold">${steps.length}</p>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                                    <p class="font-bold">Industry Standard</p>
+                                </div>
+                                <p class="text-2xl font-bold">Compliant</p>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i data-lucide="clock" class="w-5 h-5"></i>
+                                    <p class="font-bold">Quality Assured</p>
+                                </div>
+                                <p class="text-2xl font-bold">Guaranteed</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100 mb-8">
+                        <div class="flex items-center gap-3 mb-8">
+                            <i data-lucide="list-ordered" class="w-8 h-8 text-blue-600"></i>
+                            <h2 class="text-3xl font-bold text-gray-900">Procedure Steps</h2>
+                        </div>
+                        <div class="space-y-6">
+                `;
+                
+                steps.forEach((step, index) => {
+                    const stepNumber = index + 1;
+                    const stepText = step.replace(/\[cite: \d+\]/, '').trim();
+                    const citeMatch = step.match(/\[cite: (\d+)\]/);
+                    
+                    html += `
+                        <div class="procedure-step">
+                            <div class="step-number">${stepNumber}</div>
+                            <div class="ml-4">
+                                <p class="text-gray-800 text-lg">${stepText}</p>
+                                ${citeMatch ? `<span class="cite-badge">Reference: ${citeMatch[1]}</span>` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 rounded-3xl p-8 border border-blue-200">
+                        <div class="flex items-center gap-3 mb-6">
+                            <i data-lucide="info" class="w-8 h-8 text-blue-600"></i>
+                            <h3 class="text-2xl font-bold text-blue-800">About This Procedure</h3>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                                    <i data-lucide="shield" class="w-5 h-5 text-green-500"></i>
+                                    Safety Notes
+                                </h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i>
+                                        <span>All steps performed by certified technicians</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i>
+                                        <span>Proper PPE used at all times</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i>
+                                        <span>Environmental protection protocols followed</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                                    <i data-lucide="award" class="w-5 h-5 text-blue-500"></i>
+                                    Quality Standards
+                                </h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="star" class="w-5 h-5 text-yellow-500 flex-shrink-0"></i>
+                                        <span>Commercial-grade equipment only</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="star" class="w-5 h-5 text-yellow-500 flex-shrink-0"></i>
+                                        <span>Industry best practices followed</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="star" class="w-5 h-5 text-yellow-500 flex-shrink-0"></i>
+                                        <span>100% satisfaction guarantee</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('procedure-content').innerHTML = html;
+                lucide.createIcons();
+                
+            } catch (error) {
+                console.error('Error loading procedure:', error);
+                document.getElementById('procedure-content').innerHTML = `
+                    <div class="text-center py-12">
+                        <i data-lucide="alert-circle" class="w-16 h-16 text-gray-400 mx-auto mb-6"></i>
+                        <h2 class="text-2xl font-bold text-gray-700 mb-4">Unable to Load Procedure</h2>
+                        <p class="text-gray-600 mb-6">There was an error loading the procedure details.</p>
+                        <a href="procedures.html" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                            View All Procedures
+                        </a>
+                    </div>
+                `;
+                lucide.createIcons();
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadProcedure);
+    </script>
+</body>
+</html>
+[file content end]
