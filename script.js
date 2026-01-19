@@ -1,5 +1,3 @@
-[file name]: script.js
-[file content begin]
 const servicesData = {
     categoryA: {
         title: "Pressure Wash & Treat",
@@ -163,65 +161,6 @@ const servicesData = {
     }
 };
 
-// Service to Procedures Mapping
-const serviceToProcedures = {
-    'house-wash': {
-        title: "House Washing",
-        procedures: [
-            { name: "Vinyl Siding", key: "house_wash_vinyl" },
-            { name: "Brick/Stucco", key: "house_wash_masonry" }
-        ]
-    },
-    'tennis-courts': {
-        title: "Tennis Court",
-        procedures: [{ name: "Tennis Court Procedure", key: "tennis_court" }]
-    },
-    'driveway': {
-        title: "Driveway",
-        procedures: [{ name: "Cement Driveway", key: "cement_driveway" }]
-    },
-    'dumpster': {
-        title: "Dumpster Pad",
-        procedures: [{ name: "Dumpster Pad", key: "dumpster_pad" }]
-    },
-    'roof': {
-        title: "Rooftop Softwash",
-        procedures: [{ name: "Rooftop Softwash", key: "rooftop_softwash" }]
-    },
-    'bins': {
-        title: "Garbage Bins",
-        procedures: [{ name: "Garbage Bins", key: "garbage_bins" }]
-    },
-    'graffiti': {
-        title: "Graffiti Removal",
-        procedures: [{ name: "Graffiti Removal", key: "graffiti_removal" }]
-    },
-    'gum': {
-        title: "Gum Removal",
-        procedures: [{ name: "Gum Removal", key: "gum_removal" }]
-    },
-    'algae': {
-        title: "Efflorescence, Algae & Moss",
-        procedures: [{ name: "Efflorescence, Algae & Moss", key: "efflorescence_algae_moss" }]
-    },
-    'concrete-seal': {
-        title: "Concrete Wash & Reseal",
-        procedures: [{ name: "Concrete Wash & Reseal", key: "concrete_wash_reseal" }]
-    },
-    'paver-seal': {
-        title: "Brick Paver Wash & Reseal",
-        procedures: [{ name: "Brick Driveway", key: "brick_driveway" }]
-    },
-    'dusting': {
-        title: "Concrete Dusting",
-        procedures: [{ name: "Concrete Dusting", key: "concrete_dusting_shake" }]
-    },
-    'stone': {
-        title: "Resin Stone Stabilization",
-        procedures: [{ name: "Resin Stone Stabilization", key: "resin_stone_stabilization" }]
-    }
-};
-
 function showPage(pageId) {
     const home = document.getElementById('home-page');
     const detail = document.getElementById('detail-page');
@@ -301,41 +240,6 @@ function showPage(pageId) {
                                 </div>
                             </div>
                         </div>
-
-                        ${serviceToProcedures[service.id] ? `
-                        <!-- Detailed Procedures Card -->
-                        <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                            <div class="flex items-center gap-3 mb-6">
-                                <i data-lucide="clipboard-check" class="w-8 h-8 text-blue-600"></i>
-                                <h2 class="text-3xl font-bold text-gray-900">Detailed Procedures</h2>
-                            </div>
-                            <p class="text-lg text-gray-700 mb-6">View our step-by-step professional procedures for this service:</p>
-                            <div class="space-y-4">
-                                ${serviceToProcedures[service.id].procedures.map(proc => `
-                                    <a href="procedure-detail.html?key=${proc.key}" 
-                                       class="flex items-center justify-between bg-blue-50 hover:bg-blue-100 rounded-xl p-4 border border-blue-200 transition group">
-                                        <div class="flex items-center gap-3">
-                                            <i data-lucide="file-text" class="w-5 h-5 text-blue-600"></i>
-                                            <span class="font-medium text-gray-800">${proc.name} Procedure</span>
-                                        </div>
-                                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition"></i>
-                                    </a>
-                                `).join('')}
-                                ${service.id === 'house-wash' ? `
-                                <div class="mt-4 text-sm text-gray-600 flex items-center gap-2">
-                                    <i data-lucide="info" class="w-4 h-4"></i>
-                                    <span>House washing has different procedures for different siding materials</span>
-                                </div>
-                                ` : ''}
-                            </div>
-                            <div class="mt-8 pt-8 border-t border-gray-200">
-                                <a href="procedures.html" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium">
-                                    <i data-lucide="list" class="w-5 h-5"></i>
-                                    View All Procedures
-                                </a>
-                            </div>
-                        </div>
-                        ` : ''}
 
                         <!-- Professional Process -->
                         <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
@@ -493,24 +397,19 @@ function initializeServices() {
     const container = document.getElementById('services-container');
     const dropdown = document.getElementById('service-dropdown');
     
-    // Safety check: Stop if the container doesn't exist
-    if (!container) return; 
-    
+    // Clear existing content
     container.innerHTML = '';
     
-    // Safety check for dropdown
-    if (dropdown) {
-        dropdown.innerHTML = '<option value="">Select Service *</option>';
-    }
+    // Clear and reset dropdown
+    dropdown.innerHTML = '<option value="">Select Service *</option>';
 
     Object.values(servicesData).forEach(category => {
         const card = document.createElement('div');
         card.className = "service-category-card bg-blue-50 rounded-2xl p-8 shadow-sm border border-blue-100";
         let itemsHtml = `<h3 class="text-3xl font-black mb-8 tracking-tight">${category.title}</h3><div class="space-y-4">`;
         
-        // Only create optGroups if the dropdown exists
-        let optGroup = dropdown ? document.createElement('optgroup') : null;
-        if (optGroup) optGroup.label = category.title;
+        const optGroup = document.createElement('optgroup');
+        optGroup.label = category.title;
 
         category.items.forEach(item => {
             itemsHtml += `
@@ -519,17 +418,15 @@ function initializeServices() {
                     <span class="text-gray-900 font-medium">${item.price}</span>
                 </div>`;
             
-            if (dropdown && optGroup) {
-                const opt = document.createElement('option');
-                opt.value = item.id;
-                opt.textContent = item.name;
-                optGroup.appendChild(opt);
-            }
+            const opt = document.createElement('option');
+            opt.value = item.id;
+            opt.textContent = item.name;
+            optGroup.appendChild(opt);
         });
         
         card.innerHTML = itemsHtml + `</div>`;
         container.appendChild(card);
-        if (dropdown && optGroup) dropdown.appendChild(optGroup);
+        dropdown.appendChild(optGroup);
     });
 }
 
@@ -625,5 +522,3 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     lucide.createIcons();
 });
-
-[file content end]
