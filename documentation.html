@@ -8,163 +8,42 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="script.js"></script>
-    <style>
-        /* Add minimal styles for documentation page */
-        body {
-            background-color: white;
-        }
-        .doc-content {
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
 </head>
 <body class="min-h-screen bg-white text-gray-900">
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center cursor-pointer" onclick="window.location.href='index.html'">
+            <div class="flex items-center cursor-pointer" onclick="showPage('home')">
                 <i data-lucide="sparkles" class="w-8 h-8 text-blue-600 mr-3"></i>
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900">Renowned Value Restoration</h1>
                     <p class="text-sm text-gray-600">Documentation</p>
                 </div>
             </div>
-            <button onclick="window.location.href='index.html'" class="text-blue-600 font-bold hover:underline flex items-center gap-2">
+            <button onclick="showPage('home')" class="text-blue-600 font-bold hover:underline flex items-center gap-2">
                 <i data-lucide="home" class="w-5 h-5"></i>
                 Back to Home
             </button>
         </div>
     </header>
 
-    <main id="documentation-content" class="max-w-5xl mx-auto px-6 py-12 doc-content">
-        <!-- Content will be loaded here -->
-        <div class="text-center py-12">
-            <i data-lucide="loader-2" class="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4"></i>
-            <p class="text-gray-600">Loading documentation...</p>
-        </div>
+    <main id="documentation-content" class="max-w-5xl mx-auto px-6 py-12">
+        <!-- Content loaded dynamically from script.js -->
     </main>
 
     <script>
-        // Simplified version for documentation.html only
-        async function loadDocContent() {
+        // Load documentation based on URL parameters
+        document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const file = urlParams.get('file');
             const procedure = urlParams.get('procedure');
             
-            if (!file) {
-                window.location.href = 'index.html';
-                return;
-            }
-            
-            try {
-                const response = await fetch(`${file}.json`);
-                if (!response.ok) throw new Error(`Failed to load ${file}.json`);
-                
-                const data = await response.json();
-                renderDocumentation(data, file, procedure);
-            } catch (error) {
-                document.getElementById('documentation-content').innerHTML = `
-                    <div class="text-center py-12 text-red-600">
-                        <i data-lucide="alert-circle" class="w-12 h-12 mx-auto mb-4"></i>
-                        <p class="text-lg font-bold">Error loading documentation</p>
-                        <p class="text-gray-600 mt-2">${error.message}</p>
-                        <button onclick="window.location.href='index.html'" class="mt-6 text-blue-600 font-bold hover:underline">
-                            Return to Home
-                        </button>
-                    </div>
-                `;
-            }
-        }
-        
-        function renderDocumentation(data, file, procedure) {
-            const contentDiv = document.getElementById('documentation-content');
-            let html = '';
-            
-            // Simple rendering based on file type
-            if (file === 'procedures' && data.service_procedures) {
-                if (procedure && data.service_procedures[procedure]) {
-                    // Single procedure
-                    const steps = data.service_procedures[procedure];
-                    const displayName = procedure.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                    
-                    html = `
-                        <div class="space-y-8">
-                            <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-3xl p-10 text-white mb-8">
-                                <h1 class="text-4xl font-extrabold mb-2">${displayName}</h1>
-                                <p class="text-xl text-purple-100">Professional Step-by-Step Procedure</p>
-                            </div>
-                            
-                            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
-                                <h2 class="text-3xl font-bold text-gray-900 mb-6">Procedure Steps</h2>
-                                <div class="space-y-6">
-                                    ${steps.map((step, index) => {
-                                        const stepText = step.split(' [cite:')[0];
-                                        return `
-                                            <div class="flex gap-4 p-4 bg-gray-50 rounded-xl border">
-                                                <div class="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                                                    ${index + 1}
-                                                </div>
-                                                <div class="flex-1">
-                                                    <p class="text-gray-700">${stepText}</p>
-                                                </div>
-                                            </div>
-                                        `;
-                                    }).join('')}
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    // All procedures list
-                    const procedures = data.service_procedures;
-                    html = `
-                        <div class="space-y-8">
-                            <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-3xl p-10 text-white mb-8">
-                                <h1 class="text-4xl font-extrabold mb-2">Service Procedures</h1>
-                                <p class="text-xl text-purple-100">Step-by-step protocols for every service</p>
-                            </div>
-                            
-                            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
-                                <h2 class="text-3xl font-bold text-gray-900 mb-6">All Procedures</h2>
-                                <div class="space-y-4">
-                                    ${Object.keys(procedures).map(key => {
-                                        const displayName = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                                        return `
-                                            <a href="documentation.html?file=procedures&procedure=${key}" 
-                                               class="block p-4 bg-gray-50 rounded-lg border hover:bg-purple-50 hover:border-purple-200 transition">
-                                                <div class="flex justify-between items-center">
-                                                    <span class="font-medium text-gray-800">${displayName}</span>
-                                                    <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
-                                                </div>
-                                            </a>
-                                        `;
-                                    }).join('')}
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }
+            if (file) {
+                loadDocumentationFile(file, procedure);
             } else {
-                // For equipment and safety
-                html = `
-                    <div class="text-center py-12">
-                        <h1 class="text-4xl font-bold text-gray-900 mb-4">${file.charAt(0).toUpperCase() + file.slice(1)} Documentation</h1>
-                        <p class="text-gray-600">Content loaded successfully.</p>
-                        <pre class="mt-6 text-left bg-gray-100 p-4 rounded-lg overflow-auto max-h-96">${JSON.stringify(data, null, 2)}</pre>
-                    </div>
-                `;
+                showPage('home');
             }
             
-            contentDiv.innerHTML = html;
             lucide.createIcons();
-        }
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            loadDocContent();
         });
     </script>
 </body>

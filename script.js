@@ -184,7 +184,7 @@ async function loadDocumentationFile(file, procedure) {
     const docPage = document.getElementById('documentation-page');
     
     docPage.innerHTML = `
-        <button onclick="history.back()" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+        <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
             <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
         </button>
         <div id="documentation-content" class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100"></div>
@@ -982,20 +982,4 @@ document.addEventListener('DOMContentLoaded', function() {
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
-});
-// Fix back buttons globally
-document.addEventListener('click', function(e) {
-    // Check if clicked element or its parent is a back button
-    const backButton = e.target.closest('button');
-    if (backButton && (backButton.textContent.includes('Back') || backButton.querySelector('[data-lucide="arrow-left"]'))) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        if (window.location.pathname.includes('documentation.html')) {
-            window.location.href = 'index.html';
-        } else {
-            showPage('home');
-        }
-        return false;
-    }
 });
