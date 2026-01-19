@@ -1,3 +1,17 @@
+function debugServices() {
+    console.log("=== DEBUG SERVICES ===");
+    console.log("1. Checking if services-container exists...");
+    const container = document.getElementById('services-container');
+    console.log("services-container found:", container ? "YES" : "NO");
+    
+    if (container) {
+        console.log("2. Checking servicesData...");
+        console.log("servicesData exists:", servicesData ? "YES" : "NO");
+        console.log("Number of categories:", Object.keys(servicesData).length);
+    }
+    
+    console.log("3. Checking if initializeServices is called...");
+}
 const servicesData = {
     // ... (keep your existing servicesData exactly as is) ...
 };
@@ -360,11 +374,32 @@ function loadProceduresPage() {
 
 // Populate Home Page Services and Dropdown Groups
 function initializeServices() {
+    console.log("initializeServices() STARTING");
+    
     const container = document.getElementById('services-container');
     const dropdown = document.getElementById('service-dropdown');
     
+    if (!container) {
+        console.error("ERROR: services-container element not found!");
+        return;
+    }
+    
+    if (!dropdown) {
+        console.error("ERROR: service-dropdown element not found!");
+        return;
+    }
+    
+    console.log("Both elements found, populating services...");
+    
     // Clear existing content
     container.innerHTML = '';
+    dropdown.innerHTML = '<option value="">Select Service *</option>';
+    
+    // Rest of your existing initializeServices code...
+    // (keep all the category and item generation code)
+    
+    console.log("initializeServices() COMPLETED");
+}
     
     // Clear and reset dropdown
     dropdown.innerHTML = '<option value="">Select Service *</option>';
@@ -472,20 +507,23 @@ function trackQuoteSubmission() {
 }
 
 // Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', async function() {
-    await loadJSONData();
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOMContentLoaded fired - starting initialization");
+    
+    // Run debug first
+    debugServices();
+    
+    // Then initialize everything
     initializeServices();
     initializeSlider();
     initializeForm();
     lucide.createIcons();
     
-    // Add click listeners to all phone links
-    document.querySelectorAll('a[href^="tel"]').forEach(link => {
-        link.addEventListener('click', trackPhoneCall);
-    });
+    console.log("All initialization complete");
 });
 
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
+
 });
