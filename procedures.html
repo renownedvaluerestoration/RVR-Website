@@ -1,0 +1,133 @@
+[file name]: procedures.html
+[file content begin]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Procedures | Renowned Value Restoration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .procedure-step {
+            padding: 1rem 1.5rem;
+            border-left: 3px solid #2563eb;
+            background: #f8fafc;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .cite-badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center cursor-pointer" onclick="window.location.href='index.html'">
+                <i data-lucide="sparkles" class="w-8 h-8 text-blue-600 mr-3"></i>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900">Renowned Value Restoration</h1>
+                    <p class="text-sm text-gray-600">Service Procedures</p>
+                </div>
+            </div>
+            
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Service Procedures</h1>
+            <p class="text-lg text-gray-600">Detailed professional procedures for each service</p>
+        </div>
+
+        <div id="procedures-list" class="space-y-8"></div>
+
+        <div class="mt-16 text-center">
+            <a href="index.html" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                Return to Homepage
+            </a>
+        </div>
+    </main>
+
+    <script>
+        async function loadProcedures() {
+            try {
+                const response = await fetch('procedures.json');
+                const data = await response.json();
+                const procedures = data.service_procedures;
+                
+                const container = document.getElementById('procedures-list');
+                
+                for (const [key, steps] of Object.entries(procedures)) {
+                    const formattedName = key.split('_')
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' ');
+                    
+                    const card = document.createElement('div');
+                    card.className = 'bg-white rounded-2xl shadow-lg p-8 border border-gray-100';
+                    card.innerHTML = `
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                                <i data-lucide="clipboard-list" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900">${formattedName}</h2>
+                        </div>
+                        <div id="steps-${key}" class="space-y-3"></div>
+                    `;
+                    
+                    container.appendChild(card);
+                    
+                    const stepsContainer = document.getElementById(`steps-${key}`);
+                    steps.forEach(step => {
+                        const stepDiv = document.createElement('div');
+                        stepDiv.className = 'procedure-step';
+                        
+                        // Extract citation if present
+                        const stepText = step.replace(/\[cite: \d+\]/, '').trim();
+                        const citeMatch = step.match(/\[cite: (\d+)\]/);
+                        
+                        stepDiv.innerHTML = stepText;
+                        if (citeMatch) {
+                            const citeSpan = document.createElement('span');
+                            citeSpan.className = 'cite-badge';
+                            citeSpan.textContent = `Ref: ${citeMatch[1]}`;
+                            stepDiv.appendChild(citeSpan);
+                        }
+                        
+                        stepsContainer.appendChild(stepDiv);
+                    });
+                }
+                
+                lucide.createIcons();
+            } catch (error) {
+                console.error('Error loading procedures:', error);
+                document.getElementById('procedures-list').innerHTML = `
+                    <div class="text-center py-12">
+                        <i data-lucide="alert-circle" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-700 mb-2">Unable to load procedures</h3>
+                        <p class="text-gray-600">Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadProcedures);
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+[file content end]
