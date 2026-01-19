@@ -691,15 +691,15 @@ function showPage(pageId) {
                             </div>
                         </div>
 
-                   /*    <!-- Professional Process --> HIGH LEVEL PROCEDURE SECTION COMMENTED OUT WITH SLASH
+                       <!-- Professional Process --> 
                  <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
                        <div class="flex items-center gap-3 mb-8">
                               <i data-lucide="list-ordered" class="w-8 h-8 text-blue-600"></i>
                                <h2 class="text-3xl font-bold text-gray-900">Our 4-Step Professional Process</h2>
                           </div>*/
-                */
+                
                             
-                            <div class="relative">
+               /*             <div class="relative">
                                 <!-- Timeline line -->
                                 <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 to-blue-200"></div>
                                 
@@ -719,9 +719,9 @@ function showPage(pageId) {
                                     `).join('')}
                                 </div>
                             </div>
+                        */
                         </div>
                     </div>
-
                     <!-- Sidebar Column -->
                     <div class="space-y-8">
                         <!-- Pricing Card -->
@@ -764,11 +764,10 @@ function showPage(pageId) {
                             </div>
                         </div>
 
-                  /*       <!-- Quick Action Card -->Ready to Transform Call/click Card Slashed Out
-                          <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-xl p-8 text-white">
+                        <!-- Quick Action Card -->Ready to Transform Call/Click 
+                  /*        <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-xl p-8 text-white">
                              <h3 class="text-2xl font-bold mb-6">Ready to Transform?</h3>
-                                                    <div class="space-y-6">
-                   */                                     
+                                                    <div class="space-y-6">                                     
                                 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5">
                                     <div class="flex items-center gap-3 mb-3">
                                         <i data-lucide="phone" class="w-5 h-5 text-blue-300"></i>
@@ -790,6 +789,7 @@ function showPage(pageId) {
                                 </a>
                             </div>
                         </div>
+                        */
                     </div>
                 </div>
 
@@ -985,6 +985,7 @@ window.addEventListener('load', function() {
 
 
 });
+
 
 
 
