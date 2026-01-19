@@ -322,7 +322,7 @@ option {
     }
     
     .floating-phone.whatsapp-call {
-        bottom: 800px;
+        bottom: 80px;
         right: 15px;
     }
 }
