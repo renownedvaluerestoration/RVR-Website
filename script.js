@@ -629,8 +629,7 @@ function showPage(pageId) {
             const procedureKey = getProcedureLink(service.id);
             const procedureLink = procedureKey ? 
                 `<div class="mt-6 pt-6 border-t border-blue-100">
-                    <a href="#" 
-                       onclick="showDocumentation('procedures', '${procedureKey}'); return false;"
+                    <a href="documentation.html?file=procedures&procedure=${procedureKey}"
                        class="inline-flex items-center gap-3 text-blue-600 hover:text-blue-700 font-medium text-lg hover:underline">
                         <i data-lucide="file-text" class="w-5 h-5"></i>
                         View Detailed Procedure Steps
@@ -982,4 +981,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
+
 });
