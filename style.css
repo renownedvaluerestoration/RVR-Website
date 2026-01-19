@@ -326,8 +326,8 @@ option {
     }
     
     .floating-phone.whatsapp-call {
-        bottom: 8px;
-        right: 2px;
+        bottom: 9px;
+        right: 3px;
     }
 }
 
@@ -360,6 +360,7 @@ option {
     }
 
 }
+
 
 
 
