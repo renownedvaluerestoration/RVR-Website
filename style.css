@@ -167,29 +167,6 @@ option {
     transition: transform 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    /* Fix 1: Keep social media icons horizontal on mobile */
-    .flex.justify-center.md\\:justify-end.gap-6 {
-        flex-direction: row !important; /* Force horizontal layout */
-        justify-content: center !important;
-        gap: 1.5rem !important;
-    }
-    
-    /* Adjust spacing for horizontal layout */
-    .flex.justify-center.md\\:justify-end.gap-6 a {
-        padding: 0;
-    }
-    
-    /* Ensure social icons container doesn't stretch */
-    .flex.flex-col.items-center.md\\:items-end {
-        align-items: center !important;
-    }
-    
-    /* Fix footer layout for better mobile display */
-    .grid.md\\:grid-cols-2.gap-12 {
-        gap: 2rem;
-    }
-}
 .floating-phone.phone-call {
     background: #2563eb;
     color: white;
@@ -198,7 +175,7 @@ option {
 }
 
 .floating-phone.whatsapp-call {
-    background: #2563eb;
+    background: #25D366;
     color: white;
     right: 20px;
 }
@@ -212,7 +189,7 @@ option {
 }
 
 .floating-phone.whatsapp-call:hover {
-    background: #1d4ed8;
+    background: #128C7E;
 }
 
 /* Mobile Responsive Adjustments */
@@ -317,12 +294,12 @@ option {
     
     /* Floating buttons positioning */
     .floating-phone.phone-call {
-        bottom: 160px;
+        bottom: 100px;
         right: 15px;
     }
     
     .floating-phone.whatsapp-call {
-        bottom: 80px;
+        bottom: 20px;
         right: 15px;
     }
 }
