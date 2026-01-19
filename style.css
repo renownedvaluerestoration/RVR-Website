@@ -321,13 +321,13 @@ option {
     
     /* Floating buttons positioning */
     .floating-phone.phone-call {
-        bottom: -20px;
-        right: 15px;
+        bottom: 0px;
+        right: 40px;
     }
     
     .floating-phone.whatsapp-call {
         bottom: 0px;
-        right: 15px;
+        right: 3px;
     }
 }
 
@@ -360,6 +360,7 @@ option {
     }
 
 }
+
 
 
 
