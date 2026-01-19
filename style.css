@@ -275,6 +275,33 @@ option {
         padding-bottom: 0.75rem;
     }
 }
+/* ============================
+   MOBILE FIXES FOR FOOTER & FLOATING BUTTONS
+   ============================ */
+
+@media (max-width: 768px) {
+    /* Fix 1: Keep social media icons horizontal on mobile */
+    .flex.justify-center.md\\:justify-end.gap-6 {
+        flex-direction: row !important; /* Force horizontal layout */
+        justify-content: center !important;
+        gap: 1.5rem !important;
+    }
+    
+    /* Adjust spacing for horizontal layout */
+    .flex.justify-center.md\\:justify-end.gap-6 a {
+        padding: 0;
+    }
+    
+    /* Ensure social icons container doesn't stretch */
+    .flex.flex-col.items-center.md\\:items-end {
+        align-items: center !important;
+    }
+    
+    /* Fix footer layout for better mobile display */
+    .grid.md\\:grid-cols-2.gap-12 {
+        gap: 2rem;
+    }
+}
 
 @media (max-width: 480px) {
     /* Extra small adjustments */
@@ -294,12 +321,12 @@ option {
     
     /* Floating buttons positioning */
     .floating-phone.phone-call {
-        bottom: 100px;
+        bottom: 275px;
         right: 15px;
     }
     
     .floating-phone.whatsapp-call {
-        bottom: 20px;
+        bottom: 175px;
         right: 15px;
     }
 }
@@ -310,6 +337,7 @@ option {
         display: none !important;
     }
 }
+
 
 /* Mobile menu improvements */
 @media (max-width: 768px) {
@@ -330,4 +358,5 @@ option {
     .min-h-screen {
         min-height: -webkit-fill-available;
     }
+
 }
