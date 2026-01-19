@@ -1,3 +1,5 @@
+[file name]: documentation.html
+[file content begin]
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,21 +14,21 @@
 <body class="min-h-screen bg-white text-gray-900">
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center cursor-pointer" onclick="showPage('home')">
+            <div class="flex items-center cursor-pointer" onclick="window.location.href = 'index.html';">
                 <i data-lucide="sparkles" class="w-8 h-8 text-blue-600 mr-3"></i>
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900">Renowned Value Restoration</h1>
                     <p class="text-sm text-gray-600">Documentation</p>
                 </div>
             </div>
-            <button onclick="showPage('home')" class="text-blue-600 font-bold hover:underline flex items-center gap-2">
+            <button onclick="window.location.href = 'index.html';" class="text-blue-600 font-bold hover:underline flex items-center gap-2">
                 <i data-lucide="home" class="w-5 h-5"></i>
                 Back to Home
             </button>
         </div>
     </header>
 
-    <main id="documentation-page">
+    <main id="documentation-content" class="max-w-5xl mx-auto px-6 py-12">
         <!-- Content loaded dynamically from script.js -->
     </main>
 
@@ -40,12 +42,27 @@
             if (file) {
                 loadDocumentationFile(file, procedure);
             } else {
-                showPage('home');
+                // Redirect to home if no file specified
+                window.location.href = 'index.html';
             }
             
             lucide.createIcons();
         });
+        
+        // Function to load documentation (must be global for inline onclick)
+        window.loadDocumentationFile = function(file, procedure) {
+            // This function is defined in script.js
+            // It will be called from script.js when it loads
+            console.log('Loading documentation:', file, procedure);
+        };
+        
+        // Function to show page (for compatibility)
+        window.showPage = function(pageId) {
+            if (pageId === 'home') {
+                window.location.href = 'index.html';
+            }
+        };
     </script>
 </body>
-
 </html>
+[file content end]
