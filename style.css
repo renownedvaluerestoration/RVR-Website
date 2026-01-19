@@ -170,8 +170,8 @@ option {
 .floating-phone.phone-call {
     background: #2563eb;
     color: white;
-    right: 20px;
-    bottom: 0px;
+    right: 190px;
+    bottom: 190px;
 }
 
 .floating-phone.whatsapp-call {
@@ -360,6 +360,7 @@ option {
     }
 
 }
+
 
 
 
