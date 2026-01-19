@@ -181,6 +181,15 @@ function showDocumentation(file, procedure) {
 
 // Load documentation content
 async function loadDocumentationFile(file, procedure) {
+    const docPage = document.getElementById('documentation-page');
+    
+    docPage.innerHTML = `
+        <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+            <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
+        </button>
+        <div id="documentation-content" class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100"></div>
+    `;
+    
     const contentDiv = document.getElementById('documentation-content');
     
     // Show loading state
@@ -192,25 +201,20 @@ async function loadDocumentationFile(file, procedure) {
     `;
     
     try {
-        // 1. Fetch the actual JSON file from your server
-        const response = await fetch(`./data/${file}.json`);
-        if (!response.ok) throw new Error('File not found');
-        const data = await response.json();
-        
+        // In a real implementation, you would fetch the JSON file
+        // For now, we'll create structured display
         let html = '';
         
-        // 2. Handle Filtering for Procedures
-        if (file === 'procedures' && procedure) {
-            const specificData = data[procedure];
-            if (specificData) {
-                html = renderProcedureDetail(specificData);
-            } else {
-                html = `<p class="text-center py-12 text-gray-500">Procedure "${procedure}" not found.</p>`;
-            }
-        } 
-        // 3. Handle Equipment & Safety Lists
-        else {
-            html = renderGeneralDoc(file, data);
+        switch(file) {
+            case 'equipment':
+                html = createEquipmentDocumentation();
+                break;
+            case 'safety':
+                html = createSafetyDocumentation();
+                break;
+            case 'procedures':
+                html = createProceduresDocumentation(procedure);
+                break;
         }
         
         contentDiv.innerHTML = html;
@@ -220,7 +224,8 @@ async function loadDocumentationFile(file, procedure) {
         contentDiv.innerHTML = `
             <div class="text-center py-12 text-red-600">
                 <i data-lucide="alert-circle" class="w-12 h-12 mx-auto mb-4"></i>
-                <p class="text-lg font-bold">Error loading documentation: ${error.message}</p>
+                <p class="text-lg font-bold">Error loading documentation</p>
+                <p class="text-gray-600 mt-2">Please try again later</p>
             </div>
         `;
     }
@@ -624,27 +629,7 @@ function initializeSlider() {
         slider.addEventListener('touchmove', slide);
     }
 }
-function renderProcedureDetail(data) {
-    return `
-        <div class="space-y-8">
-            <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-3xl p-10 text-white">
-                <h1 class="text-5xl font-extrabold mb-4">${data.title}</h1>
-                <p class="text-xl text-purple-100">${data.description}</p>
-            </div>
-            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                <h2 class="text-2xl font-bold mb-6">Step-by-Step Protocol</h2>
-                <div class="space-y-4">
-                    ${data.steps.map((step, i) => `
-                        <div class="flex gap-4 p-4 bg-gray-50 rounded-xl">
-                            <span class="font-bold text-purple-600">${i + 1}.</span>
-                            <p class="text-gray-700">${step}</p>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        </div>
-    `;
-}
+
 // Form submission with tracking
 function initializeForm() {
     const form = document.getElementById('quote-form');
@@ -721,6 +706,4 @@ document.addEventListener('DOMContentLoaded', function() {
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
-
 });
-
