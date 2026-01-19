@@ -28,13 +28,6 @@
           'event_label': 'header_phone'
         });
       }
-      // Track text messages
-  function trackTextMessage() {
-    gtag('event', 'text_message', {
-      'event_category': 'conversion',
-      'event_label': 'mobile_text_button'
-    });
-  }  
     </script>
 
     <!-- Facebook Pixel -->
@@ -460,17 +453,17 @@
 </footer>
 
     <!-- Floating Phone Buttons (Mobile Only) -->
-    <a href="sms:2483138955?body=Hi,%20I'm%20interested%20in%20a%20pressure%20washing%20quote%20from%20Renowned%20Value%20Restoration"
-   onclick="trackTextMessage()"
-   class="floating-phone whatsapp-call md-hidden">
-    <i data-lucide="message-circle" class="w-6 h-6"></i>
-</a>
+    <a href="tel:2483138955" 
+       onclick="trackPhoneCall()" 
+       class="floating-phone phone-call md:hidden">
+        <i data-lucide="phone" class="w-6 h-6"></i>
+    </a>
     
-   <a href="#quote" 
+    <a href="#quote" 
    onclick="showPage('home'); trackQuoteSubmission();"
    class="floating-phone whatsapp-call md:hidden">
     <i data-lucide="message-circle" class="w-6 h-6"></i>
-</a>
+</a>>
 
     <script src="script.js"></script>
     <script>
@@ -484,9 +477,3 @@
 </body>
 
 </html>
-
-
-
-
-
-

@@ -317,12 +317,12 @@ option {
     
     /* Floating buttons positioning */
     .floating-phone.phone-call {
-        bottom: 300px;
+        bottom: 160px;
         right: 15px;
     }
     
     .floating-phone.whatsapp-call {
-        bottom: 200px;
+        bottom: 80px;
         right: 15px;
     }
 }
@@ -354,6 +354,3 @@ option {
         min-height: -webkit-fill-available;
     }
 }
-
-
-
