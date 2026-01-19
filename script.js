@@ -446,7 +446,7 @@ function renderProceduresDocumentation(data, procedure) {
                     ${procedureKeys.map(key => {
                         const displayName = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
                         return `
-                            <a href="#" onclick="showDocumentation('procedures', '${key}'); return false;" 
+                            <a href="documentation.html?file=procedures&procedure=${procedureKey}" 
                                class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-purple-50 hover:border-purple-200 transition group cursor-pointer">
                                 <div class="flex items-center gap-3">
                                     <i data-lucide="file-text" class="w-5 h-5 text-purple-600 group-hover:text-purple-700"></i>
@@ -983,3 +983,4 @@ window.addEventListener('load', function() {
     lucide.createIcons();
 
 });
+
