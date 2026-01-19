@@ -175,7 +175,7 @@ option {
 }
 
 .floating-phone.whatsapp-call {
-    background: #25D366;
+    background: #2563eb;
     color: white;
     right: 20px;
 }
@@ -189,7 +189,7 @@ option {
 }
 
 .floating-phone.whatsapp-call:hover {
-    background: #128C7E;
+    background: #1d4ed8;
 }
 
 /* Mobile Responsive Adjustments */
@@ -321,12 +321,12 @@ option {
     
     /* Floating buttons positioning */
     .floating-phone.phone-call {
-        bottom: 275px;
+        bottom: 80px;
         right: 15px;
     }
     
     .floating-phone.whatsapp-call {
-        bottom: 175px;
+        bottom: 0px;
         right: 15px;
     }
 }
@@ -360,3 +360,4 @@ option {
     }
 
 }
+
