@@ -161,22 +161,183 @@ const servicesData = {
     }
 };
 
+// Documentation functionality - NEW CODE
+function initializeDocumentation() {
+    // Create documentation page if it doesn't exist
+    const main = document.querySelector('main');
+    if (!document.getElementById('documentation-page')) {
+        const docPage = document.createElement('main');
+        docPage.id = 'documentation-page';
+        docPage.className = 'hidden max-w-5xl mx-auto px-6 py-12';
+        main.parentNode.insertBefore(docPage, main.nextSibling);
+    }
+}
+
+// Show documentation pages
+function showDocumentation(file, procedure) {
+    showPage('documentation');
+    loadDocumentationFile(file, procedure);
+}
+
+// Load documentation content
+async function loadDocumentationFile(file, procedure) {
+    const docPage = document.getElementById('documentation-page');
+    
+    docPage.innerHTML = `
+        <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+            <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
+        </button>
+        <div id="documentation-content" class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100"></div>
+    `;
+    
+    const contentDiv = document.getElementById('documentation-content');
+    
+    // Show loading state
+    contentDiv.innerHTML = `
+        <div class="text-center py-12">
+            <i data-lucide="loader-2" class="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4"></i>
+            <p class="text-gray-600">Loading ${file} documentation...</p>
+        </div>
+    `;
+    
+    try {
+        // In a real implementation, you would fetch the JSON file
+        // For now, we'll create structured display
+        let html = '';
+        
+        switch(file) {
+            case 'equipment':
+                html = createEquipmentDocumentation();
+                break;
+            case 'safety':
+                html = createSafetyDocumentation();
+                break;
+            case 'procedures':
+                html = createProceduresDocumentation(procedure);
+                break;
+        }
+        
+        contentDiv.innerHTML = html;
+        lucide.createIcons();
+        
+    } catch (error) {
+        contentDiv.innerHTML = `
+            <div class="text-center py-12 text-red-600">
+                <i data-lucide="alert-circle" class="w-12 h-12 mx-auto mb-4"></i>
+                <p class="text-lg font-bold">Error loading documentation</p>
+                <p class="text-gray-600 mt-2">Please try again later</p>
+            </div>
+        `;
+    }
+}
+
+// Get procedure link based on service ID
+function getProcedureLink(serviceId) {
+    const procedureMap = {
+        'house-wash': 'house_wash_vinyl',
+        'tennis-courts': 'tennis_court',
+        'driveway': 'cement_driveway',
+        'dumpster': 'dumpster_pad',
+        'roof': 'rooftop_softwash',
+        'bins': 'garbage_bins',
+        'graffiti': 'graffiti_removal',
+        'gum': 'gum_removal',
+        'algae': 'efflorescence_algae_moss',
+        'concrete-seal': 'concrete_wash_reseal',
+        'paver-seal': 'brick_wash_reseal',
+        'dusting': 'concrete_dusting_shake',
+        'stone': 'resin_stone_stabilization',
+        'deck': 'deck_fence_restoration',
+        'gutters': 'gutter_cleaning',
+        'softwash-any': 'softwash_any_surface'
+    };
+    
+    return procedureMap[serviceId] || '';
+}
+
+// Create placeholder documentation displays
+function createEquipmentDocumentation() {
+    return `
+        <div class="space-y-8">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-8">
+                <h1 class="text-5xl font-extrabold mb-4">Equipment & Chemicals</h1>
+                <p class="text-xl text-blue-100">Commercial-grade tools and specialized cleaning agents</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
+                <div class="text-center py-8">
+                    <i data-lucide="tool" class="w-16 h-16 text-blue-600 mx-auto mb-4"></i>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Equipment Documentation</h2>
+                    <p class="text-gray-600">This content would load from equipment.json</p>
+                    <p class="text-sm text-gray-500 mt-4">(In production, this would fetch and display the actual equipment.json data)</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function createSafetyDocumentation() {
+    return `
+        <div class="space-y-8">
+            <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-3xl p-10 text-white mb-8">
+                <h1 class="text-5xl font-extrabold mb-4">Safety Standards</h1>
+                <p class="text-xl text-green-100">Our commitment to safe, professional operations</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
+                <div class="text-center py-8">
+                    <i data-lucide="shield" class="w-16 h-16 text-green-600 mx-auto mb-4"></i>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Safety Documentation</h2>
+                    <p class="text-gray-600">This content would load from safety.json</p>
+                    <p class="text-sm text-gray-500 mt-4">(In production, this would fetch and display the actual safety.json data)</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function createProceduresDocumentation(procedure) {
+    return `
+        <div class="space-y-8">
+            <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-3xl p-10 text-white mb-8">
+                <h1 class="text-5xl font-extrabold mb-4">Service Procedures</h1>
+                <p class="text-xl text-purple-100">Step-by-step protocols for every service</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
+                <div class="text-center py-8">
+                    <i data-lucide="clipboard-list" class="w-16 h-16 text-purple-600 mx-auto mb-4"></i>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Procedures Documentation</h2>
+                    <p class="text-gray-600">This content would load from procedures.json</p>
+                    <p class="text-sm text-gray-500 mt-4">${procedure ? `Viewing procedure: ${procedure}` : ''}</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Update showPage to handle documentation page
 function showPage(pageId) {
     const home = document.getElementById('home-page');
     const detail = document.getElementById('detail-page');
     const blog = document.getElementById('blog-page');
     const content = document.getElementById('service-detail-content');
+    const docPage = document.getElementById('documentation-page');
 
     // Hide all pages first
     home.classList.add('hidden');
     detail.classList.add('hidden');
     blog.classList.add('hidden');
+    if (docPage) docPage.classList.add('hidden');
 
     if (pageId === 'home') {
         home.classList.remove('hidden');
         window.scrollTo(0,0);
     } else if (pageId === 'blog') {
         blog.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else if (pageId === 'documentation') {
+        if (docPage) docPage.classList.remove('hidden');
         window.scrollTo(0,0);
     } else {
         detail.classList.remove('hidden');
@@ -188,6 +349,19 @@ function showPage(pageId) {
         });
 
         if (service) {
+            // Get procedure link for this service - NEW CODE
+            const procedureKey = getProcedureLink(service.id);
+            const procedureLink = procedureKey ? 
+                `<div class="mt-6 pt-6 border-t border-blue-100">
+                    <a href="#" 
+                       onclick="showDocumentation('procedures', '${procedureKey}'); return false;"
+                       class="inline-flex items-center gap-3 text-blue-600 hover:text-blue-700 font-medium text-lg hover:underline">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                        View Detailed Procedure Steps
+                    </a>
+                    <p class="text-gray-600 text-sm mt-2">See our step-by-step professional process for ${service.name}</p>
+                </div>` : '';
+            
             content.innerHTML = `
                 <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-12">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
@@ -223,9 +397,10 @@ function showPage(pageId) {
                                 <i data-lucide="info" class="w-8 h-8 text-blue-600"></i>
                                 <h2 class="text-3xl font-bold text-gray-900">Service Overview</h2>
                             </div>
-                            <p class="text-xl text-gray-700 leading-relaxed mb-8">${service.desc}</p>
+                            <p class="text-xl text-gray-700 leading-relaxed mb-6">${service.desc}</p>
+                            ${procedureLink}
                             
-                            <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
+                            <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100 mt-6">
                                 <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center gap-3">
                                     <i data-lucide="target" class="w-6 h-6"></i>
                                     Ideal For:
@@ -510,12 +685,22 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeServices();
     initializeSlider();
     initializeForm();
+    initializeDocumentation(); // NEW: Initialize documentation
     lucide.createIcons();
     
     // Add click listeners to all phone links
     document.querySelectorAll('a[href^="tel"]').forEach(link => {
         link.addEventListener('click', trackPhoneCall);
     });
+    
+    // Check for documentation page request
+    const urlParams = new URLSearchParams(window.location.search);
+    const docFile = urlParams.get('file');
+    const procedure = urlParams.get('procedure');
+    
+    if (docFile) {
+        showDocumentation(docFile, procedure);
+    }
 });
 
 // Also initialize on window load for safety
