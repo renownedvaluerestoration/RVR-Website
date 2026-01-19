@@ -201,34 +201,23 @@ async function loadDocumentationFile(file, procedure) {
     `;
     
     try {
-        // In a real implementation, you would fetch the JSON file
-        // For now, we'll create structured display
-        let html = '';
-        
-        switch(file) {
-            case 'equipment':
-                html = createEquipmentDocumentation();
-                break;
-            case 'safety':
-                html = createSafetyDocumentation();
-                break;
-            case 'procedures':
-                html = createProceduresDocumentation(procedure);
-                break;
-        }
-        
-        contentDiv.innerHTML = html;
-        lucide.createIcons();
-        
-    } catch (error) {
-        contentDiv.innerHTML = `
-            <div class="text-center py-12 text-red-600">
-                <i data-lucide="alert-circle" class="w-12 h-12 mx-auto mb-4"></i>
-                <p class="text-lg font-bold">Error loading documentation</p>
-                <p class="text-gray-600 mt-2">Please try again later</p>
-            </div>
-        `;
+    const response = await fetch(`./data/${file}.json`); // Adjust path to your JSON folder
+    const data = await response.json();
+    
+    let html = '';
+    if (file === 'procedures' && procedure) {
+        // FILTERING LOGIC: Find the specific procedure in the JSON array/object
+        const specificProcedure = data[procedure]; 
+        html = renderProcedureDetail(specificProcedure);
+    } else {
+        html = renderList(file, data);
     }
+    
+    contentDiv.innerHTML = html;
+    lucide.createIcons();
+} catch (error) {
+    console.error("Fetch error:", error);
+    // ... error HTML ...
 }
 
 // Get procedure link based on service ID
@@ -706,4 +695,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
+
 });
