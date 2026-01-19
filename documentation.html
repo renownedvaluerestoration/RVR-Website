@@ -9,29 +9,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="script.js"></script>
-</head>
-<body class="min-h-screen bg-white text-gray-900">
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center cursor-pointer" onclick="window.location.href = 'index.html';">
-                <i data-lucide="sparkles" class="w-8 h-8 text-blue-600 mr-3"></i>
-                <div>
-                    <h1 class="text-2xl font-bold text-gray-900">Renowned Value Restoration</h1>
-                    <p class="text-sm text-gray-600">Documentation</p>
-                </div>
-            </div>
-            <button onclick="window.location.href = 'index.html';" class="text-blue-600 font-bold hover:underline flex items-center gap-2">
-                <i data-lucide="home" class="w-5 h-5"></i>
-                Back to Home
-            </button>
-        </div>
-    </header>
-
-    <main id="documentation-content" class="max-w-5xl mx-auto px-6 py-12">
-        <!-- Content loaded dynamically from script.js -->
-    </main>
-
     <script>
         // Load documentation based on URL parameters
         document.addEventListener('DOMContentLoaded', function() {
@@ -40,7 +17,7 @@
             const procedure = urlParams.get('procedure');
             
             if (file) {
-                loadDocumentationFile(file, procedure);
+                loadDocumentationContent(file, procedure);
             } else {
                 // Redirect to home if no file specified
                 window.location.href = 'index.html';
@@ -49,19 +26,305 @@
             lucide.createIcons();
         });
         
-        // Function to load documentation (must be global for inline onclick)
-        window.loadDocumentationFile = function(file, procedure) {
-            // This function is defined in script.js
-            // It will be called from script.js when it loads
-            console.log('Loading documentation:', file, procedure);
-        };
-        
-        // Function to show page (for compatibility)
-        window.showPage = function(pageId) {
-            if (pageId === 'home') {
-                window.location.href = 'index.html';
+        // Function to load documentation content
+        async function loadDocumentationContent(file, procedure) {
+            const contentDiv = document.getElementById('documentation-content');
+            
+            // Show loading state
+            contentDiv.innerHTML = `
+                <div class="text-center py-12">
+                    <div class="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p class="text-gray-600">Loading ${file} documentation...</p>
+                </div>
+            `;
+            
+            try {
+                // Fetch the JSON file
+                const response = await fetch(`${file}.json`);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${file}.json`);
+                }
+                
+                const data = await response.json();
+                
+                // Render based on file type
+                let html = '';
+                switch(file) {
+                    case 'equipment':
+                        html = renderEquipmentDocumentation(data);
+                        break;
+                    case 'safety':
+                        html = renderSafetyDocumentation(data);
+                        break;
+                    case 'procedures':
+                        html = renderProceduresDocumentation(data, procedure);
+                        break;
+                    default:
+                        throw new Error(`Unknown documentation file: ${file}`);
+                }
+                
+                contentDiv.innerHTML = html;
+                lucide.createIcons();
+                
+            } catch (error) {
+                console.error('Error loading documentation:', error);
+                contentDiv.innerHTML = `
+                    <div class="text-center py-12 text-red-600">
+                        <div class="w-12 h-12 mx-auto mb-4">⚠️</div>
+                        <p class="text-lg font-bold">Error loading documentation</p>
+                        <p class="text-gray-600 mt-2">${error.message}</p>
+                        <p class="text-sm text-gray-500 mt-4">Make sure ${file}.json is in the same directory</p>
+                        <button onclick="window.location.href='index.html'" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                            Back to Home
+                        </button>
+                    </div>
+                `;
             }
-        };
+        }
+        
+        // Render equipment documentation from JSON
+        function renderEquipmentDocumentation(data) {
+            return `
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-8">
+                        <h1 class="text-5xl font-extrabold mb-4">Equipment & Chemicals</h1>
+                        <p class="text-xl text-blue-100">${data.company_philosophy || 'Commercial-grade tools and specialized cleaning agents'}</p>
+                    </div>
+                    
+                    <!-- Restorative Agents -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Restorative Cleaning Agents</h2>
+                        <div class="space-y-6">
+                            ${(data.restorative_agents || []).map(agent => `
+                                <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
+                                    <h3 class="text-xl font-bold text-blue-800 mb-2">${agent.name}</h3>
+                                    <p class="text-gray-700">${agent.description}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <!-- Wood & Specialty -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Wood & Specialty Cleaners</h2>
+                        <div class="space-y-4">
+                            ${(data.wood_and_specialty || []).map(item => `
+                                <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border">
+                                    <span class="text-green-500 mt-1">✓</span>
+                                    <span class="text-gray-700">${item}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <!-- Masonry & Commercial -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Masonry & Commercial Cleaners</h2>
+                        <div class="space-y-4">
+                            ${(data.masonry_and_commercial || []).map(item => `
+                                <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border">
+                                    <span class="text-blue-500 mt-1">✓</span>
+                                    <span class="text-gray-700">${item}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <!-- Safety & Protection -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Safety & Protection Products</h2>
+                        <div class="space-y-4">
+                            ${(data.safety_and_protection_products || []).map(item => `
+                                <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border">
+                                    <span class="text-amber-500 mt-1">✓</span>
+                                    <span class="text-gray-700">${item}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <!-- Industrial Hardware -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Industrial Hardware</h2>
+                        <div class="space-y-4">
+                            ${(data.industrial_hardware || []).map(item => `
+                                <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border">
+                                    <span class="text-gray-500 mt-1">✓</span>
+                                    <span class="text-gray-700">${item}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Render safety documentation from JSON
+        function renderSafetyDocumentation(data) {
+            return `
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-3xl p-10 text-white mb-8">
+                        <h1 class="text-5xl font-extrabold mb-4">Safety Standards</h1>
+                        <p class="text-xl text-green-100">Our commitment to safe, professional operations</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Operational Standards & Safety Protocols</h2>
+                        <div class="space-y-6">
+                            ${(data.operational_standards || []).map((standard, index) => `
+                                <div class="flex items-start gap-4 p-6 bg-gradient-to-r from-green-50 to-white rounded-xl border border-green-100">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-10 h-10 bg-green-100 text-green-700 rounded-full flex items-center justify-center font-bold">
+                                            ${index + 1}
+                                        </div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-gray-800 leading-relaxed">${standard}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Render procedures documentation from JSON
+        function renderProceduresDocumentation(data, procedure) {
+            const procedures = data.service_procedures || {};
+            
+            // If a specific procedure is requested, show only that
+            if (procedure && procedures[procedure]) {
+                return renderSingleProcedure(procedure, procedures[procedure]);
+            }
+            
+            // Otherwise show all procedures
+            return `
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-3xl p-10 text-white mb-8">
+                        <h1 class="text-5xl font-extrabold mb-4">Service Procedures</h1>
+                        <p class="text-xl text-purple-100">Step-by-step protocols for every service</p>
+                    </div>
+                    
+                    <!-- All Procedures List -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">All Service Procedures</h2>
+                        <div class="space-y-4">
+                            ${Object.keys(procedures).map(key => {
+                                const displayName = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                                return `
+                                    <a href="documentation.html?file=procedures&procedure=${key}" 
+                                       class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-purple-50 hover:border-purple-200 transition group cursor-pointer">
+                                        <div>
+                                            <span class="font-medium text-gray-800 group-hover:text-purple-700">${displayName}</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-sm text-gray-500">${procedures[key].length} steps</span>
+                                            <span class="text-gray-400 group-hover:text-purple-600">→</span>
+                                        </div>
+                                    </a>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Render single procedure detail
+        function renderSingleProcedure(procedureKey, steps) {
+            const displayName = procedureKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            
+            return `
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-3xl p-10 text-white mb-8">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                            <div>
+                                <h1 class="text-4xl font-extrabold mb-2">${displayName}</h1>
+                                <p class="text-xl text-purple-100">Professional Step-by-Step Procedure</p>
+                            </div>
+                            <a href="documentation.html?file=procedures" 
+                               class="flex items-center gap-2 text-purple-200 hover:text-white font-medium">
+                                ← Back to All Procedures
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Procedure Steps -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                        <div class="flex items-center justify-between mb-8">
+                            <h2 class="text-3xl font-bold text-gray-900">Procedure Steps</h2>
+                            <div class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-bold">
+                                ${steps.length} Steps
+                            </div>
+                        </div>
+                        
+                        <div class="relative">
+                            <!-- Timeline line -->
+                            <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-300 to-purple-100"></div>
+                            
+                            <div class="space-y-8">
+                                ${steps.map((step, index) => {
+                                    // Extract citation if present
+                                    const hasCitation = step.includes('[cite:');
+                                    const stepText = hasCitation ? step.split(' [cite:')[0] : step;
+                                    const citation = hasCitation ? step.match(/\[cite: (\d+)\]/)?.[1] : null;
+                                    
+                                    return `
+                                        <div class="flex gap-6 relative">
+                                            <div class="flex-shrink-0 z-10">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                                    <span class="text-white text-2xl font-bold">${index + 1}</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1 bg-gradient-to-r from-purple-50 to-white rounded-2xl p-6 border border-purple-100">
+                                                <div class="flex justify-between items-start mb-3">
+                                                    <h3 class="text-xl font-bold text-gray-900">Step ${index + 1}</h3>
+                                                    ${citation ? `
+                                                        <span class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full">
+                                                            Ref: ${citation}
+                                                        </span>
+                                                    ` : ''}
+                                                </div>
+                                                <p class="text-gray-700 leading-relaxed">${stepText}</p>
+                                            </div>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center cursor-pointer" onclick="window.location.href = 'index.html';">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg mr-3 flex items-center justify-center">
+                    <span class="text-white font-bold">R</span>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900">Renowned Value Restoration</h1>
+                    <p class="text-sm text-gray-600">Documentation</p>
+                </div>
+            </div>
+            <button onclick="window.location.href = 'index.html';" class="text-blue-600 font-bold hover:underline flex items-center gap-2">
+                <span>🏠</span>
+                Back to Home
+            </button>
+        </div>
+    </header>
+
+    <main id="documentation-content" class="max-w-5xl mx-auto px-6 py-12">
+        <!-- Content loaded dynamically -->
+    </main>
+
+    <script>
+        // Initialize icons
+        lucide.createIcons();
     </script>
 </body>
 </html>
