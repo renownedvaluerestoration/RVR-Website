@@ -154,6 +154,7 @@ option {
 .floating-phone {
     position: fixed;
     bottom: 20px;
+    right: 20px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -165,9 +166,11 @@ option {
     text-decoration: none;
     font-size: 1.5rem;
     transition: transform 0.3s ease;
+    background: #2563eb;
+    color: white;
 }
 
-.floating-phone.phone-call {
+.-phone.phone-call {
     background: #2563eb;
     color: white;
     right: 20px;
@@ -186,6 +189,7 @@ option {
 
 .floating-phone:hover {
     transform: scale(1.1);
+    background: #1d4ed8;
 }
 
 .floating-phone.phone-call:hover {
@@ -360,11 +364,9 @@ option {
         bottom: 75px;
         right: 2px;
     }
-    
-    .floating-phone.whatsapp-call {
-        bottom: 25px;
-        right: 2px;
-    }
+/* Hide the phone call button completely */
+.floating-phone.phone-call {
+    display: none !important;
 }
 
 /* Hide floating buttons on desktop */
@@ -439,6 +441,23 @@ option {
 }
 
 
+@media (max-width: 768px) {
+    /* Add bottom padding to footer to prevent WhatsApp button overlap */
+    footer.bg-gray-50.border-t.border-gray-200 {
+        padding-bottom: 80px !important; /* Add extra space for floating button */
+    }
+    
+    /* Fix footer content alignment */
+    footer .text-center {
+        padding-bottom: 20px; /* Extra padding for safety */
+    }
+    
+    /* Ensure WhatsApp button doesn't cover important footer content */
+    .floating-phone {
+        bottom: 30px; /* Adjust if needed */
+        right: 20px;
+    }
+}
 
 
 
