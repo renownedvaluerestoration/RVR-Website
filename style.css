@@ -397,4 +397,32 @@ footer {
     max-width: 100%;
     overflow-x: hidden;
 }
+/* Reset any default margins/padding that might cause overflow */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure body and html don't create overflow */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fix for footer specifically */
+footer {
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+/* If using Tailwind or similar, ensure container is properly constrained */
+footer .max-w-7xl {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
 
