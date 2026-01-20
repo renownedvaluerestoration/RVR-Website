@@ -77,7 +77,7 @@ const servicesData = {
             },
             { 
                 id: "algae", 
-                name: "Efflorescence, Algae & Moss Removal", 
+                name: "Algae & Efflorescence Removal", 
                 price: "$0.44/sq ft", 
                 desc: "Specific mineral and organic stain treatment.", 
                 benefits: ["Restores color", "Stops structural erosion"],
@@ -983,5 +983,6 @@ window.addEventListener('load', function() {
     lucide.createIcons();
 
 });
+
 
 
