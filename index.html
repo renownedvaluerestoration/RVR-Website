@@ -11,7 +11,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-XXXXXXXXXX');       
       
       // Track quote form submissions
       function trackQuoteSubmission() {
@@ -28,6 +28,15 @@
           'event_label': 'header_phone'
         });
       }
+
+         // Track text messages
+  function trackTextMessage() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'text_message', {
+        'event_category': 'conversion',
+        'event_label': 'mobile_text_button'
+      });
+    }
     </script>
 
     <!-- Facebook Pixel -->
@@ -42,7 +51,7 @@
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', 'FB_PIXEL_ID');
       fbq('track', 'PageView');
-    </script>
+          </script>
     <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=FB_PIXEL_ID&ev=PageView&noscript=1"
     /></noscript>
@@ -447,18 +456,12 @@
 </footer>
 
     <!-- Floating Phone Buttons (Mobile Only) -->
-    <a href="tel:2483138955" 
-       onclick="trackPhoneCall()" 
-       class="floating-phone phone-call md:hidden">
-        <i data-lucide="phone" class="w-6 h-6"></i>
-    </a>
-    
-    <a href="#quote" 
-   onclick="showPage('home'); trackQuoteSubmission();"
+<a href="sms:+12483138955?body=Hi,%20I'm%20interested%20in%20a%20pressure%20washing%20quote%20from%20Renowned%20Value%20Restoration"
+   onclick="trackTextMessage()"
    class="floating-phone whatsapp-call md:hidden">
-    <i data-lucide="message-circle" class="w-6 h-6"></i>
-</a>>
-
+    <i data-lucide="message-square" class="w-6 h-6"></i>
+</a>
+   
     <script src="script.js"></script>
     <script>
         lucide.createIcons();
@@ -471,6 +474,7 @@
 </body>
 
 </html>
+
 
 
 
