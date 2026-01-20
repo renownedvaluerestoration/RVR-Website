@@ -167,25 +167,7 @@ option {
     transition: transform 0.3s ease;
 }
 
-@media (max-width: 768px) {
-     /* Social media icons - keep horizontal but constrained */
-    .flex.justify-center.md\:justify-end.gap-6 {
-        flex-direction: row !important;
-        justify-content: center !important;
-        flex-wrap: nowrap !important; /* ADD THIS LINE */
-        gap: .5rem !important; /* Reduce gap a bit */
-        margin-bottom: 2rem;
-        max-width: 100% !important;
-        padding: 0 1rem !important; /* Add horizontal padding */
-        width: 16px !important; /* Smaller icons */
-        height: 16px !important;
-        overflow-x: auto !important; /* Allows horizontal scrolling if needed */
-    }
-} 
-    /* Ensure the social icons container is centered and constrained */
-    .flex.flex-col.items-center.md\:items-end {
-        align-items: center !important;
-        width: 100% !important;
+
     }
     
     /* Adjust spacing for horizontal layout */
@@ -403,6 +385,31 @@ option {
     .service-category-card h3.text-3xl {
         font-size: 1.5rem !important; /* text-2xl */
         margin-bottom: 1.5rem !important; /* mb-6 */
+    }
+}
+@media (max-width: 768px) {
+    /* Force social icons to stay horizontal */
+    .flex.items-center.justify-center.md\:justify-end.gap-6.w-full {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 0.5rem !important; /* Reduced gap for mobile */
+        max-width: 100% !important;
+        overflow-x: auto !important; /* Allows horizontal scroll if needed */
+    }
+    
+    /* Make the icons a bit smaller on mobile if needed */
+    .flex.items-center.justify-center.md\:justify-end.gap-6.w-full a i {
+        width: 24px !important;
+        height: 24px !important;
+    }
+    
+    /* Ensure the parent container doesn't restrict width */
+    .flex.flex-col.items-center.md\:items-end {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 }
 
