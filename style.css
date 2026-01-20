@@ -179,25 +179,11 @@ option {
         gap: 2rem;
     }
 }
-.floating-phone.phone-call {
-    background: #2563eb;
-    color: white;
-    right: 20px;
-    bottom: 90px;
-}
 
 .floating-phone.whatsapp-call {
     background: #2563eb;
     color: white;
     right: 20px;
-}
-
-.floating-phone:hover {
-    transform: scale(1.1);
-}
-
-.floating-phone.phone-call:hover {
-    background: #1d4ed8;
 }
 
 .floating-phone.whatsapp-call:hover {
@@ -315,14 +301,10 @@ option {
     }
     
     /* Floating buttons positioning */
-    .floating-phone.phone-call {
-        bottom: 160px;
-        right: 15px;
-    }
     
     .floating-phone.whatsapp-call {
-        bottom: 80px;
-        right: 15px;
+        bottom: 10px;
+        right: 2px;
     }
 }
 @media (max-width: 768px) {
@@ -378,6 +360,7 @@ option {
         min-height: -webkit-fill-available;
     }
 }
+
 
 
 
