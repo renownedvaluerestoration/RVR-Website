@@ -6,8 +6,8 @@ const servicesData = {
                 id: "house-wash", 
                 name: "House Washing", 
                 price: "From $300", 
-                desc: "Safe soft washing for vinyl, brick, and stucco using low-pressure nozzles.", 
-                benefits: ["Prevents siding damage", "Removes mold/algae", "Instant curb appeal"],
+                desc: "Our professional house washing service uses safe soft washing techniques specifically designed for vinyl, brick, and stucco surfaces. We employ low-pressure nozzles and eco-friendly detergents to remove mold, algae, and grime without damaging your home's exterior. This process not only restores your home's appearance but also prevents long-term damage caused by organic growth.", 
+                benefits: ["Prevents siding damage", "Removes mold/algae at root level", "Instant curb appeal improvement", "Protects home value"],
                 process: ["Property Inspection & Plant Protection", "Eco-friendly Detergent Application", "Low-Pressure Soft Wash Rinse", "Final Detail & Window Spot-Check"],
                 pricingDetails: "Flat Rate Pricing:\nSmall (1,500 sq ft) $300\nMedium (2,000 sq ft) $400\nLarge (3,000 sq ft) $550\n\nUnit Rate: $0.25 per square foot"
             },
@@ -15,8 +15,8 @@ const servicesData = {
                 id: 'tennis-courts', 
                 name: 'Tennis Courts', 
                 price: '$1100', 
-                desc: 'Deep cleaning and restoration for sports surfaces.', 
-                benefits: ['Improved traction', 'Surface longevity'], 
+                desc: 'Professional deep cleaning and restoration for sports surfaces using specialized equipment and cleaners. Our tennis court cleaning removes built-up dirt, algae, and debris that can affect ball bounce and player traction. We restore your court to tournament-ready condition while maintaining surface integrity.', 
+                benefits: ['Improved traction and safety', 'Extended surface longevity', 'Professional appearance', 'Better ball bounce consistency'], 
                 rate: 'Starting at $1100',
                 process: ["Surface Inspection & Preparation", "Specialized Sports Surface Cleaner Application", "Low-Pressure Rinse & Extraction", "Traction & Line Inspection"],
                 pricingDetails: "Flat Rate Pricing:\nStandard Court: $1,100\nMultiple Courts: Call for Quote"
@@ -25,8 +25,8 @@ const servicesData = {
                 id: "driveway", 
                 name: "Driveway & Parking Lot Pressure Washing", 
                 price: "$0.22/sq ft", 
-                desc: "4200 PSI deep cleaning for concrete to remove years of grime.", 
-                benefits: ["Removes oil stains", "Eliminates tire marks", "Safe for neighbors"],
+                desc: "Industrial-grade 4200 PSI deep cleaning for concrete surfaces to remove years of accumulated grime, oil stains, and tire marks. Our commercial equipment and techniques safely eliminate stubborn stains while protecting surrounding landscaping and ensuring proper drainage.", 
+                benefits: ["Removes oil and chemical stains", "Eliminates dangerous tire marks", "Safe for neighbors and environment", "Restores original concrete color"],
                 process: ["Debris Removal & Edging", "Surface Pre-Treatment for Stains", "Commercial Surface Cleaner Pass", "High-Volume Rinse & Sediment Flush"],
                 pricingDetails: "Unit Rate: $0.22 per square foot (standard jobs)\nBulk Rate: $0.20 per square foot (large jobs)"
             },
@@ -34,8 +34,8 @@ const servicesData = {
                 id: "dumpster", 
                 name: "Dumpster Pads", 
                 price: "Custom Quote", 
-                desc: "Sanitization and odor removal for commercial pads.", 
-                benefits: ["Health code compliance", "Pest reduction"],
+                desc: "Complete sanitization and odor removal for commercial dumpster pads using high-temperature pressure washing and specialized deodorizers. Our service eliminates health hazards, prevents pest infestations, and ensures compliance with health department regulations.", 
+                benefits: ["Health code compliance", "Pest and rodent reduction", "Odor elimination", "Improved workplace safety"],
                 process: ["Degreasing Soak", "Hot Water High-Pressure Scrub", "Sanitization & Deodorizing", "Containment Inspection"],
                 pricingDetails: "Custom quote based on size and frequency of cleaning."
             },
@@ -43,8 +43,8 @@ const servicesData = {
                 id: "roof", 
                 name: "Rooftop Softwash", 
                 price: "$0.44/sq ft", 
-                desc: "Zero-pressure chemical treatment for shingle longevity.", 
-                benefits: ["Extends roof life", "Removes black streaks"],
+                desc: "Gentle zero-pressure chemical treatment specifically designed for shingle longevity and roof preservation. Our rooftop softwash eliminates damaging black algae streaks, moss growth, and organic stains without the risk of water infiltration or shingle damage associated with pressure washing.", 
+                benefits: ["Extends roof life by 5-10 years", "Removes damaging black streaks", "Prevents moss and algae regrowth", "Maintains shingle integrity"],
                 process: ["Gutter Protection Setup", "Algaecide Treatment Application", "Dwell Time Monitoring", "Neutralizing Rinse"],
                 pricingDetails: "Flat Rate Pricing:\nSmall Roof $700\nMedium Roof $1,000\nLarge Roof $1,500\n\nUnit Rate: $0.44 per square foot"
             },
@@ -52,8 +52,8 @@ const servicesData = {
                 id: "bins", 
                 name: "Garbage Bins", 
                 price: "$6 per bin", 
-                desc: "High-heat sanitization and deodorizing.", 
-                benefits: ["Bacteria removal", "No more smells"],
+                desc: "High-heat sanitization and deodorizing service for residential and commercial garbage bins. Our process eliminates bacteria, viruses, and persistent odors using steam cleaning technology and EPA-approved disinfectants, ensuring a hygienic waste management solution.", 
+                benefits: ["Bacteria and virus removal", "Complete odor elimination", "Prevents pest attraction", "Environmentally friendly cleaning"],
                 process: ["High-Temp Pressure Wash", "Antibacterial Scrubbing", "Deodorizing Spray", "Exterior Polish"],
                 pricingDetails: "Flat Rate Pricing:\nSingle Bin $6\n2 Bins $10"
             },
@@ -61,8 +61,8 @@ const servicesData = {
                 id: "graffiti", 
                 name: "Graffiti Removal", 
                 price: "From $400", 
-                desc: "Specialized chemical removal without ghosting.", 
-                benefits: ["Fast response", "Surface preservation"],
+                desc: "Specialized chemical removal service that eliminates graffiti without damaging underlying surfaces or leaving ghosting. We use environmentally friendly solvents and precise application techniques to restore your property's appearance while preserving the integrity of the original material.", 
+                benefits: ["Fast emergency response", "Surface preservation", "No residual ghosting", "Eco-friendly solutions"],
                 process: ["Paint Identification", "Eco-friendly Solvents Application", "Agitation & Steam Pressure Lift", "Neutralizing Wash"],
                 pricingDetails: "Flat Rate Pricing:\nSmall Graffiti Area $400\nLarge Graffiti Area $550"
             },
@@ -70,17 +70,17 @@ const servicesData = {
                 id: "gum", 
                 name: "Chewing Gum Removal", 
                 price: "$300", 
-                desc: "High-temp steam removal for sidewalks.", 
-                benefits: ["Spotless entrance", "Enhanced property value"],
+                desc: "Professional high-temperature steam removal for sidewalks, pavements, and entryways. Our specialized equipment lifts hardened chewing gum without damaging the underlying surface, restoring a clean, professional appearance to your property's high-traffic areas.", 
+                benefits: ["Spotless entrance appearance", "Enhanced property value", "Prevents permanent staining", "Quick and efficient service"],
                 process: ["Area Cordoning", "Targeted Steam Treatment", "Pressure Extraction", "Uniform Rinse"],
                 pricingDetails: "Flat Rate Pricing:\nStandard Service $300"
             },
             { 
                 id: "algae", 
-                name: "Algae & Efflorescence Removal", 
+                name: "Efflorescence, Algae & Moss Removal", 
                 price: "$0.44/sq ft", 
-                desc: "Specific mineral and organic stain treatment.", 
-                benefits: ["Restores color", "Stops structural erosion"],
+                desc: "Specialized treatment for mineral deposits (efflorescence) and organic growth (algae and moss) on masonry and concrete surfaces. Our chemical formulas dissolve mineral buildup and eliminate organic growth at the root level, preventing structural damage and restoring surface appearance.", 
+                benefits: ["Restores original color and texture", "Prevents structural erosion", "Long-lasting results", "Growth inhibitor application"],
                 process: ["Organic Growth Assessment", "Mineral Dissolving Pre-treatment", "Pressure Clean", "Growth Inhibitor Application"],
                 pricingDetails: "Unit Rate: $0.44 per square foot"
             }
@@ -93,8 +93,8 @@ const servicesData = {
                 id: "concrete-seal", 
                 name: "Concrete Cleaning & Resealing", 
                 price: "$0.90/sq ft", 
-                desc: "Wash followed by premium siloxane sealer.", 
-                benefits: ["Waterproofing", "Salt protection"],
+                desc: "Complete concrete restoration including deep cleaning followed by application of premium siloxane penetrating sealer. This two-step process not only cleans your concrete but provides long-lasting protection against water penetration, salt damage, oil stains, and UV degradation.", 
+                benefits: ["Waterproofing protection", "Salt and chemical resistance", "UV protection", "Extended surface life"],
                 process: ["Deep Clean & Stain Extraction", "24-Hour Drying Window", "Siloxane Sealer Application", "Uniform Finish Inspection"],
                 pricingDetails: "Unit Rate: $0.90 per square foot"
             },
@@ -102,8 +102,8 @@ const servicesData = {
                 id: "paver-seal", 
                 name: "Paver Sanding & Sealing", 
                 price: "$1.75/sq ft", 
-                desc: "Re-sanding joints and wet-look or matte sealing.", 
-                benefits: ["Stabilizes joints", "Prevents weeds"],
+                desc: "Comprehensive paver maintenance including cleaning, joint re-sanding with polymeric sand, and application of premium wet-look or matte sealant. This process stabilizes pavers, prevents weed growth, enhances color, and provides long-term protection against staining and erosion.", 
+                benefits: ["Stabilizes paver joints", "Prevents weed growth", "Enhances natural colors", "Protects against stains"],
                 process: ["Bio-wash Clean", "Polymeric Sand Installation", "Compaction & Joint Setting", "Premium Sealant Coating"],
                 pricingDetails: "Unit Rate: $1.75 per square foot"
             },
@@ -111,8 +111,8 @@ const servicesData = {
                 id: "dusting", 
                 name: "Concrete Surface Dusting", 
                 price: "$1.30/sq ft", 
-                desc: "Hardener treatment for dusting concrete floors.", 
-                benefits: ["Industrial durability", "Easy cleaning"],
+                desc: "Professional treatment for concrete dusting using lithium-based densifiers that penetrate deep into the concrete surface. This process hardens the surface, eliminates dusting issues, and creates a durable, easy-to-clean finish ideal for garages, basements, and industrial floors.", 
+                benefits: ["Industrial-grade durability", "Eliminates concrete dust", "Easy cleaning maintenance", "Chemical resistance"],
                 process: ["Industrial Scrubber Prep", "Lithium Densifier Application", "Buffing & Polishing", "Dust-Proof Testing"],
                 pricingDetails: "Unit Rate: $1.30 per square foot"
             },
@@ -120,8 +120,8 @@ const servicesData = {
                 id: "stone", 
                 name: "Resin-Bound Stone & Rock Stabilization", 
                 price: "Custom Quote", 
-                desc: "Binding loose gravel for a permanent walkable surface.", 
-                benefits: ["ADA compliant", "100% permeable"],
+                desc: "Professional stabilization of loose gravel and stone surfaces using resin-bound systems that create a permanent, walkable surface. This solution transforms unstable gravel areas into ADA-compliant, 100% permeable surfaces suitable for pathways, patios, and decorative landscaping.", 
+                benefits: ["ADA compliant surfaces", "100% permeable design", "Permanent stabilization", "Low maintenance"],
                 process: ["Substrate Preparation", "Resin-Aggregate Mixing", "Hand-Troweled Application", "Curing & Strength Check"],
                 pricingDetails: "Custom quote based on project size, stone type, and site conditions."
             }
@@ -134,8 +134,8 @@ const servicesData = {
                 id: "deck", 
                 name: "Deck & Fence Restoration", 
                 price: "$0.55/sq ft", 
-                desc: "Restoring grey wood to natural color.", 
-                benefits: ["Removes oxidation", "Prepares for stain"],
+                desc: "Complete wood restoration service that transforms grey, weathered wood back to its natural color. Our gentle cleaning process removes oxidation, mold, mildew, and dirt without damaging the wood grain, preparing surfaces for staining or sealing while extending the life of your wooden structures.", 
+                benefits: ["Removes oxidation and greying", "Prepares surface for staining", "Restores natural wood color", "Extends wood life"],
                 process: ["Wood Conditioning Treatment", "Controlled Pressure Wash", "Brightener Application", "Grain Inspection & Sanding Advice"],
                 pricingDetails: "Unit Rate: $0.55 per square foot"
             },
@@ -143,8 +143,8 @@ const servicesData = {
                 id: "gutters", 
                 name: "Gutter Cleaning", 
                 price: "Custom Quote", 
-                desc: "Debris removal and downspout flushing.", 
-                benefits: ["Prevents water damage", "Foundation protection"],
+                desc: "Professional gutter cleaning and maintenance service that removes debris, flushes downspouts, and inspects for proper water flow. Our service prevents water damage to your roof, siding, and foundation while ensuring your gutter system functions optimally throughout all seasons.", 
+                benefits: ["Prevents water damage", "Foundation protection", "Extends gutter life", "Prevents ice dams"],
                 process: ["Manual Debris Removal", "Downspout Pressure Flush", "Structural Fastener Check", "Cleanup & Site Clearance"],
                 pricingDetails: "Custom quote based on linear feet of gutters and number of stories."
             },
@@ -152,8 +152,8 @@ const servicesData = {
                 id: "softwash-any", 
                 name: "Softwash Any Surface", 
                 price: "$0.25/sq ft", 
-                desc: "Customized chemical cleaning for delicate areas.", 
-                benefits: ["Safe & effective", "Kills spores at root"],
+                desc: "Customized chemical cleaning solution for delicate surfaces that cannot withstand pressure washing. Our softwash technique uses specialized low-pressure application of cleaning solutions that safely remove dirt, mold, algae, and stains from sensitive materials while preserving surface integrity.", 
+                benefits: ["Safe for delicate surfaces", "Kills organic growth at root", "No surface damage", "Effective on all materials"],
                 process: ["Material Testing", "Chemical Dilution Setup", "Dwell-and-Rise Application", "Final PH Balance Check"],
                 pricingDetails: "Unit Rate: $0.25 per square foot"
             }
@@ -446,7 +446,7 @@ function renderProceduresDocumentation(data, procedure) {
                     ${procedureKeys.map(key => {
                         const displayName = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
                         return `
-                            <a href="documentation.html?file=procedures&procedure=${procedureKey}" 
+                            <a href="documentation.html?file=procedures&procedure=${key}" 
                                class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-purple-50 hover:border-purple-200 transition group cursor-pointer">
                                 <div class="flex items-center gap-3">
                                     <i data-lucide="file-text" class="w-5 h-5 text-purple-600 group-hover:text-purple-700"></i>
@@ -628,7 +628,7 @@ function showPage(pageId) {
             // Get procedure link for this service
             const procedureKey = getProcedureLink(service.id);
             const procedureLink = procedureKey ? 
-                `<div class="mt-6 pt-6 border-t border-blue-100">
+                `<div class="mt-8 pt-8 border-t border-blue-100">
                     <a href="documentation.html?file=procedures&procedure=${procedureKey}"
                        class="inline-flex items-center gap-3 text-blue-600 hover:text-blue-700 font-medium text-lg hover:underline">
                         <i data-lucide="file-text" class="w-5 h-5"></i>
@@ -638,140 +638,142 @@ function showPage(pageId) {
                 </div>` : '';
             
             content.innerHTML = `
-    <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-12">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div class="flex-1">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3">
-                        <i data-lucide="sparkles" class="w-8 h-8"></i>
-                    </div>
-                    <span class="bg-white/20 backdrop-blur-sm text-sm font-bold px-4 py-2 rounded-full">PREMIUM SERVICE</span>
-                </div>
-                <h1 class="text-5xl font-extrabold mb-4">${service.name}</h1>
-                <div class="flex items-center gap-6">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-3">
-                        <p class="text-2xl font-bold">${service.price}</p>
-                    </div>
-                    <p class="text-xl text-blue-100">Commercial-Grade Equipment</p>
-                </div>
-            </div>
-            <div class="flex-shrink-0">
-                <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-2xl hover:shadow-3xl whitespace-nowrap">
-                    Get Free Quote
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-8 mb-16">
-        <!-- Main Content Column - Span 2 columns -->
-        <div class="md:col-span-3 space-y-8">  <!-- Changed from md:col-span-2 to md:col-span-3 -->
-            <!-- Service Description Card -->
-            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                <div class="flex items-center gap-3 mb-6">
-                    <i data-lucide="info" class="w-8 h-8 text-blue-600"></i>
-                    <h2 class="text-3xl font-bold text-gray-900">Service Overview</h2>
-                </div>
-                <p class="text-xl text-gray-700 leading-relaxed mb-6">${service.desc}</p>
-                ${procedureLink}
-                
-                <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100 mt-6">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center gap-3">
-                        <i data-lucide="target" class="w-6 h-6"></i>
-                        Ideal For:
-                    </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        ${service.benefits.map(benefit => `
-                            <div class="flex items-center gap-3 bg-white rounded-xl p-4 border border-blue-100">
-                                <i data-lucide="check-circle" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
-                                <span class="font-medium text-gray-800">${benefit}</span>
+                <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-8 md:p-10 text-white mb-8 md:mb-12">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-2 md:p-3">
+                                    <i data-lucide="sparkles" class="w-6 h-6 md:w-8 md:h-8"></i>
+                                </div>
+                                <span class="bg-white/20 backdrop-blur-sm text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full">PREMIUM SERVICE</span>
                             </div>
-                        `).join('')}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Visual Results Section - FIX THE TRANSPARENT TEXT -->
-    <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-xl p-10 border border-gray-200">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4" style="color: #111827 !important;">Visual Transformation</h2>  <!-- ADDED style attribute -->
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto">See the dramatic difference professional ${service.name} makes for properties in Oakland County</p>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="relative group">
-                <div class="aspect-video w-full rounded-2xl overflow-hidden border-4 border-gray-300 shadow-lg">
-                    <div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                        <div class="text-center p-8">
-                            <i data-lucide="image-off" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
-                            <p class="text-gray-500 font-bold uppercase tracking-widest text-lg">Before Restoration</p>
-                            <p class="text-gray-400 mt-2">Example of typical ${service.name.toLowerCase()} condition</p>
+                            <h1 class="text-3xl md:text-5xl font-extrabold mb-3 md:mb-4">${service.name}</h1>
+                            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2 md:px-6 md:py-3">
+                                    <p class="text-xl md:text-2xl font-bold">${service.price}</p>
+                                </div>
+                                <p class="text-lg md:text-xl text-blue-100">Commercial-Grade Equipment</p>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 mt-4 md:mt-0">
+                            <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-white text-blue-600 px-6 py-3 md:px-10 md:py-5 rounded-xl font-bold text-lg md:text-xl hover:bg-blue-50 transition shadow-2xl hover:shadow-3xl whitespace-nowrap block w-full md:w-auto text-center">
+                                Get Free Quote
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="absolute top-6 left-6 bg-black/80 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider shadow-lg">Before</div>
-            </div>
-            
-            <div class="relative group">
-                <div class="aspect-video w-full rounded-2xl overflow-hidden border-4 border-blue-100 shadow-lg">
-                    <div class="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                        <div class="text-center p-8">
-                            <i data-lucide="sparkles" class="w-16 h-16 text-blue-400 mx-auto mb-4"></i>
-                            <p class="text-blue-500 font-bold uppercase tracking-widest text-lg">Professional After</p>
-                            <p class="text-blue-400 mt-2">Renowned Value Restoration result</p>
+
+                <div class="grid md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+                    <!-- Main Content Column -->
+                    <div class="md:col-span-2 space-y-6 md:space-y-8">
+                        <!-- Service Description Card - Enhanced -->
+                        <div class="bg-white rounded-2xl md:rounded-3xl shadow-xl p-6 md:p-8 border border-gray-100">
+                            <div class="flex items-center gap-3 mb-4 md:mb-6">
+                                <i data-lucide="info" class="w-6 h-6 md:w-8 md:h-8 text-blue-600"></i>
+                                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Service Overview</h2>
+                            </div>
+                            <div class="space-y-4">
+                                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">${service.desc}</p>
+                                <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-4 md:p-6 border border-blue-200">
+                                    <h3 class="text-xl md:text-2xl font-bold text-blue-800 mb-3 md:mb-4 flex items-center gap-2 md:gap-3">
+                                        <i data-lucide="target" class="w-5 h-5 md:w-6 md:h-6"></i>
+                                        Key Benefits:
+                                    </h3>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                                        ${service.benefits.map(benefit => `
+                                            <div class="flex items-start gap-3 bg-white/80 rounded-xl p-3 md:p-4 border border-blue-100 shadow-sm">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i>
+                                                <span class="font-medium text-gray-800">${benefit}</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                ${procedureLink}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="absolute top-6 left-6 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider shadow-lg">After</div>
-            </div>
-        </div>
-        
-        <div class="mt-12 text-center">
-            <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-blue-600 text-white px-12 py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-xl hover:shadow-2xl">
-                Schedule Your ${service.name} Today
-            </a>
-        </div>
-    </div>`;
 
-                <!-- Visual Results Section -->
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-xl p-10 border border-gray-200">
-                    <div class="text-center mb-12">
-                        <h2 class="text-4xl font-bold text-gray-900 mb-4">Visual Transformation</h2>
-                        <p class="text-xl text-gray-700 max-w-3xl mx-auto">See the dramatic difference professional ${service.name} makes for properties in Oakland County</p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="relative group">
-                            <div class="aspect-video w-full rounded-2xl overflow-hidden border-4 border-gray-300 shadow-lg">
-                                <div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                                    <div class="text-center p-8">
-                                        <i data-lucide="image-off" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
-                                        <p class="text-gray-500 font-bold uppercase tracking-widest text-lg">Before Restoration</p>
-                                        <p class="text-gray-400 mt-2">Example of typical ${service.name.toLowerCase()} condition</p>
+                    <!-- Sidebar Column - Only Pricing Card -->
+                    <div class="space-y-6 md:space-y-8">
+                        <!-- Pricing Card -->
+                        <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl md:rounded-3xl shadow-xl p-6 md:p-8 border border-blue-200">
+                            <div class="text-center mb-4 md:mb-6">
+                                <p class="text-3xl md:text-5xl font-extrabold text-blue-700 mb-1 md:mb-2">${service.price}</p>
+                                <p class="text-blue-600 font-medium">Transparent Pricing</p>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 border border-blue-100 shadow-sm">
+                                <div class="space-y-3 md:space-y-4">
+                                    ${service.pricingDetails.split('\n').map(line => line.trim()).filter(line => line).map(line => {
+                                        if (line.includes(':')) {
+                                            const [label, value] = line.split(':');
+                                            return `
+                                                <div class="flex justify-between items-center py-2 md:py-3 border-b border-blue-100 last:border-b-0">
+                                                    <span class="font-medium text-gray-700 text-sm md:text-base">${label.trim()}</span>
+                                                    <span class="font-bold text-blue-700 text-sm md:text-base">${value.trim()}</span>
+                                                </div>
+                                            `;
+                                        } else {
+                                            return `
+                                                <div class="text-center py-2 md:py-3 border-b border-blue-100 last:border-b-0">
+                                                    <span class="font-bold text-blue-800 text-sm md:text-base">${line}</span>
+                                                </div>
+                                            `;
+                                        }
+                                    }).join('')}
+                                </div>
+                                
+                                <div class="mt-6 md:mt-8 p-3 md:p-4 bg-blue-50 rounded-xl border border-blue-100">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="shield-check" class="w-5 h-5 md:w-6 md:h-6 text-green-500"></i>
+                                        <div>
+                                            <p class="font-bold text-blue-800 text-sm md:text-base">100% Satisfaction Guarantee</p>
+                                            <p class="text-xs md:text-sm text-blue-600">If you're not happy, we'll make it right</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="absolute top-6 left-6 bg-black/80 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider shadow-lg">Before</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Results Section - Fixed Black Text & Mobile Button -->
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl md:rounded-3xl shadow-xl p-6 md:p-10 border border-gray-200">
+                    <div class="text-center mb-8 md:mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Visual Transformation</h2>
+                        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">See the dramatic difference professional ${service.name} makes for properties in Oakland County</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                        <div class="relative group">
+                            <div class="aspect-video w-full rounded-xl md:rounded-2xl overflow-hidden border-4 border-gray-300 shadow-lg">
+                                <div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                                    <div class="text-center p-4 md:p-8">
+                                        <i data-lucide="image-off" class="w-12 h-12 md:w-16 md:h-16 text-gray-400 mx-auto mb-3 md:mb-4"></i>
+                                        <p class="text-gray-500 font-bold uppercase tracking-widest text-base md:text-lg">Before Restoration</p>
+                                        <p class="text-gray-400 mt-1 md:mt-2 text-sm md:text-base">Example of typical ${service.name.toLowerCase()} condition</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 left-4 md:top-6 md:left-6 bg-black/80 text-white px-3 py-1 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-bold uppercase tracking-wider shadow-lg">Before</div>
                         </div>
                         
                         <div class="relative group">
-                            <div class="aspect-video w-full rounded-2xl overflow-hidden border-4 border-blue-100 shadow-lg">
+                            <div class="aspect-video w-full rounded-xl md:rounded-2xl overflow-hidden border-4 border-blue-100 shadow-lg">
                                 <div class="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                                    <div class="text-center p-8">
-                                        <i data-lucide="sparkles" class="w-16 h-16 text-blue-400 mx-auto mb-4"></i>
-                                        <p class="text-blue-500 font-bold uppercase tracking-widest text-lg">Professional After</p>
-                                        <p class="text-blue-400 mt-2">Renowned Value Restoration result</p>
+                                    <div class="text-center p-4 md:p-8">
+                                        <i data-lucide="sparkles" class="w-12 h-12 md:w-16 md:h-16 text-blue-400 mx-auto mb-3 md:mb-4"></i>
+                                        <p class="text-blue-500 font-bold uppercase tracking-widest text-base md:text-lg">Professional After</p>
+                                        <p class="text-blue-400 mt-1 md:mt-2 text-sm md:text-base">Renowned Value Restoration result</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="absolute top-6 left-6 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider shadow-lg">After</div>
+                            <div class="absolute top-4 left-4 md:top-6 md:left-6 bg-blue-600 text-white px-3 py-1 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-bold uppercase tracking-wider shadow-lg">After</div>
                         </div>
                     </div>
                     
-                    <div class="mt-12 text-center">
-                        <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-blue-600 text-white px-12 py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-xl hover:shadow-2xl">
+                    <div class="mt-8 md:mt-12 text-center">
+                        <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-blue-600 text-white px-6 py-4 md:px-12 md:py-5 rounded-xl font-bold text-lg md:text-xl hover:bg-blue-700 transition shadow-xl hover:shadow-2xl inline-block w-full md:w-auto">
                             Schedule Your ${service.name} Today
                         </a>
                     </div>
@@ -924,7 +926,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // Also initialize on window load for safety
 window.addEventListener('load', function() {
     lucide.createIcons();
-
 });
 
 
