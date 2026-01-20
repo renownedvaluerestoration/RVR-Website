@@ -303,7 +303,7 @@ option {
     /* Floating buttons positioning */
     
     .floating-phone.whatsapp-call {
-        bottom: 10px;
+        bottom: 11px;
         right: 3px;
     }
 }
@@ -360,6 +360,7 @@ option {
         min-height: -webkit-fill-available;
     }
 }
+
 
 
 
