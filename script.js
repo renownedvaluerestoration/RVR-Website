@@ -637,103 +637,59 @@ function showPage(pageId) {
                     <p class="text-gray-600 text-sm mt-2">See our step-by-step professional process for ${service.name}</p>
                 </div>` : '';
             
-            content.innerHTML = `
-    <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-12">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div class="flex-1">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3">
-                        <i data-lucide="sparkles" class="w-8 h-8"></i>
-                    </div>
-                    <span class="bg-white/20 backdrop-blur-sm text-sm font-bold px-4 py-2 rounded-full">PREMIUM SERVICE</span>
-                </div>
-                <h1 class="text-5xl font-extrabold mb-4">${service.name}</h1>
-                <div class="flex items-center gap-6">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-3">
-                        <p class="text-2xl font-bold">${service.price}</p>
-                    </div>
-                    <p class="text-xl text-blue-100">Commercial-Grade Equipment</p>
-                </div>
-            </div>
-            <div class="flex-shrink-0">
-                <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-2xl hover:shadow-3xl whitespace-nowrap">
-                    Get Free Quote
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-8 mb-16">
-        <!-- Main Content Column - Span 2 columns -->
-        <div class="md:col-span-3 space-y-8">  <!-- Changed from md:col-span-2 to md:col-span-3 -->
-            <!-- Service Description Card -->
-            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                <div class="flex items-center gap-3 mb-6">
-                    <i data-lucide="info" class="w-8 h-8 text-blue-600"></i>
-                    <h2 class="text-3xl font-bold text-gray-900">Service Overview</h2>
-                </div>
-                <p class="text-xl text-gray-700 leading-relaxed mb-6">${service.desc}</p>
-                ${procedureLink}
-                
-                <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100 mt-6">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center gap-3">
-                        <i data-lucide="target" class="w-6 h-6"></i>
-                        Ideal For:
-                    </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        ${service.benefits.map(benefit => `
-                            <div class="flex items-center gap-3 bg-white rounded-xl p-4 border border-blue-100">
-                                <i data-lucide="check-circle" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
-                                <span class="font-medium text-gray-800">${benefit}</span>
+                        content.innerHTML = `
+                <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-12">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3">
+                                    <i data-lucide="sparkles" class="w-8 h-8"></i>
+                                </div>
+                                <span class="bg-white/20 backdrop-blur-sm text-sm font-bold px-4 py-2 rounded-full">PREMIUM SERVICE</span>
                             </div>
-                        `).join('')}
+                            <h1 class="text-5xl font-extrabold mb-4">${service.name}</h1>
+                            <div class="flex items-center gap-6">
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-3">
+                                    <p class="text-2xl font-bold">${service.price}</p>
+                                </div>
+                                <p class="text-xl text-blue-100">Commercial-Grade Equipment</p>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-2xl hover:shadow-3xl whitespace-nowrap">
+                                Get Free Quote
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Visual Results Section - FIX THE TRANSPARENT TEXT -->
-    <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-xl p-10 border border-gray-200">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4" style="color: #111827 !important;">Visual Transformation</h2>  <!-- ADDED style attribute -->
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto">See the dramatic difference professional ${service.name} makes for properties in Oakland County</p>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="relative group">
-                <div class="aspect-video w-full rounded-2xl overflow-hidden border-4 border-gray-300 shadow-lg">
-                    <div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                        <div class="text-center p-8">
-                            <i data-lucide="image-off" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
-                            <p class="text-gray-500 font-bold uppercase tracking-widest text-lg">Before Restoration</p>
-                            <p class="text-gray-400 mt-2">Example of typical ${service.name.toLowerCase()} condition</p>
+                <!-- Single column layout since we removed the sidebar -->
+                <div class="mb-16">
+                    <!-- Service Description Card -->
+                    <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100 mb-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <i data-lucide="info" class="w-8 h-8 text-blue-600"></i>
+                            <h2 class="text-3xl font-bold text-gray-900">Service Overview</h2>
+                        </div>
+                        <p class="text-xl text-gray-700 leading-relaxed mb-6">${service.desc}</p>
+                        ${procedureLink}
+                        
+                        <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100 mt-6">
+                            <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center gap-3">
+                                <i data-lucide="target" class="w-6 h-6"></i>
+                                Ideal For:
+                            </h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                ${service.benefits.map(benefit => \`
+                                    <div class="flex items-center gap-3 bg-white rounded-xl p-4 border border-blue-100">
+                                        <i data-lucide="check-circle" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
+                                        <span class="font-medium text-gray-800">\${benefit}</span>
+                                    </div>
+                                \`).join('')}
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="absolute top-6 left-6 bg-black/80 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider shadow-lg">Before</div>
-            </div>
-            
-            <div class="relative group">
-                <div class="aspect-video w-full rounded-2xl overflow-hidden border-4 border-blue-100 shadow-lg">
-                    <div class="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                        <div class="text-center p-8">
-                            <i data-lucide="sparkles" class="w-16 h-16 text-blue-400 mx-auto mb-4"></i>
-                            <p class="text-blue-500 font-bold uppercase tracking-widest text-lg">Professional After</p>
-                            <p class="text-blue-400 mt-2">Renowned Value Restoration result</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute top-6 left-6 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider shadow-lg">After</div>
-            </div>
-        </div>
-        
-        <div class="mt-12 text-center">
-            <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-blue-600 text-white px-12 py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-xl hover:shadow-2xl">
-                Schedule Your ${service.name} Today
-            </a>
-        </div>
-    </div>`;
 
                 <!-- Visual Results Section -->
                 <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-xl p-10 border border-gray-200">
@@ -777,6 +733,13 @@ function showPage(pageId) {
                     </div>
                 </div>`;
             
+            // Recreate icons after content is loaded
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 100);
+        }
+    }
+}            
             // Recreate icons after content is loaded
             setTimeout(() => {
                 lucide.createIcons();
@@ -926,6 +889,7 @@ window.addEventListener('load', function() {
     lucide.createIcons();
 
 });
+
 
 
 
