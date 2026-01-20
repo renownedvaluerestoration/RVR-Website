@@ -172,13 +172,14 @@ option {
     .flex.justify-center.md\:justify-end.gap-6 {
         flex-direction: row !important;
         justify-content: center !important;
-        flex-wrap: wrap !important; /* ADD THIS LINE */
-        gap: 1rem !important; /* Reduce gap a bit */
+        flex-wrap: nowrap !important; /* ADD THIS LINE */
+        gap: .5rem !important; /* Reduce gap a bit */
         margin-bottom: 2rem;
         max-width: 100% !important;
         padding: 0 1rem !important; /* Add horizontal padding */
         width: 16px !important; /* Smaller icons */
         height: 16px !important;
+        overflow-x: auto !important; /* Allows horizontal scrolling if needed */
     }
 } 
     /* Ensure the social icons container is centered and constrained */
@@ -404,6 +405,7 @@ option {
         margin-bottom: 1.5rem !important; /* mb-6 */
     }
 }
+
 
 
 
