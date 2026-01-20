@@ -77,7 +77,7 @@ const servicesData = {
             },
             { 
                 id: "algae", 
-                name: "Efflorescence, Algae & Moss Removal", 
+                name: "Efflorescence Moss Algae Removal", 
                 price: "$0.44/sq ft", 
                 desc: "Specialized treatment for mineral deposits (efflorescence) and organic growth (algae and moss) on masonry and concrete surfaces. Our chemical formulas dissolve mineral buildup and eliminate organic growth at the root level, preventing structural damage and restoring surface appearance.", 
                 benefits: ["Restores original color and texture", "Prevents structural erosion", "Long-lasting results", "Growth inhibitor application"],
@@ -927,3 +927,4 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     lucide.createIcons();
 });
+
