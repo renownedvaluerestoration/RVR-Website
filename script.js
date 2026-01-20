@@ -161,7 +161,6 @@ const servicesData = {
     }
 };
 
-// Initialize everything
 function initializeServices() {
     const servicesGrid = document.getElementById('services-grid');
     if (!servicesGrid) return;
@@ -201,20 +200,26 @@ function initializeServices() {
 function showPage(pageId, serviceId = null) {
     const main = document.querySelector('main');
     const contentDiv = document.getElementById('page-content');
+    const docPage = document.getElementById('documentation-page');
     
-    // Hide default main content
     main.classList.add('hidden');
-    contentDiv.classList.remove('hidden');
+    contentDiv.classList.add('hidden');
+    if (docPage) docPage.classList.add('hidden');
     
     window.scrollTo(0, 0);
 
     if (pageId === 'home') {
         main.classList.remove('hidden');
-        contentDiv.classList.add('hidden');
+        return;
+    }
+
+    if (pageId === 'documentation') {
+        if (docPage) docPage.classList.remove('hidden');
         return;
     }
 
     if (pageId === 'service') {
+        contentDiv.classList.remove('hidden');
         let service;
         for (const cat in servicesData) {
             const found = servicesData[cat].items.find(i => i.id === serviceId);
@@ -298,11 +303,11 @@ function showPage(pageId, serviceId = null) {
                                 <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
                                     <h3 class="text-2xl font-bold text-gray-900 mb-6">Detailed Procedure</h3>
                                     <p class="text-gray-600 mb-6 text-sm">Review our technical "Gold Standard" cleaning procedure for this service.</p>
-                                    <a href="documentation.html?file=procedures&procedure=${getProcedureLink(service.id)}" 
-                                       class="flex items-center justify-between p-4 bg-blue-50 rounded-2xl border border-blue-100 text-blue-700 font-bold hover:bg-blue-100 transition">
+                                    <button onclick="showDocumentation('procedures', '${getProcedureLink(service.id)}')" 
+                                       class="w-full flex items-center justify-between p-4 bg-blue-50 rounded-2xl border border-blue-100 text-blue-700 font-bold hover:bg-blue-100 transition">
                                         View Documentation
                                         <i data-lucide="external-link" class="w-5 h-5"></i>
-                                    </a>
+                                    </button>
                                 </div>
                             ` : ''}
                         </div>
@@ -315,117 +320,94 @@ function showPage(pageId, serviceId = null) {
     }
 }
 
-// Function to handle slider initialization
+function initializeDocumentation() {
+    const main = document.querySelector('main');
+    if (!document.getElementById('documentation-page')) {
+        const docPage = document.createElement('main');
+        docPage.id = 'documentation-page';
+        docPage.className = 'hidden max-w-5xl mx-auto px-6 py-12';
+        main.parentNode.insertBefore(docPage, main.nextSibling);
+    }
+}
+
+function showDocumentation(file, procedure) {
+    showPage('documentation');
+    loadDocumentationFile(file, procedure);
+}
+
+async function loadDocumentationFile(file, procedure) {
+    const docPage = document.getElementById('documentation-page');
+    docPage.innerHTML = `
+        <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
+            <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
+        </button>
+        <div id="documentation-content" class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100"></div>
+    `;
+    const contentDiv = document.getElementById('documentation-content');
+    contentDiv.innerHTML = `<div class="text-center py-12"><i data-lucide="loader-2" class="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4"></i><p class="text-gray-600">Loading documentation...</p></div>`;
+    lucide.createIcons();
+
+    try {
+        const response = await fetch(`${file}.json`);
+        const data = await response.json();
+        let html = '';
+        if (file === 'equipment') html = renderEquipmentDocumentation(data);
+        if (file === 'safety') html = renderSafetyDocumentation(data);
+        if (file === 'procedures') html = renderProceduresDocumentation(data, procedure);
+        contentDiv.innerHTML = html;
+        lucide.createIcons();
+    } catch (e) {
+        contentDiv.innerHTML = `<p class="text-red-500">Error loading documentation.</p>`;
+    }
+}
+
+function getProcedureLink(serviceId) {
+    const procedureMap = { 'house-wash': 'house_wash_vinyl', 'driveway': 'cement_driveway', 'roof': 'rooftop_softwash' };
+    return procedureMap[serviceId] || '';
+}
+
 function initializeSlider() {
     const container = document.getElementById('before-after-container');
     const afterImage = document.getElementById('after-image-container');
     const handle = document.getElementById('slider-handle');
-
     if (container && afterImage && handle) {
         let isResizing = false;
-
         const setPosition = (x) => {
             const rect = container.getBoundingClientRect();
-            let position = ((x - rect.left) / rect.width) * 100;
-            position = Math.max(0, Math.min(100, position));
-            afterImage.style.width = `${position}%`;
-            handle.style.left = `${position}%`;
+            let pos = ((x - rect.left) / rect.width) * 100;
+            pos = Math.max(0, Math.min(100, pos));
+            afterImage.style.width = `${pos}%`;
+            handle.style.left = `${pos}%`;
         };
-
         handle.addEventListener('mousedown', () => isResizing = true);
         window.addEventListener('mouseup', () => isResizing = false);
-        window.addEventListener('mousemove', (e) => {
-            if (!isResizing) return;
-            setPosition(e.clientX);
-        });
-
-        container.addEventListener('touchstart', (e) => {
-            isResizing = true;
-            setPosition(e.touches[0].clientX);
-        });
-        window.addEventListener('touchend', () => isResizing = false);
-        window.addEventListener('touchmove', (e) => {
-            if (!isResizing) return;
-            setPosition(e.touches[0].clientX);
-        });
+        window.addEventListener('mousemove', (e) => isResizing && setPosition(e.clientX));
     }
 }
 
 function scrollToQuote() {
     showPage('home');
     setTimeout(() => {
-        const quoteSection = document.getElementById('quote');
-        if (quoteSection) {
-            quoteSection.scrollIntoView({ behavior: 'smooth' });
-        }
+        document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' });
     }, 100);
 }
 
 function initializeForm() {
     const form = document.getElementById('quote-form');
     if (form) {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const btn = form.querySelector('button');
-            const originalText = btn.innerHTML;
-            
-            btn.disabled = true;
-            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Sending...';
-            lucide.createIcons();
-
-            setTimeout(() => {
-                btn.innerHTML = '<i data-lucide="check" class="w-5 h-5"></i> Quote Request Sent!';
-                btn.classList.replace('bg-blue-600', 'bg-green-500');
-                lucide.createIcons();
-                form.reset();
-                
-                if (typeof trackQuoteSubmission === 'function') {
-                    trackQuoteSubmission();
-                }
-
-                setTimeout(() => {
-                    btn.disabled = false;
-                    btn.innerHTML = originalText;
-                    btn.classList.replace('bg-green-500', 'bg-blue-600');
-                    lucide.createIcons();
-                }, 3000);
-            }, 1500);
+            alert('Quote request sent!');
+            form.reset();
         });
     }
 }
 
-// Track phone calls
-function trackPhoneCall() {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'phone_call', {
-            'event_category': 'conversion',
-            'event_label': 'header_phone'
-        });
-    }
-    
-    if (typeof fbq !== 'undefined') {
-        fbq('track', 'Contact');
-    }
-}
+function trackPhoneCall() { console.log('Phone call tracked'); }
 
-// Track quote submissions
-function trackQuoteSubmission() {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'quote_request', {
-            'event_category': 'conversion',
-            'event_label': 'quote_button'
-        });
-    }
-}
-
-// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeServices();
-    initializeSlider();
+    initializeDocumentation();
     initializeForm();
     lucide.createIcons();
-    
-    document.querySelectorAll('a[href^="tel"]').forEach(link => {
-        link.addEventListener('click', trackPhoneCall);
-    });
 });
