@@ -94,7 +94,7 @@
     </header>
 
     <main id="home-page">
-        <section class="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white py-9">
+        <section class="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white py-24">
             <div class="max-w-7xl mx-auto px-6 text-center">
                 <h2 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Restore Your Property's True Value</h2>
                 <p class="text-xl md:text-2xl text-blue-50 max-w-4xl mx-auto leading-relaxed">
@@ -120,14 +120,14 @@
                 </div>
                 
                 <!-- Trust Badges -->
-                <div class="mt-12 flex flex-wrap justify-center md:justify-center gap-6 text-blue-100">
+                <div class="mt-12 flex flex-wrap justify-center gap-6 text-blue-100">
                     <div class="flex items-center gap-2">
                         <i data-lucide="clock" class="w-5 h-5"></i>
                         <span>Same-Day Quotes</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <i data-lucide="shield-check" class="w-5 h-5"></i>
-                        <span>Commercial Equipment</span>
+                        <span>Insured & Licensed</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <i data-lucide="award" class="w-5 h-5"></i>
@@ -398,11 +398,9 @@
         </div>
     </main>
 
-<footer class="bg-gray-50 border-t border-gray-200 py-16">
+    <footer class="bg-gray-50 border-t border-gray-200 py-16">
     <div class="max-w-7xl mx-auto px-6">
-        <!-- Contact & Social Section - Keeping the grid layout -->
         <div class="grid md:grid-cols-2 gap-12 items-start mb-12">
-            <!-- Contact Info - Left side -->
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 w-full tracking-tight">Contact Us</h3>
                 <div class="space-y-4 w-full">
@@ -417,10 +415,9 @@
                 </div>
             </div>
 
-            <!-- Social Media - Right side -->
             <div class="flex flex-col items-center md:items-end text-center md:text-right">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 w-full tracking-tight">Follow Us</h3>
-                <div class="flex items-center justify-center md:justify-end gap-6 w-full" style="flex-direction: row;">
+                <div class="flex items-center justify-center md:justify-end gap-6 w-full">
                     <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="home" class="w-8 h-8"></i></a>
                     <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="facebook" class="w-8 h-8"></i></a>
                     <a href="#" class="text-gray-400 hover:text-blue-600 transition-all hover:scale-110"><i data-lucide="instagram" class="w-8 h-8"></i></a>
@@ -429,30 +426,27 @@
             </div>
         </div>
 
-        <!-- Bottom Section - Center aligned on desktop -->
         <div class="pt-8 border-t border-gray-200 w-full text-center">
             <p class="text-blue-600 font-bold mb-6 text-lg">Proudly serving all of Oakland County, Michigan, including Rochester Hills, Troy, Auburn Hills, and Bloomfield.</p>
             
-            <!-- Documentation Links - Center aligned -->
             <div class="flex justify-center gap-6 mb-6">
-                <a href="documentation.html?file=equipment" 
-                   class="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-medium text-lg transition">
-                    <i data-lucide="tool" class="w-5 h-5"></i>
-                    Equipment
-                </a>
-                <a href="documentation.html?file=safety" 
-                   class="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-medium text-lg transition">
-                    <i data-lucide="shield" class="w-5 h-5"></i>
-                    Safety
-                </a>
-                <a href="documentation.html?file=procedures" 
-                   class="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-medium text-lg transition">
-                    <i data-lucide="clipboard-list" class="w-5 h-5"></i>
-                    Procedures
-                </a>
-            </div>
+    <a href="documentation.html?file=equipment" 
+       class="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-medium text-lg transition">
+        <i data-lucide="tool" class="w-5 h-5"></i>
+        Equipment
+    </a>
+    <a href="documentation.html?file=safety" 
+       class="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-medium text-lg transition">
+        <i data-lucide="shield" class="w-5 h-5"></i>
+        Safety
+    </a>
+    <a href="documentation.html?file=procedures" 
+       class="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-medium text-lg transition">
+        <i data-lucide="clipboard-list" class="w-5 h-5"></i>
+        Procedures
+    </a>
+</div>
             
-            <!-- Copyright - Center aligned -->
             <p class="text-gray-500 font-medium">&copy; 2026 Renowned Value Restoration</p>
         </div>
     </div>
@@ -465,13 +459,11 @@
         <i data-lucide="phone" class="w-6 h-6"></i>
     </a>
     
-    <!-- Floating WhatsApp Button (Mobile Only) -->
-<a href="sms:2483138955?body=Hi,%20I'm%20interested%20in%20a%20pressure%20washing%20quote%20from%20Renowned%20Value%20Restoration"
-   onclick="trackTextMessage()"
-   class="floating-phone whatsapp-call md:hidden"
-   style="bottom: 30px; right: 20px;">
+    <a href="#quote" 
+   onclick="showPage('home'); trackQuoteSubmission();"
+   class="floating-phone whatsapp-call md:hidden">
     <i data-lucide="message-circle" class="w-6 h-6"></i>
-</a>
+</a>>
 
     <script src="script.js"></script>
     <script>
@@ -484,13 +476,4 @@
     </script>
 </body>
 
-
 </html>
-
-
-
-
-
-
-
-
