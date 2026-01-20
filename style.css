@@ -168,18 +168,7 @@ option {
 }
 
 @media (max-width: 768px) {
-    /* Fix 1: Keep social media icons horizontal on mobile */
-    .flex.justify-center.md\\:justify-end.gap-6 {
-        flex-direction: row !important; /* Force horizontal layout */
-        justify-content: center !important;
-        gap: 1.5rem !important;
-    }
-    
-    /* Adjust spacing for horizontal layout */
-    .flex.justify-center.md\\:justify-end.gap-6 a {
-        padding: 0;
-    }
-    
+     
     /* Ensure social icons container doesn't stretch */
     .flex.flex-col.items-center.md\\:items-end {
         align-items: center !important;
@@ -354,3 +343,4 @@ option {
         min-height: -webkit-fill-available;
     }
 }
+
