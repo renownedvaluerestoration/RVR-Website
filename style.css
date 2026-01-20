@@ -168,11 +168,23 @@ option {
 }
 
 @media (max-width: 768px) {
-    /* Fix 1: Keep social media icons horizontal on mobile */
-    .flex.justify-center.md\\:justify-end.gap-6 {
-        flex-direction: row !important; /* Force horizontal layout */
+     /* Social media icons - keep horizontal but constrained */
+    .flex.justify-center.md\:justify-end.gap-6 {
+        flex-direction: row !important;
         justify-content: center !important;
-        gap: 1.5rem !important;
+        flex-wrap: wrap !important; /* ADD THIS LINE */
+        gap: 1rem !important; /* Reduce gap a bit */
+        margin-bottom: 2rem;
+        max-width: 100% !important;
+        padding: 0 1rem !important; /* Add horizontal padding */
+         width: 24px !important; /* Smaller icons */
+        height: 24px !important;
+    }
+} 
+    /* Ensure the social icons container is centered and constrained */
+    .flex.flex-col.items-center.md\:items-end {
+        align-items: center !important;
+        width: 100% !important;
     }
     
     /* Adjust spacing for horizontal layout */
@@ -392,47 +404,5 @@ option {
         margin-bottom: 1.5rem !important; /* mb-6 */
     }
 }
-/* Simple overflow fix */
-footer {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-/* Reset any default margins/padding that might cause overflow */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-/* Ensure body and html don't create overflow */
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* Fix for footer specifically */
-footer {
-  width: 100%;
-  max-width: 100vw;
-  overflow: hidden;
-}
-
-/* If using Tailwind or similar, ensure container is properly constrained */
-footer .max-w-7xl {
-  width: 100%;
-  max-width: 100%;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-/* Base footer constraints */
-footer {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-footer * {
-    max-width: 100%;
-    box-sizing: border-box;
-}
 
