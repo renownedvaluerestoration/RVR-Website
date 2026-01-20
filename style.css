@@ -215,7 +215,15 @@ option {
         flex-direction: column;
         gap: 0.75rem;
     }
-    
+     /* Ensure trust badges are center aligned on mobile */
+    .bg-gradient-to-br .flex-wrap {
+        justify-content: center !important;
+        text-align: center;
+    }
+    /* Make trust badge items stack nicely on mobile */
+    .bg-gradient-to-br .flex-wrap .flex {
+        justify-content: center;
+    }
     /* Local reputation grid */
     .grid.md\\:grid-cols-3 {
         grid-template-columns: 1fr;
@@ -226,7 +234,19 @@ option {
     .slider-container {
         height: 300px;
     }
+    /* Adjust documentation links for mobile */
+    .flex.justify-center.gap-6 {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
     
+    .flex.justify-center.gap-6 a {
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        width: 200px;
+        text-align: center;
+    }
     /* Quote form */
     .bg-white.rounded-3xl {
         padding: 1.5rem;
@@ -360,6 +380,7 @@ option {
     }
 
 }
+
 
 
 
