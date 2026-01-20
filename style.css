@@ -167,7 +167,12 @@ option {
     transition: transform 0.3s ease;
 }
 
-
+@media (max-width: 768px) {
+    /* Fix 1: Keep social media icons horizontal on mobile */
+    .flex.justify-center.md\\:justify-end.gap-6 {
+        flex-direction: row !important; /* Force horizontal layout */
+        justify-content: center !important;
+        gap: 1.5rem !important;
     }
     
     /* Adjust spacing for horizontal layout */
@@ -233,33 +238,7 @@ option {
         flex-direction: column;
         gap: 0.75rem;
     }
-    /* Add this to your style.css file */
-@media (max-width: 768px) {
-    /* Ensure trust badges are center aligned on mobile */
-    .bg-gradient-to-br .flex-wrap {
-        justify-content: center !important;
-        text-align: center;
-    }
     
-    /* Make trust badge items stack nicely on mobile */
-    .bg-gradient-to-br .flex-wrap .flex {
-        justify-content: center;
-    }
-    
-    /* Adjust documentation links for mobile */
-    .flex.justify-center.gap-6 {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .flex.justify-center.gap-6 a {
-        justify-content: center;
-        padding: 0.75rem 1.5rem;
-        width: 200px;
-        text-align: center;
-    }
-}
     /* Local reputation grid */
     .grid.md\\:grid-cols-3 {
         grid-template-columns: 1fr;
@@ -375,66 +354,3 @@ option {
         min-height: -webkit-fill-available;
     }
 }
-/* Add to style.css */
-@media (max-width: 768px) {
-    /* Make service cards a bit more compact on mobile */
-    .service-category-card {
-        padding: 1.5rem !important;
-    }
-    
-    .service-category-card h3.text-3xl {
-        font-size: 1.5rem !important; /* text-2xl */
-        margin-bottom: 1.5rem !important; /* mb-6 */
-    }
-}
-@media (max-width: 768px) {
-    /* Force social icons to stay horizontal */
-    .flex.items-center.justify-center.md\:justify-end.gap-6.w-full {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important;
-        align-items: center !important;
-        flex-wrap: nowrap !important;
-        gap: 0.5rem !important; /* Reduced gap for mobile */
-        max-width: 100% !important;
-        overflow-x: auto !important; /* Allows horizontal scroll if needed */
-    }
-    
-    /* Make the icons a bit smaller on mobile if needed */
-    .flex.items-center.justify-center.md\:justify-end.gap-6.w-full a i {
-        width: 24px !important;
-        height: 24px !important;
-    }
-    
-    /* Ensure the parent container doesn't restrict width */
-    .flex.flex-col.items-center.md\:items-end {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-}
-@media (max-width: 768px) {
-    #social-icons {
-        gap: 0.5rem !important;
-    }
-    
-    #social-icons i {
-        width: 24px !important;
-        height: 24px !important;
-    }
-}
-@media (max-width: 768px) {
-    /* Very specific selector */
-    .flex.flex-col.items-center.md\:items-end > .flex.items-center.justify-center.md\:justify-end.gap-6.w-full[style*="flex-direction: row;"] {
-        gap: 0.5rem !important;
-        justify-content: center !important;
-    }
-    
-    .flex.flex-col.items-center.md\:items-end > .flex.items-center.justify-center.md\:justify-end.gap-6.w-full[style*="flex-direction: row;"] i {
-        width: 24px !important;
-        height: 24px !important;
-    }
-}
-
-
-
-
