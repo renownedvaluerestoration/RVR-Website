@@ -341,7 +341,7 @@ option {
     
     /* Floating buttons positioning */
     .floating-phone.phone-call {
-        bottom: 100px;
+        bottom: 75px;
         right: 2px;
     }
     
@@ -421,6 +421,7 @@ option {
     }
 
 }
+
 
 
 
