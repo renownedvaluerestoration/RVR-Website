@@ -304,7 +304,7 @@ option {
     
     .floating-phone.whatsapp-call {
         bottom: 10px;
-        right: 2px;
+        right: 3px;
     }
 }
 @media (max-width: 768px) {
@@ -360,6 +360,7 @@ option {
         min-height: -webkit-fill-available;
     }
 }
+
 
 
 
