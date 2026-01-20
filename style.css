@@ -248,7 +248,17 @@ option {
     .p-4.border.rounded-xl {
         padding: 0.75rem;
     }
+    @media (max-width: 768px) {
+    /* Make service cards a bit more compact on mobile */
+    .service-category-card {
+        padding: 1.5rem !important;
+    }
     
+    .service-category-card h3.text-3xl {
+        font-size: 1.5rem !important; /* text-2xl */
+        margin-bottom: 1.5rem !important; /* mb-6 */
+    }
+}
     /* Footer layout */
     .grid.md\\:grid-cols-2 {
         grid-template-columns: 1fr;
@@ -368,5 +378,6 @@ option {
         min-height: -webkit-fill-available;
     }
 }
+
 
 
