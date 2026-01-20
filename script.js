@@ -161,166 +161,9 @@ const servicesData = {
     }
 };
 
-function initializeServices() {
-    const servicesGrid = document.getElementById('services-grid');
-    if (!servicesGrid) return;
-
-    Object.values(servicesData).forEach(category => {
-        const categorySection = document.createElement('div');
-        categorySection.className = 'mb-16';
-        categorySection.innerHTML = `
-            <h2 class="text-3xl font-bold text-gray-900 mb-8">${category.title}</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                ${category.items.map(service => `
-                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 group cursor-pointer"
-                         onclick="showPage('service', '${service.id}')">
-                        <div class="w-14 h-14 bg-blue-600 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="droplets" class="text-white w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">${service.name}</h3>
-                        <p class="text-gray-600 mb-4 line-clamp-2">${service.desc}</p>
-                        <div class="text-blue-600 font-bold text-lg mb-4">${service.price}</div>
-                        <ul class="space-y-2">
-                            ${service.benefits.map(benefit => `
-                                <li class="flex items-center text-sm text-gray-500">
-                                    <i data-lucide="check" class="w-4 h-4 mr-2 text-green-500"></i>
-                                    ${benefit}
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                `).join('')}
-            </div>
-        `;
-        servicesGrid.appendChild(categorySection);
-    });
-    lucide.createIcons();
-}
-
-function showPage(pageId, serviceId = null) {
-    const main = document.querySelector('main');
-    const contentDiv = document.getElementById('page-content');
-    const docPage = document.getElementById('documentation-page');
-    
-    main.classList.add('hidden');
-    contentDiv.classList.add('hidden');
-    if (docPage) docPage.classList.add('hidden');
-    
-    window.scrollTo(0, 0);
-
-    if (pageId === 'home') {
-        main.classList.remove('hidden');
-        return;
-    }
-
-    if (pageId === 'documentation') {
-        if (docPage) docPage.classList.remove('hidden');
-        return;
-    }
-
-    if (pageId === 'service') {
-        contentDiv.classList.remove('hidden');
-        let service;
-        for (const cat in servicesData) {
-            const found = servicesData[cat].items.find(i => i.id === serviceId);
-            if (found) {
-                service = found;
-                break;
-            }
-        }
-
-        if (service) {
-            contentDiv.innerHTML = `
-                <div class="max-w-7xl mx-auto px-6 py-12">
-                    <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
-                        <i data-lucide="arrow-left" class="mr-2"></i> Back to Services
-                    </button>
-
-                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-[40px] p-12 text-white mb-12">
-                        <div class="grid md:grid-cols-2 gap-12 items-center">
-                            <div>
-                                <h1 class="text-5xl font-extrabold mb-6 leading-tight">${service.name}</h1>
-                                <p class="text-xl text-blue-100 mb-8">${service.desc}</p>
-                                <div class="flex flex-wrap gap-4">
-                                    <div class="bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/20">
-                                        <span class="block text-sm text-blue-200">Starting Price</span>
-                                        <span class="text-2xl font-bold">${service.price}</span>
-                                    </div>
-                                    <button onclick="scrollToQuote()" class="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold hover:bg-blue-50 transition shadow-lg">
-                                        Get Free Quote
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                ${service.benefits.map(benefit => `
-                                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20">
-                                        <i data-lucide="shield-check" class="w-8 h-8 mb-3 text-blue-300"></i>
-                                        <p class="font-medium">${benefit}</p>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid lg:grid-cols-3 gap-12">
-                        <div class="lg:col-span-2 space-y-8">
-                            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                                <div class="flex items-center justify-between mb-8">
-                                    <div class="flex items-center gap-3">
-                                        <i data-lucide="camera" class="w-8 h-8 text-blue-600"></i>
-                                        <h2 class="text-3xl font-bold text-gray-900">Before & After Restoration</h2>
-                                    </div>
-                                </div>
-                                
-                                <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 aspect-video mb-8 group" id="before-after-container">
-                                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80" 
-                                         class="absolute inset-0 w-full h-full object-cover" alt="Before">
-                                    <div class="absolute inset-0 w-full h-full overflow-hidden" id="after-image-container">
-                                        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80" 
-                                             class="absolute inset-0 w-full h-full object-cover" style="width: 1280px; max-width: none;" alt="After">
-                                    </div>
-                                    <div class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize flex items-center justify-center" id="slider-handle">
-                                        <div class="w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600">
-                                            <i data-lucide="arrow-left-right" class="w-6 h-6"></i>
-                                        </div>
-                                    </div>
-                                    <div class="absolute bottom-6 left-6 bg-black/50 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-bold border border-white/20">BEFORE</div>
-                                    <div class="absolute bottom-6 right-6 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-lg">AFTER</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-y-8">
-                            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Service Pricing</h3>
-                                <div class="bg-gray-50 rounded-2xl p-6 mb-6">
-                                    <pre class="whitespace-pre-wrap font-sans text-gray-700 leading-relaxed">${service.pricingDetails}</pre>
-                                </div>
-                                <p class="text-sm text-gray-500 italic">Prices may vary based on actual site conditions, surface material, and level of cleaning required.</p>
-                            </div>
-
-                            ${getProcedureLink(service.id) ? `
-                                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Detailed Procedure</h3>
-                                    <p class="text-gray-600 mb-6 text-sm">Review our technical "Gold Standard" cleaning procedure for this service.</p>
-                                    <button onclick="showDocumentation('procedures', '${getProcedureLink(service.id)}')" 
-                                       class="w-full flex items-center justify-between p-4 bg-blue-50 rounded-2xl border border-blue-100 text-blue-700 font-bold hover:bg-blue-100 transition">
-                                        View Documentation
-                                        <i data-lucide="external-link" class="w-5 h-5"></i>
-                                    </button>
-                                </div>
-                            ` : ''}
-                        </div>
-                    </div>
-                </div>
-            `;
-            lucide.createIcons();
-            initializeSlider();
-        }
-    }
-}
-
+// Documentation functionality - UPDATED WITH REAL JSON FETCHING
 function initializeDocumentation() {
+    // Create documentation page if it doesn't exist
     const main = document.querySelector('main');
     if (!document.getElementById('documentation-page')) {
         const docPage = document.createElement('main');
@@ -330,84 +173,813 @@ function initializeDocumentation() {
     }
 }
 
+// Show documentation pages
 function showDocumentation(file, procedure) {
     showPage('documentation');
     loadDocumentationFile(file, procedure);
 }
 
+// Load documentation content from JSON files
 async function loadDocumentationFile(file, procedure) {
     const docPage = document.getElementById('documentation-page');
+    
     docPage.innerHTML = `
         <button onclick="showPage('home')" class="flex items-center text-blue-600 font-bold mb-8 hover:underline">
             <i data-lucide="arrow-left" class="mr-2"></i> Back to Home
         </button>
         <div id="documentation-content" class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100"></div>
     `;
+    
     const contentDiv = document.getElementById('documentation-content');
-    contentDiv.innerHTML = `<div class="text-center py-12"><i data-lucide="loader-2" class="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4"></i><p class="text-gray-600">Loading documentation...</p></div>`;
-    lucide.createIcons();
-
+    
+    // Show loading state
+    contentDiv.innerHTML = `
+        <div class="text-center py-12">
+            <i data-lucide="loader-2" class="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4"></i>
+            <p class="text-gray-600">Loading ${file} documentation...</p>
+        </div>
+    `;
+    
     try {
+        // Fetch the JSON file
         const response = await fetch(`${file}.json`);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${file}.json`);
+        }
+        
         const data = await response.json();
+        
+        // Render based on file type
         let html = '';
-        if (file === 'equipment') html = renderEquipmentDocumentation(data);
-        if (file === 'safety') html = renderSafetyDocumentation(data);
-        if (file === 'procedures') html = renderProceduresDocumentation(data, procedure);
+        switch(file) {
+            case 'equipment':
+                html = renderEquipmentDocumentation(data);
+                break;
+            case 'safety':
+                html = renderSafetyDocumentation(data);
+                break;
+            case 'procedures':
+                html = renderProceduresDocumentation(data, procedure);
+                break;
+        }
+        
         contentDiv.innerHTML = html;
         lucide.createIcons();
-    } catch (e) {
-        contentDiv.innerHTML = `<p class="text-red-500">Error loading documentation.</p>`;
+        
+    } catch (error) {
+        console.error('Error loading documentation:', error);
+        contentDiv.innerHTML = `
+            <div class="text-center py-12 text-red-600">
+                <i data-lucide="alert-circle" class="w-12 h-12 mx-auto mb-4"></i>
+                <p class="text-lg font-bold">Error loading documentation</p>
+                <p class="text-gray-600 mt-2">${error.message}</p>
+                <p class="text-sm text-gray-500 mt-4">Make sure ${file}.json is in the same directory</p>
+            </div>
+        `;
     }
 }
 
+// Get procedure link based on service ID
 function getProcedureLink(serviceId) {
-    const procedureMap = { 'house-wash': 'house_wash_vinyl', 'driveway': 'cement_driveway', 'roof': 'rooftop_softwash' };
+    const procedureMap = {
+        'house-wash': 'house_wash_vinyl',
+        'tennis-courts': 'tennis_court',
+        'driveway': 'cement_driveway',
+        'dumpster': 'dumpster_pad',
+        'roof': 'rooftop_softwash',
+        'bins': 'garbage_bins',
+        'graffiti': 'graffiti_removal',
+        'gum': 'gum_removal',
+        'algae': 'efflorescence_algae_moss',
+        'concrete-seal': 'concrete_wash_reseal',
+        'paver-seal': 'brick_wash_reseal',
+        'dusting': 'concrete_dusting_shake',
+        'stone': 'resin_stone_stabilization',
+        'deck': 'deck_fence_restoration',
+        'gutters': 'gutter_cleaning',
+        'softwash-any': 'softwash_any_surface'
+    };
+    
     return procedureMap[serviceId] || '';
 }
 
-function initializeSlider() {
-    const container = document.getElementById('before-after-container');
-    const afterImage = document.getElementById('after-image-container');
-    const handle = document.getElementById('slider-handle');
-    if (container && afterImage && handle) {
-        let isResizing = false;
-        const setPosition = (x) => {
-            const rect = container.getBoundingClientRect();
-            let pos = ((x - rect.left) / rect.width) * 100;
-            pos = Math.max(0, Math.min(100, pos));
-            afterImage.style.width = `${pos}%`;
-            handle.style.left = `${pos}%`;
-        };
-        handle.addEventListener('mousedown', () => isResizing = true);
-        window.addEventListener('mouseup', () => isResizing = false);
-        window.addEventListener('mousemove', (e) => isResizing && setPosition(e.clientX));
+// Render equipment documentation from JSON
+function renderEquipmentDocumentation(data) {
+    const formatKey = (key) => {
+        return key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    };
+    
+    return `
+        <div class="space-y-8">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-8">
+                <h1 class="text-5xl font-extrabold mb-4">Equipment & Chemicals</h1>
+                <p class="text-xl text-blue-100">${data.company_philosophy || 'Commercial-grade tools and specialized cleaning agents'}</p>
+            </div>
+            
+            <!-- Restorative Agents -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <i data-lucide="droplets" class="w-8 h-8 text-blue-600"></i>
+                    Restorative Cleaning Agents
+                </h2>
+                <div class="space-y-6">
+                    ${(data.restorative_agents || []).map(agent => `
+                        <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
+                            <h3 class="text-xl font-bold text-blue-800 mb-2">${agent.name}</h3>
+                            <p class="text-gray-700">${agent.description}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <!-- Wood & Specialty -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <i data-lucide="trees" class="w-8 h-8 text-green-600"></i>
+                    Wood & Specialty Cleaners
+                </h2>
+                <div class="space-y-4">
+                    ${(data.wood_and_specialty || []).map(item => `
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-700">${item}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <!-- Masonry & Commercial -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <i data-lucide="building" class="w-8 h-8 text-gray-600"></i>
+                    Masonry & Commercial Cleaners
+                </h2>
+                <div class="space-y-4">
+                    ${(data.masonry_and_commercial || []).map(item => `
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border">
+                            <i data-lucide="shield" class="w-5 h-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-700">${item}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <!-- Safety & Protection -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <i data-lucide="shield-alert" class="w-8 h-8 text-amber-600"></i>
+                    Safety & Protection Products
+                </h2>
+                <div class="space-y-4">
+                    ${(data.safety_and_protection_products || []).map(item => `
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border">
+                            <i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-700">${item}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <!-- Industrial Hardware -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <i data-lucide="wrench" class="w-8 h-8 text-gray-700"></i>
+                    Industrial Hardware
+                </h2>
+                <div class="space-y-4">
+                    ${(data.industrial_hardware || []).map(item => `
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border">
+                            <i data-lucide="hard-drive" class="w-5 h-5 text-gray-500 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-700">${item}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Render safety documentation from JSON
+function renderSafetyDocumentation(data) {
+    return `
+        <div class="space-y-8">
+            <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-3xl p-10 text-white mb-8">
+                <h1 class="text-5xl font-extrabold mb-4">Safety Standards</h1>
+                <p class="text-xl text-green-100">Our commitment to safe, professional operations</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <i data-lucide="shield-check" class="w-8 h-8 text-green-600"></i>
+                    Operational Standards & Safety Protocols
+                </h2>
+                <div class="space-y-6">
+                    ${(data.operational_standards || []).map((standard, index) => `
+                        <div class="flex items-start gap-4 p-6 bg-gradient-to-r from-green-50 to-white rounded-xl border border-green-100">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 bg-green-100 text-green-700 rounded-full flex items-center justify-center font-bold">
+                                    ${index + 1}
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-gray-800 leading-relaxed">${standard}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <!-- Safety Commitment -->
+            <div class="bg-gradient-to-r from-green-50 to-white rounded-2xl shadow-lg p-8 border border-green-200">
+                <h2 class="text-2xl font-bold text-green-800 mb-4 flex items-center gap-3">
+                    <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                    Our Safety Commitment
+                </h2>
+                <p class="text-gray-700 mb-4">At Renowned Value Restoration, safety isn't just a policy—it's our foundation. Every procedure, every chemical application, and every equipment operation follows our Gold Standard safety protocols.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white p-4 rounded-lg border border-green-100 text-center">
+                        <i data-lucide="users" class="w-8 h-8 text-green-600 mx-auto mb-2"></i>
+                        <p class="font-bold text-green-700">Team Safety</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-green-100 text-center">
+                        <i data-lucide="home" class="w-8 h-8 text-green-600 mx-auto mb-2"></i>
+                        <p class="font-bold text-green-700">Property Protection</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-green-100 text-center">
+                        <i data-lucide="leaf" class="w-8 h-8 text-green-600 mx-auto mb-2"></i>
+                        <p class="font-bold text-green-700">Environmental Care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Render procedures documentation from JSON
+function renderProceduresDocumentation(data, procedure) {
+    const procedures = data.service_procedures || {};
+    const procedureKeys = Object.keys(procedures);
+    
+    // If a specific procedure is requested, show only that
+    if (procedure && procedures[procedure]) {
+        return renderSingleProcedure(procedure, procedures[procedure]);
+    }
+    
+    // Otherwise show all procedures
+    return `
+        <div class="space-y-8">
+            <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-3xl p-10 text-white mb-8">
+                <h1 class="text-5xl font-extrabold mb-4">Service Procedures</h1>
+                <p class="text-xl text-purple-100">Step-by-step protocols for every service</p>
+                <div class="mt-4 text-purple-200">
+                    <p>${procedureKeys.length} detailed procedures available</p>
+                </div>
+            </div>
+            
+            <!-- All Procedures List -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <i data-lucide="clipboard-list" class="w-8 h-8 text-purple-600"></i>
+                    All Service Procedures
+                </h2>
+                <div class="space-y-4">
+                    ${procedureKeys.map(key => {
+                        const displayName = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                        return `
+                            <a href="documentation.html?file=procedures&procedure=${procedureKey}" 
+                               class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-purple-50 hover:border-purple-200 transition group cursor-pointer">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="file-text" class="w-5 h-5 text-purple-600 group-hover:text-purple-700"></i>
+                                    <span class="font-medium text-gray-800 group-hover:text-purple-700">${displayName}</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm text-gray-500">${procedures[key].length} steps</span>
+                                    <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600"></i>
+                                </div>
+                            </a>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+            
+            <!-- Procedure Categories -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-lg p-6 border border-purple-100">
+                    <h3 class="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
+                        <i data-lucide="home" class="w-5 h-5"></i>
+                        Residential Services
+                    </h3>
+                    <p class="text-gray-700 mb-4">Detailed procedures for house washing, roof cleaning, decks, and more residential services.</p>
+                    <div class="text-sm text-purple-600">
+                        ${procedureKeys.filter(key => key.includes('house') || key.includes('roof') || key.includes('deck') || key.includes('gutter')).length} procedures
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-lg p-6 border border-blue-100">
+                    <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center gap-2">
+                        <i data-lucide="building" class="w-5 h-5"></i>
+                        Commercial Services
+                    </h3>
+                    <p class="text-gray-700 mb-4">Professional protocols for dumpster pads, parking lots, graffiti removal, and commercial applications.</p>
+                    <div class="text-sm text-blue-600">
+                        ${procedureKeys.filter(key => key.includes('dumpster') || key.includes('driveway') || key.includes('graffiti') || key.includes('gum')).length} procedures
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Render single procedure detail
+function renderSingleProcedure(procedureKey, steps) {
+    const displayName = procedureKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    
+    return `
+        <div class="space-y-8">
+            <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-3xl p-10 text-white mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div>
+                        <h1 class="text-4xl font-extrabold mb-2">${displayName}</h1>
+                        <p class="text-xl text-purple-100">Professional Step-by-Step Procedure</p>
+                    </div>
+                    <a href="#" onclick="showDocumentation('procedures'); return false;" 
+                       class="flex items-center gap-2 text-purple-200 hover:text-white font-medium">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        Back to All Procedures
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Procedure Steps -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 flex items-center gap-3">
+                        <i data-lucide="list-ordered" class="w-8 h-8 text-purple-600"></i>
+                        Procedure Steps
+                    </h2>
+                    <div class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-bold">
+                        ${steps.length} Steps
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-300 to-purple-100"></div>
+                    
+                    <div class="space-y-8">
+                        ${steps.map((step, index) => {
+                            // Extract citation if present
+                            const hasCitation = step.includes('[cite:');
+                            const stepText = hasCitation ? step.split(' [cite:')[0] : step;
+                            const citation = hasCitation ? step.match(/\[cite: (\d+)\]/)?.[1] : null;
+                            
+                            return `
+                                <div class="flex gap-6 relative">
+                                    <div class="flex-shrink-0 z-10">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                            <span class="text-white text-2xl font-bold">${index + 1}</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1 bg-gradient-to-r from-purple-50 to-white rounded-2xl p-6 border border-purple-100">
+                                        <div class="flex justify-between items-start mb-3">
+                                            <h3 class="text-xl font-bold text-gray-900">Step ${index + 1}</h3>
+                                            ${citation ? `
+                                                <span class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full">
+                                                    Ref: ${citation}
+                                                </span>
+                                            ` : ''}
+                                        </div>
+                                        <p class="text-gray-700 leading-relaxed">${stepText}</p>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Procedure Notes -->
+            <div class="bg-gradient-to-r from-gray-50 to-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                    <i data-lucide="info" class="w-6 h-6 text-gray-600"></i>
+                    Procedure Notes
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg border">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="clock" class="w-5 h-5 text-blue-600"></i>
+                            <span class="font-bold text-gray-800">Time Required</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Varies by property size and condition</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="users" class="w-5 h-5 text-green-600"></i>
+                            <span class="font-bold text-gray-800">Team Size</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">1-2 trained technicians</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="shield" class="w-5 h-5 text-amber-600"></i>
+                            <span class="font-bold text-gray-800">Safety Level</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">Requires PPE and proper training</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Update showPage to handle documentation page
+function showPage(pageId) {
+    const home = document.getElementById('home-page');
+    const detail = document.getElementById('detail-page');
+    const blog = document.getElementById('blog-page');
+    const content = document.getElementById('service-detail-content');
+    const docPage = document.getElementById('documentation-page');
+
+    // Hide all pages first
+    home.classList.add('hidden');
+    detail.classList.add('hidden');
+    blog.classList.add('hidden');
+    if (docPage) docPage.classList.add('hidden');
+
+    if (pageId === 'home') {
+        home.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else if (pageId === 'blog') {
+        blog.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else if (pageId === 'documentation') {
+        if (docPage) docPage.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else {
+        detail.classList.remove('hidden');
+        
+        let service = null;
+        Object.values(servicesData).forEach(cat => {
+            const found = cat.items.find(i => i.id === pageId);
+            if (found) service = found;
+        });
+
+        if (service) {
+            // Get procedure link for this service
+            const procedureKey = getProcedureLink(service.id);
+            const procedureLink = procedureKey ? 
+                `<div class="mt-6 pt-6 border-t border-blue-100">
+                    <a href="documentation.html?file=procedures&procedure=${procedureKey}"
+                       class="inline-flex items-center gap-3 text-blue-600 hover:text-blue-700 font-medium text-lg hover:underline">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                        View Detailed Procedure Steps
+                    </a>
+                    <p class="text-gray-600 text-sm mt-2">See our step-by-step professional process for ${service.name}</p>
+                </div>` : '';
+            
+            content.innerHTML = `
+                <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 text-white mb-12">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3">
+                                    <i data-lucide="sparkles" class="w-8 h-8"></i>
+                                </div>
+                                <span class="bg-white/20 backdrop-blur-sm text-sm font-bold px-4 py-2 rounded-full">PREMIUM SERVICE</span>
+                            </div>
+                            <h1 class="text-5xl font-extrabold mb-4">${service.name}</h1>
+                            <div class="flex items-center gap-6">
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-3">
+                                    <p class="text-2xl font-bold">${service.price}</p>
+                                </div>
+                                <p class="text-xl text-blue-100">Commercial-Grade Equipment</p>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl hover:bg-blue-50 transition shadow-2xl hover:shadow-3xl whitespace-nowrap">
+                                Get Free Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <!-- Main Content Column -->
+                    <div class="md:col-span-2 space-y-8">
+                        <!-- Service Description Card -->
+                        <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+                            <div class="flex items-center gap-3 mb-6">
+                                <i data-lucide="info" class="w-8 h-8 text-blue-600"></i>
+                                <h2 class="text-3xl font-bold text-gray-900">Service Overview</h2>
+                            </div>
+                            <p class="text-xl text-gray-700 leading-relaxed mb-6">${service.desc}</p>
+                            ${procedureLink}
+                            
+                            <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100 mt-6">
+                                <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center gap-3">
+                                    <i data-lucide="target" class="w-6 h-6"></i>
+                                    Ideal For:
+                                </h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    ${service.benefits.map(benefit => `
+                                        <div class="flex items-center gap-3 bg-white rounded-xl p-4 border border-blue-100">
+                                            <i data-lucide="check-circle" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
+                                            <span class="font-medium text-gray-800">${benefit}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Process -->
+                        <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+                            <div class="flex items-center gap-3 mb-8">
+                                <i data-lucide="list-ordered" class="w-8 h-8 text-blue-600"></i>
+                                <h2 class="text-3xl font-bold text-gray-900">Our 4-Step Professional Process</h2>
+                            </div>
+                            
+                            <div class="relative">
+                                <!-- Timeline line -->
+                                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 to-blue-200"></div>
+                                
+                                <div class="space-y-10">
+                                    ${service.process.map((step, index) => `
+                                        <div class="flex gap-6 relative">
+                                            <div class="flex-shrink-0 z-10">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                                    <span class="text-white text-2xl font-bold">${index + 1}</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1 bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                                                <h3 class="text-xl font-bold text-gray-900 mb-3">Step ${index + 1}: ${step.split(':')[0]}</h3>
+                                                <p class="text-gray-700 leading-relaxed">${step.split(':').slice(1).join(':') || step}</p>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Column -->
+                    <div class="space-y-8">
+                        <!-- Pricing Card -->
+                        <div class="bg-gradient-to-br from-blue-50 to-white rounded-3xl shadow-xl p-8 border border-blue-200">
+                            <div class="text-center mb-6">
+                                <p class="text-5xl font-extrabold text-blue-700 mb-2">${service.price}</p>
+                                <p class="text-blue-600 font-medium">Transparent Pricing</p>
+                            </div>
+                            
+                            <div class="bg-white rounded-2xl p-6 border border-blue-100 shadow-sm">
+                                <div class="space-y-4">
+                                    ${service.pricingDetails.split('\n').map(line => line.trim()).filter(line => line).map(line => {
+                                        if (line.includes(':')) {
+                                            const [label, value] = line.split(':');
+                                            return `
+                                                <div class="flex justify-between items-center py-3 border-b border-blue-100 last:border-b-0">
+                                                    <span class="font-medium text-gray-700">${label.trim()}</span>
+                                                    <span class="font-bold text-blue-700">${value.trim()}</span>
+                                                </div>
+                                            `;
+                                        } else {
+                                            return `
+                                                <div class="text-center py-3 border-b border-blue-100 last:border-b-0">
+                                                    <span class="font-bold text-blue-800">${line}</span>
+                                                </div>
+                                            `;
+                                        }
+                                    }).join('')}
+                                </div>
+                                
+                                <div class="mt-8 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="shield-check" class="w-6 h-6 text-green-500"></i>
+                                        <div>
+                                            <p class="font-bold text-blue-800">100% Satisfaction Guarantee</p>
+                                            <p class="text-sm text-blue-600">If you're not happy, we'll make it right</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Action Card -->
+                        <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-xl p-8 text-white">
+                            <h3 class="text-2xl font-bold mb-6">Ready to Transform?</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="phone" class="w-5 h-5 text-blue-300"></i>
+                                        <p class="font-bold">Call Now</p>
+                                    </div>
+                                    <a href="tel:2483138955" onclick="trackPhoneCall()" class="text-2xl font-bold hover:text-blue-300 transition">(248) 313-8955</a>
+                                </div>
+                                
+                                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="clock" class="w-5 h-5 text-blue-300"></i>
+                                        <p class="font-bold">Response Time</p>
+                                    </div>
+                                    <p class="text-xl font-bold text-green-400">Within 24 Hours</p>
+                                </div>
+                                
+                                <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold py-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition shadow-lg hover:shadow-xl">
+                                    Request Instant Quote
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Results Section -->
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-xl p-10 border border-gray-200">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-4">Visual Transformation</h2>
+                        <p class="text-xl text-gray-700 max-w-3xl mx-auto">See the dramatic difference professional ${service.name} makes for properties in Oakland County</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="relative group">
+                            <div class="aspect-video w-full rounded-2xl overflow-hidden border-4 border-gray-300 shadow-lg">
+                                <div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                                    <div class="text-center p-8">
+                                        <i data-lucide="image-off" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+                                        <p class="text-gray-500 font-bold uppercase tracking-widest text-lg">Before Restoration</p>
+                                        <p class="text-gray-400 mt-2">Example of typical ${service.name.toLowerCase()} condition</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-6 left-6 bg-black/80 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider shadow-lg">Before</div>
+                        </div>
+                        
+                        <div class="relative group">
+                            <div class="aspect-video w-full rounded-2xl overflow-hidden border-4 border-blue-100 shadow-lg">
+                                <div class="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+                                    <div class="text-center p-8">
+                                        <i data-lucide="sparkles" class="w-16 h-16 text-blue-400 mx-auto mb-4"></i>
+                                        <p class="text-blue-500 font-bold uppercase tracking-widest text-lg">Professional After</p>
+                                        <p class="text-blue-400 mt-2">Renowned Value Restoration result</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-6 left-6 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider shadow-lg">After</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 text-center">
+                        <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="bg-blue-600 text-white px-12 py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition shadow-xl hover:shadow-2xl">
+                            Schedule Your ${service.name} Today
+                        </a>
+                    </div>
+                </div>`;
+            
+            // Recreate icons after content is loaded
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 100);
+        }
     }
 }
 
-function scrollToQuote() {
-    showPage('home');
-    setTimeout(() => {
-        document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+// Populate Home Page Services and Dropdown Groups
+function initializeServices() {
+    const container = document.getElementById('services-container');
+    const dropdown = document.getElementById('service-dropdown');
+    
+    // Clear existing content
+    container.innerHTML = '';
+    
+    // Clear and reset dropdown
+    dropdown.innerHTML = '<option value="">Select Service *</option>';
+
+    Object.values(servicesData).forEach(category => {
+        const card = document.createElement('div');
+        card.className = "service-category-card bg-blue-50 rounded-2xl p-8 shadow-sm border border-blue-100";
+        let itemsHtml = `<h3 class="text-3xl font-black mb-8 tracking-tight">${category.title}</h3><div class="space-y-4">`;
+        
+        const optGroup = document.createElement('optgroup');
+        optGroup.label = category.title;
+
+        category.items.forEach(item => {
+            itemsHtml += `
+                <div class="flex justify-between items-center group cursor-pointer border-b border-blue-100 pb-3" onclick="showPage('${item.id}')">
+                    <span class="text-blue-600 font-bold text-lg group-hover:underline">${item.name}</span>
+                    <span class="text-gray-900 font-medium">${item.price}</span>
+                </div>`;
+            
+            const opt = document.createElement('option');
+            opt.value = item.id;
+            opt.textContent = item.name;
+            optGroup.appendChild(opt);
+        });
+        
+        card.innerHTML = itemsHtml + `</div>`;
+        container.appendChild(card);
+        dropdown.appendChild(optGroup);
+    });
 }
 
+// Slider logic
+function initializeSlider() {
+    const slider = document.querySelector('.slider-container');
+    const handle = document.getElementById('slider-handle');
+    const afterWrap = document.getElementById('after-img-wrap');
+
+    function slide(e) {
+        if (!slider) return;
+        const rect = slider.getBoundingClientRect();
+        let x = (e.pageX || (e.touches ? e.touches[0].pageX : 0)) - rect.left;
+        let pos = (x / rect.width) * 100;
+        if (pos < 0) pos = 0; 
+        if (pos > 100) pos = 100;
+        handle.style.left = `${pos}%`;
+        afterWrap.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
+    }
+
+    if (slider) {
+        slider.addEventListener('mousemove', (e) => { 
+            if(e.buttons === 1) slide(e); 
+        });
+        slider.addEventListener('touchmove', slide);
+    }
+}
+
+// Form submission with tracking
 function initializeForm() {
     const form = document.getElementById('quote-form');
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Quote request sent!');
+            
+            // Track in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'quote_request', {
+                    'event_category': 'conversion',
+                    'event_label': 'free_quote_form'
+                });
+            }
+            
+            // Track in Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead');
+            }
+            
+            alert("Quote request sent! We will contact you within 24 hours.");
             form.reset();
         });
     }
 }
 
-function trackPhoneCall() { console.log('Phone call tracked'); }
+// Track phone calls
+function trackPhoneCall() {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'phone_call', {
+            'event_category': 'conversion',
+            'event_label': 'header_phone'
+        });
+    }
+    
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact');
+    }
+}
 
+// Track quote submissions
+function trackQuoteSubmission() {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'quote_request', {
+            'event_category': 'conversion',
+            'event_label': 'quote_button'
+        });
+    }
+}
+
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeServices();
-    initializeDocumentation();
+    initializeSlider();
     initializeForm();
+    initializeDocumentation(); // NEW: Initialize documentation
     lucide.createIcons();
+    
+    // Add click listeners to all phone links
+    document.querySelectorAll('a[href^="tel"]').forEach(link => {
+        link.addEventListener('click', trackPhoneCall);
+    });
+    
+    // Check for documentation page request
+    const urlParams = new URLSearchParams(window.location.search);
+    const docFile = urlParams.get('file');
+    const procedure = urlParams.get('procedure');
+    
+    if (docFile) {
+        showDocumentation(docFile, procedure);
+    }
+});
+
+// Also initialize on window load for safety
+window.addEventListener('load', function() {
+    lucide.createIcons();
+
 });
