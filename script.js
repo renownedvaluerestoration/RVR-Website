@@ -862,10 +862,10 @@ function initializeServices() {
         optGroup.label = category.title;
 
         category.items.forEach(item => {
-            itemsHtml += `
+                        itemsHtml += `
                 <div class="flex justify-between items-center group cursor-pointer border-b border-blue-100 pb-3" onclick="showPage('${item.id}')">
-                    <span class="text-blue-600 font-bold text-lg group-hover:underline">${item.name}</span>
-                    <span class="text-gray-900 font-medium">${item.price}</span>
+                    <span class="text-blue-600 font-bold text-sm md:text-lg group-hover:underline truncate flex-1 pr-2" title="${item.name}">${item.name}</span>
+                    <span class="text-gray-900 font-medium text-sm md:text-base whitespace-nowrap flex-shrink-0">${item.price}</span>
                 </div>`;
             
             const opt = document.createElement('option');
@@ -983,4 +983,5 @@ window.addEventListener('load', function() {
     lucide.createIcons();
 
 });
+
 
