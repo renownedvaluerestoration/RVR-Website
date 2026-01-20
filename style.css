@@ -170,14 +170,30 @@ option {
 .floating-phone.phone-call {
     background: #2563eb;
     color: white;
-    right: 0px;
-    bottom: 0px;
+    right: 20px;
+    bottom: 100px; /* Position above the WhatsApp button */
 }
+
+/* Add this anywhere in style.css */
+.floating-phone.phone-call { display: none !important; }
 
 .floating-phone.whatsapp-call {
     background: #2563eb;
     color: white;
-    right: 0px;
+    right: 20px;
+    bottom: 20px; /* Standard bottom position */
+}
+
+.floating-phone:hover {
+    transform: scale(1.1);
+}
+
+.floating-phone.phone-call:hover {
+    background: #1d4ed8;
+}
+
+.floating-phone.whatsapp-call:hover {
+    background: #1d4ed8;
 }
 
 .floating-phone:hover {
@@ -421,6 +437,7 @@ option {
     }
 
 }
+
 
 
 
