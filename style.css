@@ -341,8 +341,8 @@ option {
     
     /* Floating buttons positioning */
     .floating-phone.phone-call {
-        bottom: -250px;
-        right: -250px;
+        bottom: 100px;
+        right: 2px;
     }
     
     .floating-phone.whatsapp-call {
@@ -421,6 +421,7 @@ option {
     }
 
 }
+
 
 
 
