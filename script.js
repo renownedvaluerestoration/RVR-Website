@@ -689,7 +689,38 @@ function showPage(pageId) {
                                     `).join('')}
                                 </div>
                             </div>
-                         </div>
+                        </div>
+
+  /*                      <!-- Professional Process --> HIGH LEVEL PROCEDURE SECTION COMMENTED OUT WITH SLASH */
+ /*                       <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100"> */
+ /*                           <div class="flex items-center gap-3 mb-8"> */
+ /*                               <i data-lucide="list-ordered" class="w-8 h-8 text-blue-600"></i> */
+/*                                <h2 class="text-3xl font-bold text-gray-900">Our 4-Step Professional Process</h2> */
+ /*                           </div> */
+                            
+                            <div class="relative">
+                                <!-- Timeline line -->
+                                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 to-blue-200"></div>
+                                
+                                <div class="space-y-10">
+                                    ${service.process.map((step, index) => `
+                                        <div class="flex gap-6 relative">
+                                            <div class="flex-shrink-0 z-10">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                                    <span class="text-white text-2xl font-bold">${index + 1}</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1 bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                                                <h3 class="text-xl font-bold text-gray-900 mb-3">Step ${index + 1}: ${step.split(':')[0]}</h3>
+                                                <p class="text-gray-700 leading-relaxed">${step.split(':').slice(1).join(':') || step}</p>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Sidebar Column -->
                     <div class="space-y-8">
                         <!-- Pricing Card -->
@@ -698,7 +729,8 @@ function showPage(pageId) {
                                 <p class="text-5xl font-extrabold text-blue-700 mb-2">${service.price}</p>
                                 <p class="text-blue-600 font-medium">Transparent Pricing</p>
                             </div>
-                                                        <div class="bg-white rounded-2xl p-6 border border-blue-100 shadow-sm">
+                            
+                            <div class="bg-white rounded-2xl p-6 border border-blue-100 shadow-sm">
                                 <div class="space-y-4">
                                     ${service.pricingDetails.split('\n').map(line => line.trim()).filter(line => line).map(line => {
                                         if (line.includes(':')) {
@@ -731,8 +763,35 @@ function showPage(pageId) {
                             </div>
                         </div>
 
+    /*                      <!-- Quick Action Card -->Ready to Transform Call/click Card Slashed Out */
+     /*                     <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-xl p-8 text-white"> */
+     /*                         <h3 class="text-2xl font-bold mb-6">Ready to Transform?</h3> */
+      /*                                                    <div class="space-y-6"> */
+                                                        
+                                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="phone" class="w-5 h-5 text-blue-300"></i>
+                                        <p class="font-bold">Call Now</p>
+                                    </div>
+                                    <a href="tel:2483138955" onclick="trackPhoneCall()" class="text-2xl font-bold hover:text-blue-300 transition">(248) 313-8955</a>
+                                </div>
+                                
+                                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="clock" class="w-5 h-5 text-blue-300"></i>
+                                        <p class="font-bold">Response Time</p>
+                                    </div>
+                                    <p class="text-xl font-bold text-green-400">Within 24 Hours</p>
+                                </div>
+                                
+                                <a href="#quote" onclick="showPage('home'); trackQuoteSubmission();" class="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold py-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition shadow-lg hover:shadow-xl">
+                                    Request Instant Quote
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <!-- Visual Results Section -->
                 <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-xl p-10 border border-gray-200">
                     <div class="text-center mb-12">
@@ -925,11 +984,3 @@ window.addEventListener('load', function() {
 
 
 });
-
-
-
-
-
-
-
-
